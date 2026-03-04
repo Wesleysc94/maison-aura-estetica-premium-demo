@@ -41,10 +41,28 @@ const Testimonials = () => {
     });
   }, []);
 
-  useEffect(() => {
-    const timer = setInterval(() => paginate(1), 6000);
-    return () => clearInterval(timer);
+  // Reset timer whenever user manually changes slide
+  const [lastInteraction, setLastInteraction] = useState(Date.now());
+
+  const manualPaginate = useCallback((newDir: number) => {
+    setLastInteraction(Date.now());
+    paginate(newDir);
   }, [paginate]);
+
+  const manualGoTo = useCallback((index: number, dir: number) => {
+    setLastInteraction(Date.now());
+    setCurrent([index, dir]);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      // Only auto-advance if no interaction in the last 12 seconds
+      if (Date.now() - lastInteraction > 12000) {
+        paginate(1);
+      }
+    }, 12000);
+    return () => clearInterval(timer);
+  }, [paginate, lastInteraction]);
 
   const t = testimonials[current];
 
@@ -64,7 +82,7 @@ const Testimonials = () => {
           <div className="mx-auto mt-5 flex items-center justify-center gap-2">
             <ShieldCheck className="h-5 w-5 text-primary" />
             <p className="font-sans text-base font-medium text-foreground/70 md:text-lg">
-              Pacientes de Guaianases confiam na Souffi Odontologia.
+              Referência em odontologia na Zona Leste de São Paulo.
             </p>
           </div>
           <div className="mx-auto mt-4 flex items-center justify-center gap-1.5">
@@ -107,7 +125,7 @@ const Testimonials = () => {
           {/* Navigation */}
           <div className="relative z-10 mt-8 flex items-center justify-center gap-5">
             <button
-              onClick={() => paginate(-1)}
+              onClick={() => manualPaginate(-1)}
               className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card text-foreground/60 shadow-md transition-all hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-lg active:scale-95"
               aria-label="Anterior"
             >
@@ -118,7 +136,7 @@ const Testimonials = () => {
               {testimonials.map((_, i) => (
                 <button
                   key={i}
-                  onClick={() => setCurrent([i, i > current ? 1 : -1])}
+                  onClick={() => manualGoTo(i, i > current ? 1 : -1)}
                   className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
                     i === current ? "w-8 bg-primary" : "w-2.5 bg-border hover:bg-primary/40"
                   }`}
@@ -128,7 +146,7 @@ const Testimonials = () => {
             </div>
 
             <button
-              onClick={() => paginate(1)}
+              onClick={() => manualPaginate(1)}
               className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card text-foreground/60 shadow-md transition-all hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-lg active:scale-95"
               aria-label="Próximo"
             >
