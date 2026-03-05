@@ -66,12 +66,12 @@ export const Treatments = () => {
                     <span className="w-8 h-[1px] bg-accent" />
                 </div>
 
-                <h2 className="font-serif-drama text-5xl md:text-7xl text-primary mb-6 leading-none">
-                    Nossos Tratamentos.
+                <h2 className="font-serif-drama text-5xl md:text-6xl text-primary mb-6 leading-none">
+                    A transformação que você merece.
                 </h2>
 
                 <p className="font-sans-outfit text-lg text-primary/70 max-w-xl">
-                    Oferecemos uma gama completa de soluções odontológicas, combinando ciência atualizada com um grande senso estético.
+                    Excelência técnica e sensibilidade estética juntas para entregar os tratamentos mais seguros, previsíveis e confortáveis do mercado.
                 </p>
             </div>
 
@@ -79,24 +79,24 @@ export const Treatments = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <TreatmentCard
                     delay={0}
-                    title="Prevenção Integral"
-                    description="Profilaxia, limpezas profundas e diagnóstico precoce para garantir que seu sorriso dure uma vida inteira sem sofrimentos."
+                    title="Prevenção que protege o seu bem-estar"
+                    description="Cuidamos de você antes que a dor apareça. Protocolos de limpeza profunda para garantir que seu sorriso se mantenha forte e iluminado para a vida toda."
                     image="/prevention.png"
                     link="/tratamentos/prevencao-integral"
                 />
 
                 <TreatmentCard
                     delay={0.15}
-                    title="Ortodontia e Estética"
-                    description="Correção do alinhamento dental com opções discretas (alinhadores invisíveis) ou aparelhos de alta performance."
+                    title="Estética para uma autoestima inabalável"
+                    description="Transforme a harmonia do seu rosto com lentes ultrafinas e naturais. Sorria sem medo com resultados fotográficos de altíssimo padrão."
                     image="/orthodontics.png"
-                    link="/tratamentos/ortodontia"
+                    link="/tratamentos/estetica"
                 />
 
                 <TreatmentCard
                     delay={0.3}
-                    title="Reabilitação Oral"
-                    description="Implantes, próteses e restaurações em resina. Devolvemos a sua capacidade de mastigar e sorrir sem medo."
+                    title="Implantes que devolvem sua segurança"
+                    description="Recupere a estética e a mastigação com implantes modernos. Um procedimento seguro, planejado para proporcionar estabilidade total e muito conforto."
                     image="/rehab.png"
                     link="/tratamentos/reabilitacao"
                 />

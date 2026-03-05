@@ -49,8 +49,8 @@ export const Team = () => {
 
                 {/* Professional Info */}
                 <div className="flex flex-col gap-2 border-l-2 border-accent/40 pl-6 mb-10 team-element">
-                    <span className="font-sans-bold text-xl text-primary tracking-wide">Dr. Especialista Souffi</span>
-                    <span className="font-mono-data text-xs text-accent uppercase tracking-widest">Reabilitação Oral & Estética | CRO 00000</span>
+                    <span className="font-sans-bold text-xl text-primary tracking-wide">Dra. Amanda Souffi</span>
+                    <span className="font-mono-data text-xs text-accent uppercase tracking-widest">Cirurgiã-Dentista | CRO SP 00000</span>
                 </div>
 
                 {/* Stats / Badges */}
@@ -60,8 +60,8 @@ export const Team = () => {
                         <span className="font-sans-outfit text-xs text-primary/50 uppercase tracking-wider">Anos de Experiência</span>
                     </div>
                     <div className="flex flex-col gap-1">
-                        <span className="font-serif-drama text-3xl text-primary">+2k</span>
-                        <span className="font-sans-outfit text-xs text-primary/50 uppercase tracking-wider">Sorrisos Transformados</span>
+                        <span className="font-serif-drama text-3xl text-primary">+5k</span>
+                        <span className="font-sans-outfit text-xs text-primary/50 uppercase tracking-wider">Pacientes Atendidos</span>
                     </div>
                     <div className="flex flex-col gap-1">
                         <span className="font-serif-drama text-3xl text-primary">USP</span>

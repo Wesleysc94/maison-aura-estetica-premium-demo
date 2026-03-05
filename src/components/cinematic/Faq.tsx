@@ -64,20 +64,20 @@ export const Faq = () => {
 
     const faqs = [
         {
-            question: "Lentes de contato ou Facetas de Porcelana desgastam os dentes?",
-            answer: "Na Souffi Odontologia utilizamos técnicas minimamente invasivas de Reabilitação Estética. Com nossos protocolos digitais, o desgaste é milimétrico e, em muitos casos, inexistente (Lentes Ultra-finas), transformando o seu sorriso mantendo a integridade da sua estrutura dental natural."
+            question: "O implante dentário dói?",
+            answer: "Não. O procedimento é realizado com anestesia local de altíssima precisão e planejamento digital. Nossos pacientes relatam muito mais conforto do que imaginavam. O pós-operatório é super tranquilo, acompanhado de perto com medicação rigorosa para garantir sua rápida recuperação e bem-estar."
         },
         {
-            question: "Implantes dentários doem? Como é a recuperação?",
-            answer: "A colocação do implante é um procedimento cirúrgico feito com anestesia local de alta precisão (computadorizada e sem dor). O pós-operatório costuma ser muito tranquilo, medicado com analgésicos e anti-inflamatórios rigorosos para garantir sua recuperação orgânica e confortável, permitindo rápida reabilitação dentária."
+            question: "Quanto tempo dura o tratamento?",
+            answer: "Cada sorriso é único, mas nossa adoção de tecnologias modernas (como alinhadores invisíveis e fluxo digital) reduz significativamente o tempo na cadeira em comparação com tratamentos do passado. Na sua primeira avaliação, entregaremos um cronograma exato do seu caso para que você se planeje com facilidade."
         },
         {
-            question: "Qual o tempo médio de tratamento com Ortodontia Estética/Aparelhos?",
-            answer: "Isso depende unicamente do seu planejamento. Hoje em dia, além dos braquetes autoligados tradicionais que são mais velozes, possuímos os Alinhadores Invisíveis, que reduzem significativamente o tempo de tratamento e entregam precisão digital em metade do tempo esperado para casos convencionais."
+            question: "O procedimento é seguro?",
+            answer: "Absolutamente. Contamos com um corpo clínico altamente especialista, formado nas principais faculdades do país, e seguimos rigorosos protocolos de biossegurança internacional. Todos os materiais utilizados são de padrão premium para garantir durabilidade, resultados naturais e paz de espírito."
         },
         {
-            question: "Por que uma Consulta de Limpeza é vital mesmo quando trocamos as próteses?",
-            answer: "Qualquer reabilitação estética complexa, como lentes e próteses, deve repousar num alicerce saudável. A Periodontia e as Profilaxias (limpezas profundas) previnem perdas de estrutura ósseas futuras e infecções, garantindo assim o sucesso imediato e a durabilidade prolongada dos novos dentes implantados."
+            question: "Quanto tempo leva para ver o resultado?",
+            answer: "Focamos na máxima eficiência sem perda de qualidade. Alguns procedimentos, como o Clareamento Dental ou Facetas de Resina, podem transformar o seu sorriso em poucas semanas, ou até mesmo no mesmo dia da entrega em fases específicas. Tratamentos arquiteturais terão seu tempo projetado para garantir máxima segurança biológica."
         }
     ];
 

@@ -55,16 +55,16 @@ export const About = () => {
                         </span>
                     </div>
 
-                    <h2 className="about-reveal font-serif-drama text-4xl md:text-6xl text-primary leading-tight">
-                        Muito além dos dentes, cuidamos de pessoas.
+                    <h2 className="about-reveal font-serif-drama text-4xl md:text-5xl lg:text-6xl text-primary leading-tight">
+                        Cuidando do seu sorriso com tecnologia e atendimento humanizado.
                     </h2>
 
                     <p className="about-reveal font-sans-outfit text-lg text-primary/80 font-light mt-4 leading-relaxed">
-                        A Souffi Odontologia nasceu com o propósito de desmistificar a ida ao dentista. Acreditamos que cuidar da saúde bucal não precisa ser sinônimo de dor ou ansiedade, mas sim um momento de autocuidado e reconexão com o seu sorriso.
+                        Na Souffi Odontologia acreditamos que cada sorriso carrega uma história única. Nossa missão é oferecer tratamentos odontológicos modernos, seguros e personalizados, respeitando as necessidades específicas de cada paciente.
                     </p>
 
                     <p className="about-reveal font-sans-outfit text-lg text-primary/80 font-light leading-relaxed">
-                        Nossa equipe é formada por profissionais apaixonados e tecnicamente rigorosos, prontos para oferecer tratamentos acessíveis, seguros e com resultados que você volta a ter orgulho de mostrar para o mundo.
+                        Utilizamos técnicas rigorosamente atualizadas e materiais de altíssima qualidade para garantir resultados extremamente naturais, duradouros e previsíveis, devolvendo sua autoestima com conforto.
                     </p>
 
                     <div className="about-reveal mt-8 pb-4 border-b border-border flex items-center gap-4">

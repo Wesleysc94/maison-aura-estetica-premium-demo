@@ -7,28 +7,23 @@ gsap.registerPlugin(ScrollTrigger);
 const REVIEWS = [
     {
         name: "Mariana Silva",
-        role: "Paciente de Prevenção",
-        text: "Nunca me senti tão acolhida em um consultório odontológico. O ambiente é lindo, não parece clínica, e a Dra. explicou tudo com muita paciência. Perdi o medo de dentista!"
+        role: "Tratamento Clínico",
+        text: "Excelente atendimento e muito cuidado durante todo o tratamento. O ambiente transmite muita paz e a equipe é impecável. Recomendo muito."
     },
     {
         name: "Roberto Almeida",
-        role: "Paciente de Implante",
-        text: "Fiz o meu implante aqui e o cuidado pós-operatório foi excepcional. A tecnologia que eles usam na clínica traz muita segurança."
-    },
-    {
-        name: "Camila Santos",
-        role: "Paciente Clínico",
-        text: "Levo toda a minha família na Souffi agora. É prático, tem desde clínica geral até estética, com um padrão elevadíssimo, mas super humanizado. Recomendo de olhos fechados."
+        role: "Implante Dentário",
+        text: "Tinha pavor de dentista, mas a clínica me passou uma segurança absurda. O implante foi indolor e o suporte pelo WhatsApp depois foi fantástico."
     },
     {
         name: "Juliana Mendes",
-        role: "Lentes de Contato",
-        text: "A transformação da minha autoestima foi incrível. As lentes de porcelana ficaram super naturais, ninguém diz que não são os meus dentes. A equipe de estética é sensacional!"
+        role: "Estética Avançada",
+        text: "A transformação da minha autoestima foi incrível. O resultado ficou perfeito, super natural e alinhado ao meu rosto. Hoje consigo sorrir em fotos sem tentar me esconder."
     },
     {
-        name: "Carlos Ferreira",
-        role: "Ortodontia Invisível",
-        text: "Usei o aparelho invisível e foi muito mais rápido e prático do que eu imaginava. Sem dores, sem braquetes metálicos cortando a boca e com acompanhamento super moderno."
+        name: "Camila Santos",
+        role: "Odontopediatria",
+        text: "O nível de atenção e humanização me impressionou muito. Levei meus filhos e o cuidado deles tirou todo o trauma infantil de dentista."
     }
 ];
 
@@ -103,10 +98,10 @@ export const Reviews = () => {
                         </div>
 
                         <h2 className="font-serif-drama text-4xl md:text-5xl lg:text-6xl text-cream mb-6 leading-none">
-                            Sorrisos<br />Transformados.
+                            O que nossos<br />pacientes dizem.
                         </h2>
                         <p className="font-sans-outfit text-lg text-cream/70 mb-10">
-                            Não confie apenas na nossa palavra. Veja o que nossos pacientes dizem sobre a experiência Souffi.
+                            A maior prova do nosso compromisso é a transformação real na autoestima de quem confia no nosso trabalho.
                         </p>
 
                         {/* Navigation Controls (Desktop) */}
