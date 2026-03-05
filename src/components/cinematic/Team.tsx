@@ -9,18 +9,17 @@ export const Team = () => {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            gsap.fromTo(
-                '.team-element',
-                { y: 40, opacity: 0 },
+            gsap.fromTo('.team-card',
+                { y: 32, opacity: 0 },
                 {
                     y: 0,
                     opacity: 1,
-                    duration: 1,
-                    stagger: 0.15,
-                    ease: "power3.out",
+                    duration: 0.8,
+                    stagger: 0.2,
+                    ease: 'power3.out',
                     scrollTrigger: {
                         trigger: containerRef.current,
-                        start: "top 75%",
+                        start: 'top 80%',
                     }
                 }
             );
@@ -73,7 +72,7 @@ export const Team = () => {
 
             {/* Image Side (Right) */}
             <div className="w-full lg:w-1/2 relative team-element">
-                <div className="aspect-[4/3] md:aspect-[4/4] lg:aspect-[4/5] w-full max-w-lg mx-auto rounded-[2rem] overflow-hidden relative shadow-2xl">
+                <div className="team-card aspect-[4/3] md:aspect-[4/4] lg:aspect-[4/5] w-full max-w-lg mx-auto rounded-[2rem] overflow-hidden relative shadow-2xl">
                     <div
                         className="absolute inset-0 bg-cover bg-center"
                         style={{

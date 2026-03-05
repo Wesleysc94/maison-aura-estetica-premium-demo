@@ -44,9 +44,8 @@ export const Faq = () => {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            gsap.fromTo(
-                '.faq-item',
-                { y: 30, opacity: 0 },
+            gsap.fromTo('.faq-item',
+                { y: 32, opacity: 0 },
                 {
                     y: 0,
                     opacity: 1,

@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const FeatureCard = ({ title, description, icon, delay }: { title: string, description: string, icon: React.ReactNode, delay: number }) => {
     return (
-        <div className="feature-card opacity-0 translate-y-8 bg-background border border-border rounded-[2rem] p-8 flex flex-col gap-6 hover:border-accent/40 transition-colors duration-300">
+        <div className="feature-card bg-background border border-border rounded-[2rem] p-8 flex flex-col gap-6 hover:border-accent/40 transition-colors duration-300">
             <div className="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-accent">
                 {icon}
             </div>
@@ -25,17 +25,20 @@ export const Features = () => {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            gsap.to('.feature-card', {
-                y: 0,
-                opacity: 1,
-                duration: 0.8,
-                stagger: 0.15,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top 75%",
+            gsap.fromTo('.feature-card',
+                { y: 32, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: "top 80%",
+                    }
                 }
-            });
+            );
         }, containerRef);
         return () => ctx.revert();
     }, []);

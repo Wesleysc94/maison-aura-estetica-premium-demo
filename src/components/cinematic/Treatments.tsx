@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const TreatmentCard = ({ title, description, image, delay, link }: { title: string, description: string, image: string, delay: number, link: string }) => {
     return (
-        <Link to={link} className="treatment-card block relative h-[400px] w-full rounded-[2rem] overflow-hidden opacity-0 translate-y-12 bg-dark shadow-xl group cursor-pointer">
+        <Link to={link} className="treatment-card block relative h-[400px] w-full rounded-[2rem] overflow-hidden bg-dark shadow-xl group cursor-pointer">
             <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-110"
                 style={{ backgroundImage: `url(${image})` }}
@@ -35,17 +35,20 @@ export const Treatments = () => {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            gsap.to('.treatment-card', {
-                y: 0,
-                opacity: 1,
-                duration: 1,
-                stagger: 0.15,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top 75%",
+            gsap.fromTo('.treatment-card',
+                { y: 48, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    stagger: 0.15,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: "top 80%",
+                    }
                 }
-            });
+            );
         }, containerRef);
         return () => ctx.revert();
     }, []);
