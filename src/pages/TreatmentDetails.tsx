@@ -4,8 +4,6 @@ import gsap from 'gsap';
 import Navbar from '../components/cinematic/Navbar';
 import Contact from '../components/cinematic/Contact';
 import Footer from '../components/cinematic/Footer';
-import Reviews from '../components/cinematic/Reviews';
-import Faq from '../components/cinematic/Faq';
 
 const TREATMENT_DATA = {
     'prevencao-integral': {
@@ -105,8 +103,8 @@ const TreatmentDetails = () => {
                         className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
                         style={{ backgroundImage: `url(${data.heroImage})` }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-dark/10 mix-blend-multiply" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(26,26,26,0.6)_0%,rgba(26,26,26,0)_80%)] pointer-events-none" />
+                    {/* Escurecimento fixo clássico para contraste perfeito do texto */}
+                    <div className="absolute inset-0 bg-dark/60" />
                     <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-dark to-transparent" />
                 </div>
 
@@ -163,8 +161,8 @@ const TreatmentDetails = () => {
                         <ul className="flex flex-col gap-4 mt-4">
                             {data.benefits.map((benefit, idx) => (
                                 <li key={idx} className="anim-up flex items-start gap-4 p-5 rounded-2xl bg-cream/5 border border-cream/10 shadow-lg hover:bg-cream/10 transition-colors">
-                                    <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center shrink-0 mt-0.5">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check"><path d="M20 6 9 17l-5-5" /></svg>
+                                    <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center shrink-0 mt-0.5 border border-accent/30 shadow-[0_0_10px_rgba(34,211,238,0.2)]">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-accent drop-shadow-sm"><path d="M20 6 9 17l-5-5" /></svg>
                                     </div>
                                     <span className="font-sans-outfit text-cream/80 leading-relaxed text-[15px] pt-1">{benefit}</span>
                                 </li>
@@ -172,35 +170,6 @@ const TreatmentDetails = () => {
                         </ul>
                     </div>
                 </div>
-
-                {/* Nossa Metodologia (Steps) */}
-                <div className="mt-32 w-full flex flex-col">
-                    <div className="flex flex-col items-center text-center mb-16 anim-up">
-                        <div className="flex items-center gap-4 mb-4">
-                            <span className="w-8 h-[1px] bg-accent" />
-                            <span className="font-mono-data text-xs text-accent uppercase tracking-widest font-semibold">
-                                O Passo a Passo
-                            </span>
-                            <span className="w-8 h-[1px] bg-accent" />
-                        </div>
-                        <h2 className="font-serif-drama text-4xl md:text-5xl text-primary">Nossa Metodologia</h2>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-                        <div className="hidden md:block absolute top-[44px] left-[10%] w-[80%] h-[2px] bg-cream/10 z-0" />
-
-                        {data.steps.map((stepData, idx) => (
-                            <div key={idx} className="anim-up relative z-10 flex flex-col items-center text-center group">
-                                <div className="w-24 h-24 rounded-full bg-dark border-8 border-cream/5 flex items-center justify-center shadow-lg shadow-black/50 mb-8 group-hover:border-accent/40 transition-colors duration-500">
-                                    <span className="font-serif-drama text-3xl text-cream">{stepData.step}</span>
-                                </div>
-                                <h3 className="font-sans-bold text-xl text-cream mb-3">{stepData.title}</h3>
-                                <p className="font-sans-outfit text-cream/60 text-sm leading-relaxed px-4">{stepData.desc}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
                 <div className="mt-20 flex justify-center w-full anim-up pb-10">
                     <button
                         onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
@@ -210,11 +179,6 @@ const TreatmentDetails = () => {
                     </button>
                 </div>
             </section>
-
-            <Reviews />
-            <div className="pt-20">
-                <Faq />
-            </div>
 
             <Contact />
             <Footer />

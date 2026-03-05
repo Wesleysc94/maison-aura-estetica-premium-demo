@@ -19,10 +19,10 @@ export const Footer = () => {
     };
 
     return (
-        <footer className="w-full bg-dark text-cream pt-16 pb-12 px-8 md:px-16 rounded-t-[4rem] relative overflow-hidden mt-16">
+        <footer className="w-full bg-dark text-cream pt-12 pb-8 px-6 md:px-12 rounded-t-[3rem] relative mt-16">
 
             {/* Powerful Pre-Footer CTA */}
-            <div className="max-w-4xl mx-auto flex flex-col items-center text-center gap-6 mb-20 border-b border-white/10 pb-20 mt-8">
+            <div className="max-w-4xl mx-auto flex flex-col items-center text-center gap-5 mb-12 border-b border-white/10 pb-12 mt-4">
                 <h2 className="font-serif-drama text-4xl md:text-5xl lg:text-6xl text-cream leading-tight drop-shadow-md">
                     Agende sua avaliação
                 </h2>
@@ -115,11 +115,11 @@ export const Footer = () => {
 
             </div>
 
-            <div className="max-w-7xl mx-auto mt-24 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 font-mono-data text-xs text-cream/40 px-4">
+            <div className="max-w-7xl mx-auto mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 font-mono-data text-xs text-cream/40 px-4">
                 <span>&copy; {new Date().getFullYear()} Souffi Odontologia. Todos os direitos reservados.</span>
                 <div className="flex gap-6">
-                    <a href="#" className="hover:text-cream/80 transition-colors">Privacidade</a>
-                    <a href="#" className="hover:text-cream/80 transition-colors">Termos</a>
+                    <button onClick={(e) => e.preventDefault()} className="hover:text-cream/80 transition-colors">Privacidade</button>
+                    <button onClick={(e) => e.preventDefault()} className="hover:text-cream/80 transition-colors">Termos</button>
                 </div>
             </div>
         </footer>
