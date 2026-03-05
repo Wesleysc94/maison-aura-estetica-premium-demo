@@ -106,21 +106,21 @@ export const Hero = () => {
                 </div>
 
                 {/* Social Proof Bar */}
-                <div className="hero-stagger mt-10 grid grid-cols-3 gap-2 sm:gap-8 border-y border-white/10 py-5 w-full max-w-2xl bg-dark/20 backdrop-blur-sm sm:rounded-3xl sm:border-x px-2 mx-auto">
-                    <div className="flex flex-col items-center">
+                <div className="hero-stagger mt-10 grid grid-cols-3 gap-2 sm:gap-8 border-y border-white/10 py-5 w-full max-w-2xl bg-dark/20 backdrop-blur-sm sm:rounded-3xl sm:border-x px-2 mx-auto transition-all duration-500 hover:bg-dark/40 hover:backdrop-blur-md hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] hover:border-white/20 cursor-default group">
+                    <div className="flex flex-col items-center transition-transform duration-300 group-hover:-translate-y-1">
                         <div className="flex items-center gap-1 text-accent mb-1 drop-shadow-md">
                             <span className="font-sans-bold text-cream text-lg">5.0</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
                         </div>
-                        <span className="text-[9px] sm:text-xs text-cream/70 uppercase tracking-widest font-mono-data text-center">No Google</span>
+                        <span className="text-[9px] sm:text-xs text-cream/70 uppercase tracking-widest font-mono-data text-center group-hover:text-cream transition-colors duration-300">No Google</span>
                     </div>
-                    <div className="flex flex-col items-center border-x border-white/10 px-2 sm:px-4">
+                    <div className="flex flex-col items-center border-x border-white/10 px-2 sm:px-4 transition-transform duration-300 delay-75 group-hover:-translate-y-1">
                         <span className="font-sans-bold text-cream text-lg mb-1 drop-shadow-md">+5.000</span>
-                        <span className="text-[9px] sm:text-xs text-cream/70 uppercase tracking-widest font-mono-data text-center">Pacientes</span>
+                        <span className="text-[9px] sm:text-xs text-cream/70 uppercase tracking-widest font-mono-data text-center group-hover:text-cream transition-colors duration-300">Pacientes</span>
                     </div>
-                    <div className="flex flex-col items-center px-2">
+                    <div className="flex flex-col items-center px-2 transition-transform duration-300 delay-150 group-hover:-translate-y-1">
                         <span className="font-sans-bold text-cream text-lg mb-1 drop-shadow-md">+10 Anos</span>
-                        <span className="text-[9px] sm:text-xs text-cream/70 uppercase tracking-widest font-mono-data text-center">Experiência</span>
+                        <span className="text-[9px] sm:text-xs text-cream/70 uppercase tracking-widest font-mono-data text-center group-hover:text-cream transition-colors duration-300">Experiência</span>
                     </div>
                 </div>
             </div>
