@@ -48,7 +48,7 @@ export const Hero = () => {
     return (
         <section
             ref={containerRef}
-            className="relative w-full h-[100dvh] flex flex-col items-center justify-center text-center px-8 md:px-16 overflow-hidden"
+            className="relative w-full min-h-[100dvh] flex flex-col items-center justify-center text-center px-4 md:px-16 overflow-hidden pt-28 pb-40 md:py-0"
         >
             {/* Background Image with Parallax & Soft Vignette Concept */}
             <div className="absolute inset-0 z-0 bg-primary/20 overflow-hidden">
@@ -73,7 +73,7 @@ export const Hero = () => {
             </div>
 
             {/* Content wrapper - Centered */}
-            <div className="relative z-10 w-full max-w-4xl text-cream flex flex-col items-center gap-6 mt-16 text-center">
+            <div className="relative z-10 w-full max-w-4xl text-cream flex flex-col items-center gap-6 mt-10 md:mt-16 mb-8 md:mb-0 text-center">
 
                 {/* Typographic Pattern */}
                 <div className="flex flex-col items-center relative z-20">
