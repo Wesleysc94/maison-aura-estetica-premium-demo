@@ -94,7 +94,10 @@ export const Hero = () => {
                     </button>
 
                     <button
-                        onClick={() => window.open('https://wa.me/5511999999999', '_blank')}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
+                        }}
                         className="group relative w-full sm:w-1/2 overflow-hidden bg-gradient-to-r from-[#25D366]/90 to-[#25D366] text-white px-8 py-4 rounded-[2.5rem] font-sans-outfit text-base font-bold hover:scale-105 transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] shadow-[0_0_20px_rgba(37,211,102,0.4)] flex justify-center hover:shadow-[0_0_30px_rgba(37,211,102,0.6)]"
                     >
                         <span className="relative z-10 flex items-center justify-center gap-2 drop-shadow-md w-full">

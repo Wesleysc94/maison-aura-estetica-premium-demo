@@ -3,9 +3,12 @@ import React from 'react';
 const FloatingWhatsApp = () => {
     return (
         <a
-            href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Estou%20no%20site%20da%20Aura%20Odontologia%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida."
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contato"
+            onClick={(e) => {
+                e.preventDefault();
+                alert('[ MODO DEMONSTRAÇÃO ]\n\nNa versão real ativada para a clínica, este botão abrirá diretamente o WhatsApp com uma mensagem pré-configurada.');
+                document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
+            }}
             className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[100] group flex items-center justify-center"
             style={{ zIndex: 99999 }}
             aria-label="Fale conosco no WhatsApp"

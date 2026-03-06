@@ -38,7 +38,10 @@ export const Footer = () => {
                         <div className="absolute inset-0 bg-primary/30 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                     </button>
                     <button
-                        onClick={() => window.open('https://wa.me/5511999999999', '_blank')}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
+                        }}
                         className="group relative w-full sm:w-1/2 overflow-hidden bg-[#25D366] text-white px-8 py-4 rounded-[2.5rem] font-sans-outfit text-base font-bold hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(37,211,102,0.4)] flex justify-center"
                     >
                         <span className="relative z-10 flex flex-row items-center gap-2">

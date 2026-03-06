@@ -83,9 +83,8 @@ export const Contact = () => {
 
                                     const message = `Olá equipe Aura! Me chamo *${nome}* e gostaria de solicitar um pré-agendamento para avaliação sobre *${servico}*. Minha preferência de horário é no período da *${turno}*. Podem me confirmar a disponibilidade?`;
 
-                                    // WhatsApp Link Builder (Replace with real clinic number later)
-                                    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
-                                    window.open(whatsappUrl, '_blank');
+                                    // Comportamento de Demonstração (Portfólio)
+                                    alert(`[ MODO DEMONSTRAÇÃO ]\n\nEm um ambiente real, o paciente seria redirecionado para o WhatsApp da clínica com a seguinte mensagem pré-preenchida:\n\n"${message}"`);
                                 }}
                             >
                                 <div className="flex flex-col gap-1.5">
