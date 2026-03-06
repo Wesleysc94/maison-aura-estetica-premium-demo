@@ -56,29 +56,33 @@
 
   [data-theme="luxury"] {
     /* Fundo Global (Grafite Profundo) */
-    --primary: 0 0% 9%;
-    /* Zinc 900 aproximado */
-    --primary-foreground: 0 0% 98%;
-    /* Off-white puro */
+    --background: 240 10% 6%;
+    /* Fundo geral claro -> Grafite */
+    --foreground: 0 0% 98%;
+    /* Texto geral -> Off-white */
 
-    /* Destaques (Dourado Metálico Fosco) */
+    /* Primary (Usado para os Textos Principais e Títulos em text-primary) */
+    /* No fundo escuro, o text-primary precisa ser CLARO */
+    --primary: 0 0% 98%;
+    /* Off-white puro */
+    --primary-foreground: 240 10% 6%;
+    /* Texto escuro dentro do bg-primary cheio */
+
+    /* Destaques (Dourado Metálico) */
     --accent: 45 93% 47%;
     /* #FBBF24 Dourado */
-    --accent-foreground: 0 0% 9%;
-
-    /* Backgrounds e Superfícies */
-    --background: 0 0% 9%;
-    --foreground: 0 0% 98%;
+    --accent-foreground: 240 10% 6%;
 
     --cream: 0 0% 96%;
-    /* Ajustado para Off-white macio */
+    /* Off-white macio */
     --dark: 240 10% 4%;
-    /* Quase preto absoluto */
+    /* Quase preto absoluto (Usado no Hero/Footer) */
 
-    --card: 0 0% 9%;
+    --card: 240 10% 8%;
+    /* Pouco mais claro para separar do dark */
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 9%;
+    --popover: 240 10% 6%;
     --popover-foreground: 0 0% 98%;
 
     --secondary: 0 0% 15%;
@@ -87,8 +91,8 @@
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 60%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
     --ring: 45 93% 47%;
     /* Dourado */
   }
