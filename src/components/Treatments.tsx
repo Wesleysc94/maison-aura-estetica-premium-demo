@@ -81,7 +81,7 @@ const Treatments = () => {
 
         {/* SEO text */}
         <p className="mt-12 mx-auto max-w-2xl text-center font-sans text-sm text-muted-foreground/70">
-          Clínica odontológica em Guaianases especializada em implantes, ortodontia e estética dental.
+          Clínica odontológica na Av. Paulista especializada em implantes, ortodontia e estética dental.
         </p>
       </div>
     </section>

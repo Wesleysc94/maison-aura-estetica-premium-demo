@@ -8,7 +8,7 @@ const Hero = () => {
     <section className="relative min-h-[100dvh] flex items-center overflow-hidden pt-16">
       {/* Background */}
       <div className="absolute inset-0 z-0">
-        <img src={heroImage} alt="Clínica odontológica moderna Aura Odonto Premium em Guaianases" className="h-full w-full object-cover" />
+        <img src={heroImage} alt="Clínica odontológica moderna Aura Odonto Premium na Av. Paulista" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-br from-green-dark/95 via-green-dark/85 to-primary/60" />
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
       </div>
@@ -21,7 +21,7 @@ const Hero = () => {
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
             <h1 className="font-display text-3xl font-bold leading-[1.1] text-primary-foreground sm:text-4xl md:text-5xl lg:text-6xl">
-              Dentista em Guaianases com{" "}
+              Dentista na Av. Paulista com{" "}
               <span className="text-gold">atendimento humanizado</span>
             </h1>
 

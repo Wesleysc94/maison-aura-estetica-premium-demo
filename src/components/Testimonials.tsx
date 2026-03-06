@@ -82,7 +82,7 @@ const Testimonials = () => {
           <div className="mx-auto mt-5 flex items-center justify-center gap-2">
             <ShieldCheck className="h-5 w-5 text-primary" />
             <p className="font-sans text-base font-medium text-foreground/70 md:text-lg">
-              Referência em odontologia na Zona Leste de São Paulo.
+              Referência em odontologia na coração de São Paulo.
             </p>
           </div>
           <div className="mx-auto mt-4 flex items-center justify-center gap-1.5">

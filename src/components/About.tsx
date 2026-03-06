@@ -41,7 +41,7 @@ const About = () => {
             <h2 className="mt-3 font-display text-3xl font-bold text-foreground md:text-4xl">Aura Odonto Premium</h2>
             <div className="mt-6 h-1 w-16 rounded-full bg-gold" />
             <p className="mt-8 font-sans text-base leading-relaxed text-muted-foreground">
-              A Aura Odonto Premium nasceu com o propósito de oferecer um atendimento odontológico diferenciado em Guaianases, na Zona Leste de São Paulo. Acreditamos que cuidar do sorriso vai além da técnica — é sobre acolhimento, respeito e confiança.
+              A Aura Odonto Premium nasceu com o propósito de oferecer um atendimento odontológico diferenciado na Av. Paulista, na coração de São Paulo. Acreditamos que cuidar do sorriso vai além da técnica — é sobre acolhimento, respeito e confiança.
             </p>
             <p className="mt-4 font-sans text-base leading-relaxed text-muted-foreground">
               Nossa equipe é formada por profissionais dedicadas e constantemente atualizadas, prontas para oferecer tratamentos seguros, eficientes e com o máximo de conforto. Nosso ambiente é moderno, organizado e pensado para que cada paciente se sinta em casa.

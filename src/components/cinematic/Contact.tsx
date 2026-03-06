@@ -50,7 +50,7 @@ export const Contact = () => {
                         <div className="contact-anim flex flex-col gap-6 mt-2 w-full h-full min-h-[200px] lg:min-h-[250px] rounded-2xl overflow-hidden shadow-lg border border-border/10 relative">
                             {/* Google Maps iframe */}
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117036.78440029519!2d-46.47161821434969!3d-23.551821896792612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce66fee7ce4bc3%3A0xe138bb92fa68ec2e!2sGuaianases%2C%20S%C3%A3o%20Paulo%20-%20State%20of%20S%C3%A3o%20Paulo!5e0!3m2!1sen!2sbr!4v1715015383562!5m2!1sen!2sbr"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117036.78440029519!2d-46.47161821434969!3d-23.551821896792612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce66fee7ce4bc3%3A0xe138bb92fa68ec2e!2sAv. Paulista%2C%20S%C3%A3o%20Paulo%20-%20State%20of%20S%C3%A3o%20Paulo!5e0!3m2!1sen!2sbr!4v1715015383562!5m2!1sen!2sbr"
                                 width="100%"
                                 height="100%"
                                 style={{ border: 0, position: 'absolute', inset: 0 }}

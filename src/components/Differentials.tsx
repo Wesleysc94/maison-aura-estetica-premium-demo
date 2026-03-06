@@ -5,7 +5,7 @@ const items = [
   { icon: Heart, title: "Atendimento humanizado e acolhedor", desc: "Cada paciente é tratado com carinho, respeito e atenção individual." },
   { icon: Shield, title: "Foco em conforto e clareza", desc: "Explicamos cada etapa do tratamento para você se sentir seguro." },
   { icon: Users, title: "Equipe preparada e atualizada", desc: "Profissionais constantemente capacitadas nas melhores técnicas." },
-  { icon: MapPin, title: "Localização fácil em Guaianases", desc: "Fácil acesso na Zona Leste de São Paulo." },
+  { icon: MapPin, title: "Localização fácil na Av. Paulista", desc: "Fácil acesso na coração de São Paulo." },
   { icon: MessageCircle, title: "Agendamento rápido via WhatsApp", desc: "Marque sua consulta em poucos segundos." },
   { icon: CheckCircle, title: "Orçamento justo e facilitado", desc: "Condições que cabem no seu bolso sem perder qualidade." },
 ];

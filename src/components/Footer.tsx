@@ -12,7 +12,7 @@ const Footer = () => {
             </p>
             <p className="mt-2 flex items-center justify-center gap-1 font-sans text-xs text-muted-foreground md:justify-start">
               <MapPin className="h-3 w-3" />
-              Estr. Itaquera Guaianazes, 2295 – Jardim Helena, SP
+              Av. Paulista, 1500 - Bela Vista, SP
             </p>
             <p className="mt-1 flex items-center justify-center gap-1 font-sans text-xs text-muted-foreground md:justify-start">
               <Phone className="h-3 w-3" />

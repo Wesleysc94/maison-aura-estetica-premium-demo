@@ -58,7 +58,7 @@ export const Footer = () => {
                         Aura Odonto Premium
                     </div>
                     <p className="font-sans-outfit text-cream/60 text-sm leading-relaxed">
-                        Odontologia de excelência em Guaianases. Precisão clínica, reabilitação avançada e estética natural em um ambiente humano e acolhedor.
+                        Odontologia de excelência na Av. Paulista. Precisão clínica, reabilitação avançada e estética natural em um ambiente humano e acolhedor.
                     </p>
 
                     <div className="mt-8 flex items-center gap-3 bg-white/5 border border-white/10 rounded-full px-4 py-2 w-max">
@@ -101,7 +101,7 @@ export const Footer = () => {
                             <span className="w-2 h-[1px] bg-accent"></span> Contato
                         </h4>
                         <div className="flex flex-col gap-3 text-sm">
-                            <span className="text-cream/50 xl:text-cream/70 block">Guaianases, São Paulo - SP</span>
+                            <span className="text-cream/50 xl:text-cream/70 block">Av. Paulista, São Paulo - SP</span>
                             <span className="text-cream/50 xl:text-cream/70 block">WhatsApp: (11) 99999-9999</span>
                             <button
                                 onClick={() => handleNavClick('/', 'contato')}
