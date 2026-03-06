@@ -80,8 +80,6 @@ export const Team = () => {
                             filter: 'contrast(1.05) saturate(0.95)'
                         }}
                     ></div>
-                    {/* Linha accent elegante embaixo */}
-                    <div className="absolute bottom-0 left-0 w-full h-1 bg-accent/80 z-10" />
                 </div>
 
                 {/* Decorative Elements */}
