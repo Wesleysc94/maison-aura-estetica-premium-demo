@@ -63,7 +63,7 @@ const Navbar = () => {
       `}
     >
       <div className="font-sans-bold font-bold text-xl tracking-tight drop-shadow-sm">
-        Souffi Odontologia
+        Aura Odonto Premium
       </div>
 
       <ul className="hidden md:flex flex-wrap lg:flex-nowrap items-center justify-center gap-x-4 lg:gap-x-8 gap-y-2 font-sans-outfit text-sm lg:text-base font-medium">

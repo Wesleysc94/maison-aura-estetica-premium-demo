@@ -8,7 +8,7 @@ const Hero = () => {
     <section className="relative min-h-[100dvh] flex items-center overflow-hidden pt-16">
       {/* Background */}
       <div className="absolute inset-0 z-0">
-        <img src={heroImage} alt="Clínica odontológica moderna Souffi Odontologia em Guaianases" className="h-full w-full object-cover" />
+        <img src={heroImage} alt="Clínica odontológica moderna Aura Odonto Premium em Guaianases" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-br from-green-dark/95 via-green-dark/85 to-primary/60" />
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
       </div>
@@ -26,7 +26,7 @@ const Hero = () => {
             </h1>
 
             <p className="mt-6 max-w-lg font-sans text-base leading-relaxed text-primary-foreground/85 md:text-lg">
-              Souffi Odontologia oferece tratamentos completos com foco em conforto, saúde e estética do sorriso.
+              Aura Odonto Premium oferece tratamentos completos com foco em conforto, saúde e estética do sorriso.
             </p>
 
             {/* Star highlights */}

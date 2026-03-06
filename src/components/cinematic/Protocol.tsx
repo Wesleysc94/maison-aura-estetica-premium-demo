@@ -120,7 +120,7 @@ export const Protocol = () => {
             <div className="w-full max-w-7xl mx-auto px-8 md:px-16 mb-24 relative z-10">
                 <h2 className="font-serif-drama text-5xl md:text-6xl text-primary">Arquivo Fixo.</h2>
                 <p className="font-sans-outfit text-primary/70 mt-4 max-w-xl text-lg">
-                    O método Souffi de intervenção previsível. Três passos sistemáticos. Zero improviso.
+                    O método Aura de intervenção previsível. Três passos sistemáticos. Zero improviso.
                 </p>
             </div>
 

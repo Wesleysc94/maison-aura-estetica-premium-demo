@@ -10,7 +10,7 @@ const TREATMENT_DATA = {
         title: 'Prevenção Integral',
         subtitle: 'Cuidado Contínuo e Diagnóstico Precoce',
         heroImage: '/prevention.png',
-        description: 'A base de um sorriso perfeito e duradouro é a saúde. Na Souffi Odontologia, desconstruímos o modelo antigo de procurar o dentista apenas na dor. Nossa prevenção atua como um escudo biológico, garantindo que suas gengivas, dentes e futuras reabilitações permaneçam impecáveis ao longo dos anos, através de protocolos ultramodernos e absolutamente indolores.',
+        description: 'A base de um sorriso perfeito e duradouro é a saúde. Na Aura Odonto Premium, desconstruímos o modelo antigo de procurar o dentista apenas na dor. Nossa prevenção atua como um escudo biológico, garantindo que suas gengivas, dentes e futuras reabilitações permaneçam impecáveis ao longo dos anos, através de protocolos ultramodernos e absolutamente indolores.',
         benefits: [
             'Profilaxia profunda com ultrassom Piezo (tecnologia indolor).',
             'Jato de bicarbonato de última geração para remoção de manchas.',
@@ -110,7 +110,7 @@ const TreatmentDetails = () => {
                     <div className="anim-up flex items-center gap-4 mb-4">
                         <span className="w-12 h-[1px] bg-accent" />
                         <span className="font-mono-data text-accent tracking-widest uppercase text-sm font-bold">
-                            Especialidades Souffi
+                            Especialidades Aura
                         </span>
                         <span className="w-12 h-[1px] bg-accent" />
                     </div>

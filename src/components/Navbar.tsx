@@ -18,7 +18,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-lg border-b border-border/50">
       <div className="container flex items-center justify-between py-3 md:py-4">
         <a href="#" className="font-display text-xl font-bold text-primary md:text-2xl">
-          Souffi <span className="text-gold">Odontologia</span>
+          Aura <span className="text-gold">Odontologia</span>
         </a>
         
         <ul className="hidden gap-7 lg:flex">

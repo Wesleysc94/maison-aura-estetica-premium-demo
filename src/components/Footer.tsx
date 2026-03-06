@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
           <div>
             <p className="font-display text-xl font-bold text-primary">
-              Souffi <span className="text-gold">Odontologia</span>
+              Aura <span className="text-gold">Odontologia</span>
             </p>
             <p className="mt-2 flex items-center justify-center gap-1 font-sans text-xs text-muted-foreground md:justify-start">
               <MapPin className="h-3 w-3" />
@@ -31,7 +31,7 @@ const Footer = () => {
         </div>
         <div className="mt-8 border-t border-border pt-6 text-center">
           <p className="font-sans text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Souffi Odontologia. Todos os direitos reservados.
+            © {new Date().getFullYear()} Aura Odonto Premium. Todos os direitos reservados.
           </p>
         </div>
       </div>

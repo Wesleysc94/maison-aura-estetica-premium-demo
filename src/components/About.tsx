@@ -24,10 +24,10 @@ const About = () => {
             className="relative"
           >
             <div className="overflow-hidden rounded-3xl shadow-xl">
-              <img src={clinicImage} alt="Interior moderno da clínica Souffi Odontologia" className="w-full h-72 md:h-96 object-cover" />
+              <img src={clinicImage} alt="Interior moderno da clínica Aura Odonto Premium" className="w-full h-72 md:h-96 object-cover" />
             </div>
             <div className="absolute -bottom-6 -right-4 md:-right-8 w-36 md:w-44 overflow-hidden rounded-2xl border-4 border-background shadow-xl">
-              <img src={dentistImage} alt="Dentista profissional da Souffi Odontologia" className="w-full h-44 md:h-52 object-cover" />
+              <img src={dentistImage} alt="Dentista profissional da Aura Odonto Premium" className="w-full h-44 md:h-52 object-cover" />
             </div>
           </motion.div>
 
@@ -38,10 +38,10 @@ const About = () => {
             viewport={{ once: true }}
           >
             <span className="font-sans text-sm font-semibold uppercase tracking-widest text-gold">Sobre Nós</span>
-            <h2 className="mt-3 font-display text-3xl font-bold text-foreground md:text-4xl">Souffi Odontologia</h2>
+            <h2 className="mt-3 font-display text-3xl font-bold text-foreground md:text-4xl">Aura Odonto Premium</h2>
             <div className="mt-6 h-1 w-16 rounded-full bg-gold" />
             <p className="mt-8 font-sans text-base leading-relaxed text-muted-foreground">
-              A Souffi Odontologia nasceu com o propósito de oferecer um atendimento odontológico diferenciado em Guaianases, na Zona Leste de São Paulo. Acreditamos que cuidar do sorriso vai além da técnica — é sobre acolhimento, respeito e confiança.
+              A Aura Odonto Premium nasceu com o propósito de oferecer um atendimento odontológico diferenciado em Guaianases, na Zona Leste de São Paulo. Acreditamos que cuidar do sorriso vai além da técnica — é sobre acolhimento, respeito e confiança.
             </p>
             <p className="mt-4 font-sans text-base leading-relaxed text-muted-foreground">
               Nossa equipe é formada por profissionais dedicadas e constantemente atualizadas, prontas para oferecer tratamentos seguros, eficientes e com o máximo de conforto. Nosso ambiente é moderno, organizado e pensado para que cada paciente se sinta em casa.

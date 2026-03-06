@@ -81,7 +81,7 @@ export const Contact = () => {
                                     const servico = formData.get('servico');
                                     const turno = formData.get('turno');
 
-                                    const message = `Olá equipe Souffi! Me chamo *${nome}* e gostaria de solicitar um pré-agendamento para avaliação sobre *${servico}*. Minha preferência de horário é no período da *${turno}*. Podem me confirmar a disponibilidade?`;
+                                    const message = `Olá equipe Aura! Me chamo *${nome}* e gostaria de solicitar um pré-agendamento para avaliação sobre *${servico}*. Minha preferência de horário é no período da *${turno}*. Podem me confirmar a disponibilidade?`;
 
                                     // WhatsApp Link Builder (Replace with real clinic number later)
                                     const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;

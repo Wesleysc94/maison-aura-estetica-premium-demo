@@ -26,7 +26,7 @@ const Differentials = () => {
         >
           <span className="font-sans text-sm font-semibold uppercase tracking-widest text-gold">Diferenciais</span>
           <h2 className="mt-3 font-display text-3xl font-bold text-primary-foreground md:text-4xl">
-            Por que escolher a Souffi Odontologia
+            Por que escolher a Aura Odonto Premium
           </h2>
         </motion.div>
 

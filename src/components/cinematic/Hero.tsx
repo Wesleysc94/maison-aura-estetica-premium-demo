@@ -131,7 +131,7 @@ export const Hero = () => {
                     className="flex flex-col items-center gap-2 pointer-events-auto cursor-pointer group bg-dark/40 backdrop-blur-md px-6 py-3 rounded-full border border-white/10 hover:bg-dark/60 transition-all hover:scale-105 shadow-[0_0_20px_rgba(0,0,0,0.3)] animate-pulse"
                     onClick={() => document.getElementById('sobre')?.scrollIntoView({ behavior: 'smooth' })}
                 >
-                    <span className="font-mono-data text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-cream font-bold text-center whitespace-nowrap">Conheça a Souffi</span>
+                    <span className="font-mono-data text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-cream font-bold text-center whitespace-nowrap">Conheça a Aura</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-down text-accent animate-bounce"><path d="m6 9 6 6 6-6" /></svg>
                 </div>
             </div>

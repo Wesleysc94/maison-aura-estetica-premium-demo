@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import draAmandaImg from '@/assets/dra_amanda.png';
+import draHelenaImg from '@/assets/dra_Helena.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,7 +60,7 @@ export const About = () => {
                     </h2>
 
                     <p className="about-reveal font-sans-outfit text-lg text-primary/80 font-light mt-4 leading-relaxed">
-                        Na Souffi Odontologia acreditamos que cada sorriso carrega uma história única. Nossa missão é oferecer tratamentos odontológicos modernos, seguros e personalizados, respeitando as necessidades específicas de cada paciente.
+                        Na Aura Odonto Premium acreditamos que cada sorriso carrega uma história única. Nossa missão é oferecer tratamentos odontológicos modernos, seguros e personalizados, respeitando as necessidades específicas de cada paciente.
                     </p>
 
                     <p className="about-reveal font-sans-outfit text-lg text-primary/80 font-light leading-relaxed">
@@ -69,10 +69,10 @@ export const About = () => {
 
                     <div className="about-reveal mt-8 pb-4 border-b border-border flex items-center gap-4">
                         <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-accent/20">
-                            <img src={draAmandaImg} alt="Dra. Responsável" className="w-full h-full object-cover" />
+                            <img src={draHelenaImg} alt="Dra. Responsável" className="w-full h-full object-cover" />
                         </div>
                         <div>
-                            <div className="font-sans-bold text-primary text-lg">Dra. Amanda Souffi</div>
+                            <div className="font-sans-bold text-primary text-lg">Dra. Helena Valêncio</div>
                             <div className="font-sans-outfit text-sm text-primary/60">Cirurgiã-Dentista e Diretora Clínica</div>
                         </div>
                     </div>

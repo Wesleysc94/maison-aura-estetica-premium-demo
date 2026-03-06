@@ -49,7 +49,7 @@ export const Team = () => {
 
                 {/* Professional Info */}
                 <div className="flex flex-col gap-2 border-l-2 border-accent/40 pl-6 mb-10 team-element">
-                    <span className="font-sans-bold text-xl text-primary tracking-wide">Dra. Amanda Souffi</span>
+                    <span className="font-sans-bold text-xl text-primary tracking-wide">Dra. Helena Valêncio</span>
                     <span className="font-mono-data text-xs text-accent uppercase tracking-widest">Cirurgiã-Dentista | CRO SP 00000</span>
                 </div>
 

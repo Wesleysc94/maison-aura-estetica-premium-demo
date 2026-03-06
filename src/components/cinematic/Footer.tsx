@@ -55,7 +55,7 @@ export const Footer = () => {
                 {/* Brand & System Status */}
                 <div className="flex flex-col gap-6 max-w-sm">
                     <div className="font-sans-bold text-3xl tracking-tight text-cream">
-                        Souffi Odontologia
+                        Aura Odonto Premium
                     </div>
                     <p className="font-sans-outfit text-cream/60 text-sm leading-relaxed">
                         Odontologia de excelência em Guaianases. Precisão clínica, reabilitação avançada e estética natural em um ambiente humano e acolhedor.
@@ -79,7 +79,7 @@ export const Footer = () => {
                             <span className="w-2 h-[1px] bg-accent"></span> A Clínica
                         </h4>
                         <div className="flex flex-col gap-3 text-sm">
-                            <button onClick={() => handleNavClick('/', 'sobre')} className="text-left text-cream/50 xl:text-cream/70 hover:text-white hover:translate-x-1 transition-all duration-300">Sobre a Souffi</button>
+                            <button onClick={() => handleNavClick('/', 'sobre')} className="text-left text-cream/50 xl:text-cream/70 hover:text-white hover:translate-x-1 transition-all duration-300">Sobre a Aura</button>
                             <button onClick={() => handleNavClick('/', 'especialidades')} className="text-left text-cream/50 xl:text-cream/70 hover:text-white hover:translate-x-1 transition-all duration-300">Nossos Diferenciais</button>
                             <button onClick={() => handleNavClick('/', 'avaliacoes')} className="text-left text-cream/50 xl:text-cream/70 hover:text-white hover:translate-x-1 transition-all duration-300">Testemunhos</button>
                         </div>
@@ -116,7 +116,7 @@ export const Footer = () => {
             </div>
 
             <div className="max-w-7xl mx-auto mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 font-mono-data text-xs text-cream/40 px-4">
-                <span>&copy; {new Date().getFullYear()} Souffi Odontologia. Todos os direitos reservados.</span>
+                <span>&copy; {new Date().getFullYear()} Aura Odonto Premium. Todos os direitos reservados.</span>
                 <div className="flex gap-6">
                     <button onClick={(e) => e.preventDefault()} className="hover:text-cream/80 transition-colors">Privacidade</button>
                     <button onClick={(e) => e.preventDefault()} className="hover:text-cream/80 transition-colors">Termos</button>
