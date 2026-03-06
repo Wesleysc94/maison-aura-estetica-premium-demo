@@ -53,6 +53,45 @@
 
     --radius: 2rem;
   }
+
+  [data-theme="luxury"] {
+    /* Fundo Global (Grafite Profundo) */
+    --primary: 0 0% 9%;
+    /* Zinc 900 aproximado */
+    --primary-foreground: 0 0% 98%;
+    /* Off-white puro */
+
+    /* Destaques (Dourado Metálico Fosco) */
+    --accent: 45 93% 47%;
+    /* #FBBF24 Dourado */
+    --accent-foreground: 0 0% 9%;
+
+    /* Backgrounds e Superfícies */
+    --background: 0 0% 9%;
+    --foreground: 0 0% 98%;
+
+    --cream: 0 0% 96%;
+    /* Ajustado para Off-white macio */
+    --dark: 240 10% 4%;
+    /* Quase preto absoluto */
+
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 45 93% 47%;
+    /* Dourado */
+  }
 }
 
 @layer base {

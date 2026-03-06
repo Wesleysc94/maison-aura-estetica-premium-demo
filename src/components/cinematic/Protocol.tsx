@@ -128,12 +128,12 @@ export const Protocol = () => {
                 <div
                     key={proto.step}
                     ref={el => cardsRef.current[i] = el}
-                    className="h-screen w-full flex items-center justify-center p-8 sticky top-0"
+                    className="h-screen w-full flex items-center justify-center p-8 sticky top-[10vh]"
                 >
-                    <div className="w-full max-w-5xl h-[70vh] bg-primary rounded-[3rem] shadow-2xl overflow-hidden flex flex-col md:flex-row border border-border/20">
+                    <div className="w-full max-w-5xl h-[70vh] bg-primary/20 backdrop-blur-xl rounded-[3rem] shadow-2xl overflow-hidden flex flex-col md:flex-row border border-border/20">
 
                         {/* Visual/Animation Side */}
-                        <div className="w-full md:w-1/2 h-1/2 md:h-full bg-primary-foreground/5 relative flex items-center justify-center border-b md:border-b-0 md:border-r border-border/10">
+                        <div className="w-full md:w-1/2 h-1/2 md:h-full bg-black/10 relative flex items-center justify-center border-b md:border-b-0 md:border-r border-border/10">
                             <proto.Animation />
                         </div>
 

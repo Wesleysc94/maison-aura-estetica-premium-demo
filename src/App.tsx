@@ -10,6 +10,9 @@ import TreatmentDetails from "./pages/TreatmentDetails";
 import FloatingWhatsApp from "./components/cinematic/FloatingWhatsApp";
 import { useEffect } from "react";
 
+import { ThemeProvider } from "./components/ThemeProvider";
+import { ThemeToggle } from "./components/ThemeToggle";
+
 const queryClient = new QueryClient();
 
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
@@ -48,16 +51,19 @@ const AnimatedRoutes = () => {
 };
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <AnimatedRoutes />
-        <FloatingWhatsApp />
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <ThemeProvider defaultTheme="clinic">
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <AnimatedRoutes />
+          <ThemeToggle />
+          <FloatingWhatsApp />
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </ThemeProvider>
 );
 
 export default App;

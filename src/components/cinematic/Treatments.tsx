@@ -7,13 +7,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 const TreatmentCard = ({ title, description, image, delay, link }: { title: string, description: string, image: string, delay: number, link: string }) => {
     return (
-        <Link to={link} className="treatment-card block relative h-[400px] w-full rounded-[2rem] overflow-hidden bg-dark shadow-xl group cursor-pointer">
+        <Link to={link} className="treatment-card block relative h-[400px] w-full rounded-[2rem] overflow-hidden bg-primary/20 shadow-xl group cursor-pointer border border-border/10">
             <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-110"
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-110 opacity-60 mix-blend-overlay"
                 style={{ backgroundImage: `url(${image})` }}
             />
-            {/* Gradient Overlay oculto por padrão, aparece no hover */}
-            <div className="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/70 to-dark/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            {/* Glassmorphism Solid Base & Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent opacity-80 backdrop-blur-[2px] transition-all duration-500 group-hover:backdrop-blur-0 group-hover:opacity-100" />
 
             <div className="absolute inset-0 p-8 flex flex-col justify-end text-cream translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]">
                 <h3 className="font-sans-bold text-2xl mb-2 text-cream drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">{title}</h3>

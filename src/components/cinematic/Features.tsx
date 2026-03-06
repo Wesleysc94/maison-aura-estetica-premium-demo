@@ -6,12 +6,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 const FeatureCard = ({ title, description, icon, delay }: { title: string, description: string, icon: React.ReactNode, delay: number }) => {
     return (
-        <div className="feature-card bg-background border border-border rounded-[2rem] p-8 flex flex-col gap-6 hover:border-accent/40 transition-colors duration-300">
-            <div className="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-accent">
+        <div className="feature-card bg-primary/5 backdrop-blur-md border border-border/20 rounded-[2rem] p-8 flex flex-col gap-6 hover:border-accent/40 hover:bg-primary/10 transition-colors duration-300 shadow-lg">
+            <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-accent shadow-inner">
                 {icon}
             </div>
             <div>
-                <h3 className="font-sans-bold text-xl text-primary mb-3">{title}</h3>
+                <h3 className="font-sans-bold text-xl text-primary mb-3 drop-shadow-sm">{title}</h3>
                 <p className="font-sans-outfit text-primary/70 leading-relaxed text-sm">
                     {description}
                 </p>
