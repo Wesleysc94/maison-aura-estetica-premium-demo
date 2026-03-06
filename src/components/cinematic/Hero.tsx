@@ -85,9 +85,9 @@ export const Hero = () => {
                 <div className="hero-stagger mt-8 flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-xl mx-auto">
                     <button
                         onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
-                        className="group relative w-full sm:w-1/2 overflow-hidden bg-gradient-to-r from-accent/90 to-accent text-white px-8 py-4 rounded-[2.5rem] font-sans-outfit text-base font-bold hover:scale-105 transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] shadow-[0_0_20px_rgba(34,211,238,0.5)] flex justify-center hover:shadow-[0_0_30px_rgba(34,211,238,0.7)]"
+                        className="group relative w-full sm:w-1/2 overflow-hidden bg-gradient-to-r from-accent/90 to-accent text-accent-foreground px-8 py-4 rounded-[2.5rem] font-sans-outfit text-base font-bold hover:scale-105 transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] shadow-[0_0_20px_hsl(var(--accent)/0.5)] flex justify-center hover:shadow-[0_0_30px_hsl(var(--accent)/0.7)]"
                     >
-                        <span className="relative z-10 flex items-center justify-center gap-2 drop-shadow-md w-full">
+                        <span className="relative z-10 flex items-center justify-center gap-2 drop-shadow-sm w-full">
                             Agendar avaliação
                         </span>
                         <div className="absolute inset-0 bg-primary/30 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />

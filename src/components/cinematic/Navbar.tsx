@@ -57,12 +57,12 @@ const Navbar = () => {
       ref={navRef}
       className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 rounded-[3rem] px-5 md:px-8 py-3 md:py-4 flex items-center justify-between gap-4 md:gap-12 w-[95%] max-w-5xl
         ${isScrolled
-          ? 'bg-primary/95 backdrop-blur-xl border border-white/10 shadow-lg text-white'
+          ? 'bg-primary/95 backdrop-blur-xl border border-primary-foreground/10 shadow-lg text-primary-foreground'
           : 'bg-transparent text-white'
         }
       `}
     >
-      <div className="font-sans-bold font-bold text-xl tracking-tight">
+      <div className="font-sans-bold font-bold text-xl tracking-tight drop-shadow-sm">
         Souffi Odontologia
       </div>
 
@@ -78,7 +78,7 @@ const Navbar = () => {
           <li key={item.id}>
             <button
               onClick={() => handleNavClick(item.id)}
-              className="cursor-pointer hover:text-accent font-semibold whitespace-nowrap transition-colors hover:-translate-y-[1px] transform drop-shadow-md"
+              className="cursor-pointer hover:text-accent font-semibold whitespace-nowrap transition-colors hover:-translate-y-[1px] transform drop-shadow-sm"
             >
               {item.label}
             </button>
@@ -88,9 +88,9 @@ const Navbar = () => {
 
       <button
         onClick={() => handleNavClick('contato')}
-        className="group relative overflow-hidden bg-gradient-to-r from-accent/90 to-accent text-white px-6 py-2.5 rounded-[2rem] font-sans-outfit text-sm font-bold hover:scale-105 transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] flex-shrink-0 shadow-[0_0_15px_rgba(34,211,238,0.4)] hover:shadow-[0_0_20px_rgba(34,211,238,0.6)]"
+        className="group relative overflow-hidden bg-gradient-to-r from-accent/90 to-accent text-accent-foreground px-6 py-2.5 rounded-[2rem] font-sans-outfit text-sm font-bold hover:scale-105 transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] flex-shrink-0 shadow-[0_0_15px_hsl(var(--accent)/0.4)] hover:shadow-[0_0_20px_hsl(var(--accent)/0.6)]"
       >
-        <span className="relative z-10 flex items-center gap-2 whitespace-nowrap drop-shadow-md">
+        <span className="relative z-10 flex items-center gap-2 whitespace-nowrap drop-shadow-sm">
           <span className="hidden sm:inline">Agendar Avaliação</span>
           <span className="sm:hidden">Agendar</span>
         </span>
