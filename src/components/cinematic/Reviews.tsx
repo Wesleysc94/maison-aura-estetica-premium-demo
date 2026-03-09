@@ -118,7 +118,7 @@ export const Reviews = () => {
                         return (
                             <div
                                 key={index}
-                                className={`w-full flex-shrink-0 transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${transformClass} flex flex-col md:flex-row gap-6 md:gap-16 items-start`}
+                                className={`w-full flex-shrink-0 transition-all duration-500 ease-in-out ${transformClass} flex flex-col md:flex-row gap-6 md:gap-16 items-start`}
                             >
                                 {/* Golden Quote Icon Container (Desktop) */}
                                 <div className="hidden md:flex flex-col items-start shrink-0 pt-2">

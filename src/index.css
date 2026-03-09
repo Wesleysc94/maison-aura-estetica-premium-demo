@@ -1,100 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* Preset C - Clinical Premium (Odontologia) */
-    /* Navy Blue Escuro (Primary - Autoridade e Confiança Médica) */
-    --primary: 222 47% 11%;
-    /* #0F172A */
-    --primary-foreground: 210 40% 98%;
-    /* Branco Neve */
+    --background: 34 38% 95%;
+    --foreground: 18 22% 33%;
 
-    /* Dental Cyan / Soft Teal (Accent - Saúde, Limpeza, Modernidade) */
-    --accent: 189 94% 43%;
-    /* #06B6D4 */
-    --accent-foreground: 222 47% 11%;
-    /* Navy */
+    --primary: 20 18% 21%;
+    --primary-foreground: 38 43% 96%;
 
-    /* Background (Branco Neve / Clean) */
-    --background: 0 0% 100%;
-    /* #FFFFFF */
-    --foreground: 222 47% 11%;
-    /* Texto Navy */
+    --accent: 34 40% 63%;
+    --accent-foreground: 20 18% 21%;
 
-    /* Cores Nomeadas Específicas do Projeto */
-    --cream: 210 40% 98%;
-    /* Substituindo a cor creme por Branco Frio */
-    --dark: 222 47% 11%;
-    /* Navy */
+    --card: 37 35% 98%;
+    --card-foreground: 18 22% 33%;
 
-    /* Outros tokens shadcn que podem ser usados */
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --popover: 37 35% 98%;
+    --popover-foreground: 18 22% 33%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --secondary: 23 34% 88%;
+    --secondary-foreground: 18 22% 33%;
 
-    --secondary: 214 32% 91%;
-    --secondary-foreground: 222 47% 11%;
+    --muted: 25 28% 92%;
+    --muted-foreground: 23 14% 45%;
 
-    --muted: 214 32% 91%;
-    /* Slate 200 */
-    --muted-foreground: 215 16% 47%;
-    /* Slate 500 */
-
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 78% 58%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 189 94% 43%;
+    --border: 26 20% 84%;
+    --input: 26 20% 86%;
+    --ring: 34 40% 63%;
 
-    --radius: 2rem;
+    --cream: 35 39% 97%;
+    --dark: 18 22% 33%;
+    --radius: 1.75rem;
   }
 
   [data-theme="luxury"] {
-    /* Fundo Global (Grafite Profundo) */
-    --background: 240 10% 6%;
-    /* Fundo geral claro -> Grafite */
-    --foreground: 0 0% 98%;
-    /* Texto geral -> Off-white */
+    --background: 16 22% 9%;
+    --foreground: 38 42% 92%;
 
-    /* Primary (Usado para os Textos Principais e Títulos em text-primary) */
-    /* No fundo escuro, o text-primary precisa ser CLARO */
-    --primary: 0 0% 98%;
-    /* Off-white puro */
-    --primary-foreground: 240 10% 6%;
-    /* Texto escuro dentro do bg-primary cheio */
+    --primary: 38 42% 92%;
+    --primary-foreground: 16 22% 9%;
 
-    /* Destaques (Dourado Metálico) */
-    --accent: 45 93% 47%;
-    /* #FBBF24 Dourado */
-    --accent-foreground: 240 10% 6%;
+    --accent: 27 28% 66%;
+    --accent-foreground: 16 22% 9%;
 
-    --cream: 0 0% 96%;
-    /* Off-white macio */
-    --dark: 240 10% 4%;
-    /* Quase preto absoluto (Usado no Hero/Footer) */
+    --cream: 38 40% 90%;
+    --dark: 16 22% 7%;
 
-    --card: 240 10% 8%;
-    /* Pouco mais claro para separar do dark */
-    --card-foreground: 0 0% 98%;
+    --card: 16 18% 12%;
+    --card-foreground: 38 42% 92%;
 
-    --popover: 240 10% 6%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 16 18% 12%;
+    --popover-foreground: 38 42% 92%;
 
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 16 14% 16%;
+    --secondary-foreground: 38 42% 92%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 16 14% 16%;
+    --muted-foreground: 33 16% 68%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 45 93% 47%;
-    /* Dourado */
+    --border: 18 14% 20%;
+    --input: 18 14% 20%;
+    --ring: 27 28% 66%;
   }
 }
 
@@ -105,8 +77,12 @@
 
   html,
   body {
-    @apply bg-dark text-foreground antialiased selection:bg-accent selection:text-white;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    @apply bg-background text-foreground antialiased selection:bg-accent selection:text-primary;
+    font-family: 'Manrope', sans-serif;
+    background-image:
+      radial-gradient(circle at top left, rgba(216, 194, 183, 0.16), transparent 28%),
+      radial-gradient(circle at top right, rgba(198, 167, 123, 0.12), transparent 24%),
+      linear-gradient(180deg, rgba(248, 244, 239, 1), rgba(243, 236, 228, 0.72));
   }
 
   h1,
@@ -115,41 +91,46 @@
   h4,
   h5,
   h6 {
-    @apply tracking-tighter;
+    @apply tracking-tight;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
   }
 }
 
 @layer utilities {
-  .font-sans-bold {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 700;
-  }
-
-  .font-sans-outfit {
-    font-family: 'Outfit', sans-serif;
-  }
-
-  .font-serif-drama {
+  .font-display {
     font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
   }
 
-  .font-mono-data {
-    font-family: 'IBM Plex Mono', monospace;
+  .card-surface {
+    @apply rounded-[2rem] border border-white/70 bg-white/70 shadow-[0_32px_110px_-56px_rgba(90,70,58,0.68)] backdrop-blur-xl;
   }
 
-  /* Noise Overlay Class */
-  .noise-overlay {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.05;
-    mix-blend-mode: multiply;
+  .premium-button {
+    @apply inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-[0_18px_55px_-24px_rgba(62,52,46,0.85)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_60px_-24px_rgba(62,52,46,0.9)];
+  }
+
+  .premium-button.light {
+    @apply bg-background text-primary;
+  }
+
+  .premium-button-secondary {
+    @apply inline-flex items-center gap-2 rounded-full border border-primary/10 bg-white/75 px-6 py-3.5 text-sm font-semibold text-primary shadow-[0_18px_50px_-32px_rgba(90,70,58,0.55)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white;
+  }
+
+  .premium-button-secondary.dark {
+    @apply border-white/20 bg-white/10 text-background hover:bg-white/20;
+  }
+
+  .input-surface {
+    @apply w-full rounded-[1.4rem] border border-primary/10 bg-white/80 px-4 py-3.5 text-sm text-primary outline-none transition placeholder:text-primary/40 focus:border-accent focus:ring-2 focus:ring-accent/20;
+  }
+
+  .ambient-orb {
+    @apply pointer-events-none absolute -z-10 rounded-full blur-3xl;
   }
 }
 
-/* Base resets & globals for smooth interactions */
 html {
   scroll-behavior: smooth;
 }
@@ -158,7 +139,26 @@ body {
   overflow-x: hidden;
 }
 
-/* Hide scrollbar for cleaner look (optional but good for cinematic) */
+[data-theme="luxury"] .card-surface {
+  @apply border-white/10 bg-white/5 shadow-[0_38px_120px_-64px_rgba(0,0,0,0.9)];
+}
+
+[data-theme="luxury"] .premium-button {
+  @apply bg-accent text-primary;
+}
+
+[data-theme="luxury"] .premium-button.light {
+  @apply bg-background text-primary;
+}
+
+[data-theme="luxury"] .premium-button-secondary {
+  @apply border-white/10 bg-white/5 text-primary hover:bg-white/10;
+}
+
+[data-theme="luxury"] .input-surface {
+  @apply border-white/10 bg-white/5 text-primary placeholder:text-primary/40;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }

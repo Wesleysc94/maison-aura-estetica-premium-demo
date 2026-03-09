@@ -88,13 +88,13 @@ const Navbar = () => {
 
       <button
         onClick={() => handleNavClick('contato')}
-        className="group relative overflow-hidden bg-gradient-to-r from-accent/90 to-accent text-accent-foreground px-6 py-2.5 rounded-[2rem] font-sans-outfit text-sm font-bold hover:scale-105 transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] flex-shrink-0 shadow-[0_0_15px_hsl(var(--accent)/0.4)] hover:shadow-[0_0_20px_hsl(var(--accent)/0.6)]"
+        className="group relative overflow-hidden bg-gradient-to-r from-accent/90 to-accent text-accent-foreground px-6 py-2.5 rounded-[2rem] font-sans-outfit text-sm font-bold hover:scale-105 transition-transform duration-300 ease-in-out flex-shrink-0 shadow-[0_0_15px_hsl(var(--accent)/0.4)] hover:shadow-[0_0_20px_hsl(var(--accent)/0.6)]"
       >
         <span className="relative z-10 flex items-center gap-2 whitespace-nowrap drop-shadow-sm">
           <span className="hidden sm:inline">Agendar Avaliação</span>
           <span className="sm:hidden">Agendar</span>
         </span>
-        <div className="absolute inset-0 bg-primary/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]" />
+        <div className="absolute inset-0 bg-primary/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out" />
       </button>
     </nav>
   );

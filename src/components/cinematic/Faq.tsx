@@ -24,7 +24,7 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
             </button>
             <div
                 ref={contentRef}
-                className="transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+                className="transition-all duration-500 ease-in-out"
                 style={{
                     maxHeight: isOpen ? contentRef.current?.scrollHeight + 'px' : '0px',
                     opacity: isOpen ? 1 : 0,
