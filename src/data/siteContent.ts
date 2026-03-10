@@ -65,11 +65,11 @@ export const clinic = {
     editorial: "/media/editorial.png",
     results: {
       midface:
-        "https://images.pexels.com/photos/3764011/pexels-photo-3764011.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=900",
+        "https://images.pexels.com/photos/6567969/pexels-photo-6567969.jpeg?cs=srgb&dl=pexels-cottonbro-6567969.jpg&fm=jpg",
       lips:
-        "https://images.pexels.com/photos/3373740/pexels-photo-3373740.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=900",
+        "https://images.pexels.com/photos/7479590/pexels-photo-7479590.jpeg?cs=srgb&dl=pexels-angela-roma-7479590.jpg&fm=jpg",
       skin:
-        "https://images.pexels.com/photos/7755653/pexels-photo-7755653.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=900",
+        "https://images.pexels.com/photos/7479594/pexels-photo-7479594.jpeg?cs=srgb&dl=pexels-angela-roma-7479594.jpg&fm=jpg",
     },
   },
   stats: [

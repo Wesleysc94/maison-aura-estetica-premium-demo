@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import {
-  CalendarClock,
-  ChevronRight,
   Clock3,
   Instagram,
   MapPin,
@@ -102,55 +100,6 @@ function Footer() {
   );
 }
 
-function StickyActions() {
-  return (
-    <>
-      <motion.a
-        href={clinic.whatsapp}
-        target="_blank"
-        rel="noreferrer"
-        whileHover={{ y: -4 }}
-        className="site-shell-fab group fixed bottom-24 right-5 z-40 hidden items-center gap-2 rounded-full border border-border/70 bg-background/88 px-4 py-3 text-sm font-semibold text-primary shadow-[0_22px_55px_-28px_rgba(111,72,90,0.26)] backdrop-blur-xl sm:flex"
-      >
-        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#25D366] text-white">
-          <Phone className="h-4 w-4" />
-        </span>
-        Falar
-        <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-      </motion.a>
-
-      <div className="fixed bottom-3 left-4 right-4 z-30 sm:left-1/2 sm:right-auto sm:w-[min(960px,calc(100%-2rem))] sm:-translate-x-1/2">
-        <div className="site-shell-sticky rounded-[2rem] border border-border/70 bg-background/84 px-4 py-3 shadow-[0_22px_88px_-44px_rgba(111,72,90,0.24)] backdrop-blur-2xl">
-          <div className="mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/55">
-                Agendamento discreto
-              </p>
-              <p className="hidden text-sm text-primary/70 sm:block">
-                Consulta estrategica com horario reservado, orientacao clara e contato facilitado.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              <Link to="/contato" className="premium-button button-shimmer flex-1 justify-center sm:flex-none">
-                <CalendarClock className="h-4 w-4" />
-                Agendar avaliacao
-              </Link>
-              <a
-                href={clinic.whatsapp}
-                target="_blank"
-                rel="noreferrer"
-                className="premium-button-secondary button-shimmer flex-1 justify-center sm:flex-none"
-              >
-                Falar no WhatsApp
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
-
 export function SiteChrome() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
@@ -162,9 +111,6 @@ export function SiteChrome() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background text-primary">
-      <div className="ambient-orb left-[-10rem] top-[-4rem] h-96 w-96 bg-[radial-gradient(circle_at_center,rgba(220,174,192,0.28),transparent_70%)]" />
-      <div className="ambient-orb right-[-10rem] top-[18rem] h-[28rem] w-[28rem] bg-[radial-gradient(circle_at_center,rgba(228,198,177,0.18),transparent_72%)]" />
-
       <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8">
         <div className="site-shell-header mx-auto flex max-w-6xl items-center justify-between rounded-[2rem] border border-border/70 bg-background/82 px-5 py-3 shadow-[0_24px_90px_-54px_rgba(111,72,90,0.24)] backdrop-blur-2xl">
           <Link to="/" className="flex items-center gap-3">
@@ -186,7 +132,8 @@ export function SiteChrome() {
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <Link to="/contato" className="premium-button button-shimmer">
+            <ThemeToggle />
+            <Link to="/contato" className="premium-button">
               Agendar consulta
             </Link>
           </div>
@@ -207,9 +154,12 @@ export function SiteChrome() {
               {clinic.nav.map((item) => (
                 <HeaderLink key={item.href} href={item.href} label={item.label} />
               ))}
-              <Link to="/contato" className="premium-button button-shimmer mt-2 justify-center">
-                Agendar consulta
-              </Link>
+              <div className="mt-2 flex items-center gap-3">
+                <ThemeToggle />
+                <Link to="/contato" className="premium-button flex-1 justify-center">
+                  Agendar consulta
+                </Link>
+              </div>
             </div>
           </div>
         )}
@@ -222,8 +172,6 @@ export function SiteChrome() {
       </AnimatePresence>
 
       <Footer />
-      <ThemeToggle />
-      <StickyActions />
     </div>
   );
 }

@@ -8,7 +8,7 @@ type RevealProps = HTMLMotionProps<"div"> & {
 export function Reveal({
   children,
   delay = 0,
-  y = 28,
+  y = 18,
   viewport = { once: true, amount: 0.25 },
   transition,
   ...props
@@ -19,7 +19,7 @@ export function Reveal({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={viewport}
       transition={{
-        duration: 0.7,
+        duration: 0.55,
         ease: [0.22, 1, 0.36, 1],
         delay,
         ...transition,

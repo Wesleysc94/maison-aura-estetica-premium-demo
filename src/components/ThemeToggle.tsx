@@ -1,15 +1,21 @@
 import { MoonStar, SunMedium } from "lucide-react";
 
+import { cn } from "@/lib/utils";
+
 import { useTheme } from "./theme-context";
 
-export const ThemeToggle = () => {
+export const ThemeToggle = ({ className }: { className?: string }) => {
   const { theme, setTheme } = useTheme();
 
   return (
     <button
       onClick={() => setTheme(theme === "clinic" ? "luxury" : "clinic")}
-      className="theme-fab fixed bottom-24 left-5 z-40 hidden h-12 w-12 items-center justify-center rounded-full border border-border/70 bg-background/90 text-primary shadow-[0_20px_55px_-30px_rgba(90,70,58,0.28)] backdrop-blur-xl transition duration-500 hover:-translate-y-0.5 sm:flex"
+      className={cn(
+        "theme-fab inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-background text-primary shadow-[0_16px_40px_-28px_rgba(90,70,58,0.22)] transition duration-300 hover:bg-card",
+        className,
+      )}
       aria-label="Alternar tema"
+      type="button"
     >
       {theme === "clinic" ? (
         <MoonStar className="h-5 w-5" />
