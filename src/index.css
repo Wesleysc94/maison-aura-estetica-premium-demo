@@ -6,67 +6,67 @@
 
 @layer base {
   :root {
-    --background: 350 20% 98%;
-    --foreground: 340 30% 15%;
+    --background: 345 30% 98%;
+    --foreground: 345 40% 15%;
 
-    --primary: 340 30% 15%;
-    --primary-foreground: 350 20% 98%;
+    --primary: 345 60% 50%;
+    --primary-foreground: 345 30% 98%;
 
-    --accent: 350 30% 75%;
-    --accent-foreground: 340 30% 15%;
+    --accent: 345 40% 80%;
+    --accent-foreground: 345 40% 15%;
 
-    --card: 350 20% 98%;
-    --card-foreground: 340 30% 15%;
+    --card: 345 30% 98%;
+    --card-foreground: 345 40% 15%;
 
-    --popover: 350 20% 98%;
-    --popover-foreground: 340 30% 15%;
+    --popover: 345 30% 98%;
+    --popover-foreground: 345 40% 15%;
 
-    --secondary: 350 15% 90%;
-    --secondary-foreground: 340 30% 15%;
+    --secondary: 345 20% 93%;
+    --secondary-foreground: 345 40% 15%;
 
-    --muted: 350 15% 93%;
-    --muted-foreground: 340 15% 45%;
+    --muted: 345 20% 95%;
+    --muted-foreground: 345 15% 45%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 350 20% 86%;
-    --input: 350 20% 86%;
-    --ring: 350 30% 75%;
+    --border: 345 20% 90%;
+    --input: 345 20% 90%;
+    --ring: 345 60% 50%;
 
-    --cream: 350 20% 96%;
-    --dark: 340 30% 15%;
+    --cream: 345 30% 97%;
+    --dark: 345 40% 12%;
     --radius: 1.75rem;
   }
 
   [data-theme="luxury"] {
-    --background: 340 35% 8%;
-    --foreground: 350 20% 93%;
+    --background: 345 35% 8%;
+    --foreground: 345 20% 93%;
 
-    --primary: 350 20% 93%;
-    --primary-foreground: 340 35% 8%;
+    --primary: 345 30% 90%;
+    --primary-foreground: 345 35% 8%;
 
-    --accent: 350 30% 65%;
-    --accent-foreground: 340 35% 8%;
+    --accent: 345 40% 65%;
+    --accent-foreground: 345 35% 8%;
 
-    --cream: 350 15% 90%;
-    --dark: 340 35% 6%;
+    --cream: 345 20% 92%;
+    --dark: 345 40% 6%;
 
-    --card: 340 30% 12%;
-    --card-foreground: 350 20% 93%;
+    --card: 345 30% 12%;
+    --card-foreground: 345 20% 93%;
 
-    --popover: 340 30% 12%;
-    --popover-foreground: 350 20% 93%;
+    --popover: 345 30% 12%;
+    --popover-foreground: 345 20% 93%;
 
-    --secondary: 340 25% 16%;
-    --secondary-foreground: 350 20% 93%;
+    --secondary: 345 25% 16%;
+    --secondary-foreground: 345 20% 93%;
 
-    --muted: 340 25% 16%;
-    --muted-foreground: 350 15% 70%;
+    --muted: 345 25% 18%;
+    --muted-foreground: 345 15% 70%;
 
-    --border: 340 20% 22%;
-    --input: 340 20% 22%;
-    --ring: 350 30% 65%;
+    --border: 345 20% 22%;
+    --input: 345 20% 22%;
+    --ring: 345 40% 65%;
   }
 }
 
@@ -80,10 +80,10 @@
     @apply bg-background text-foreground antialiased selection:bg-accent selection:text-primary;
     font-family: 'Manrope', sans-serif;
     background-image:
-      radial-gradient(circle at top left, hsl(350 30% 85% / 0.15), transparent 30%),
-      radial-gradient(circle at top right, hsl(350 20% 80% / 0.1), transparent 26%),
-      radial-gradient(circle at 50% 18%, hsl(350 20% 96% / 0.96), transparent 42%),
-      linear-gradient(180deg, hsl(350 20% 98%), hsl(350 20% 96% / 0.92));
+      radial-gradient(circle at top left, hsl(345 30% 85% / 0.15), transparent 30%),
+      radial-gradient(circle at top right, hsl(345 20% 80% / 0.1), transparent 26%),
+      radial-gradient(circle at 50% 18%, hsl(345 20% 96% / 0.96), transparent 42%),
+      linear-gradient(180deg, hsl(345 20% 98%), hsl(345 20% 96% / 0.92));
   }
 
   h1,
