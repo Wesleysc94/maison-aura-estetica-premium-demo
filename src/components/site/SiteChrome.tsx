@@ -100,6 +100,38 @@ function Footer() {
   );
 }
 
+function FloatingWhatsApp() {
+  return (
+    <motion.a
+      href={clinic.whatsapp}
+      target="_blank"
+      rel="noreferrer"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{
+        opacity: 1,
+        y: [0, -4, 0],
+        boxShadow: [
+          "0 18px 40px -24px rgba(18, 143, 79, 0.26)",
+          "0 24px 54px -22px rgba(18, 143, 79, 0.42)",
+          "0 18px 40px -24px rgba(18, 143, 79, 0.26)",
+        ],
+      }}
+      transition={{
+        opacity: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+        y: { duration: 2.8, repeat: Infinity, ease: "easeInOut" },
+        boxShadow: { duration: 2.8, repeat: Infinity, ease: "easeInOut" },
+      }}
+      whileHover={{ y: -3, scale: 1.02 }}
+      className="site-shell-fab fixed bottom-6 right-6 z-40 inline-flex items-center gap-3 rounded-full border border-white/20 bg-[rgba(20,20,20,0.84)] px-4 py-3 text-sm font-semibold text-white backdrop-blur-xl"
+    >
+      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366] text-white">
+        <Phone className="h-5 w-5" />
+      </span>
+      WhatsApp
+    </motion.a>
+  );
+}
+
 export function SiteChrome() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
@@ -172,6 +204,7 @@ export function SiteChrome() {
       </AnimatePresence>
 
       <Footer />
+      <FloatingWhatsApp />
     </div>
   );
 }

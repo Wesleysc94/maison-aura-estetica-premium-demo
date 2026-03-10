@@ -109,6 +109,10 @@
     box-shadow:
       0 24px 60px -42px rgba(126, 73, 95, 0.16),
       inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    transition:
+      transform 0.28s ease,
+      box-shadow 0.28s ease,
+      border-color 0.28s ease;
   }
 
   .glass-panel {
@@ -116,6 +120,10 @@
     box-shadow:
       0 18px 48px -36px rgba(124, 75, 94, 0.14),
       inset 0 1px 0 rgba(255, 255, 255, 0.76);
+    transition:
+      transform 0.28s ease,
+      box-shadow 0.28s ease,
+      border-color 0.28s ease;
   }
 
   .rose-panel {
@@ -155,7 +163,7 @@
 
   .premium-button:hover,
   .premium-button-secondary:hover {
-    transform: none;
+    transform: translateY(-2px);
   }
 
   .premium-button.light {
@@ -171,7 +179,7 @@
   }
 
   .premium-button-secondary.dark {
-    @apply border-white/10 bg-white/10 text-background;
+    @apply border-white/20 bg-white/[0.08] text-primary-foreground;
   }
 
   .input-surface {
@@ -185,9 +193,9 @@
   }
 
   .interactive-card:hover {
-    transform: none;
+    transform: translateY(-4px);
     box-shadow:
-      0 24px 60px -42px rgba(126, 73, 95, 0.16),
+      0 28px 64px -38px rgba(126, 73, 95, 0.2),
       inset 0 1px 0 rgba(255, 255, 255, 0.74);
   }
 
@@ -263,6 +271,10 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
+[data-theme="luxury"] .premium-button-secondary.dark {
+  @apply border-white/20 bg-white/[0.08] text-white;
+}
+
 [data-theme="luxury"] .input-surface {
   @apply border-white/10 bg-white/[0.05] text-foreground placeholder:text-foreground/40;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
@@ -287,6 +299,12 @@ body {
 [data-theme="luxury"] .site-nav-link-active {
   background: rgba(255, 255, 255, 0.06);
   color: hsl(var(--foreground));
+}
+
+[data-theme="luxury"] .interactive-card:hover {
+  box-shadow:
+    0 32px 72px -42px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .card-surface::before,

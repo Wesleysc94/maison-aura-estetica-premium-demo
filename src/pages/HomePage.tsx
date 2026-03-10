@@ -45,13 +45,13 @@ export default function HomePage() {
             <span className="luxury-chip">Atendimento com hora marcada</span>
           </Reveal>
 
-          <div className="grid gap-10 lg:grid-cols-[0.88fr,1.12fr] lg:items-center">
+          <div className="grid gap-12 xl:grid-cols-[0.78fr,1.22fr] xl:items-center">
             <Reveal className="space-y-8">
               <div className="space-y-5">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-primary/55">
                   Clinica de estetica facial no Jardins
                 </p>
-                <h1 className="max-w-[10ch] font-display text-5xl leading-[0.94] text-primary sm:text-6xl lg:text-[4.8rem]">
+                <h1 className="max-w-[8.5ch] font-display text-5xl leading-[0.98] text-primary sm:text-6xl xl:text-[4.45rem]">
                   Cuidado facial com naturalidade, tecnica e um plano feito para voce.
                 </h1>
                 <p className="max-w-xl text-lg leading-8 text-primary/78">
@@ -92,33 +92,53 @@ export default function HomePage() {
               </div>
             </Reveal>
 
-            <Reveal delay={0.08} className="card-surface overflow-hidden p-3 sm:p-4">
-              <div className="relative overflow-hidden rounded-[2rem]">
-                <img
-                  src={clinic.media.hero}
-                  alt="Atendimento de estetica facial em ambiente acolhedor"
-                  className="h-[560px] w-full object-cover object-[center_24%]"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(24,14,18,0.06),rgba(24,14,18,0.48))]" />
-                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8">
-                  <div className="max-w-[31rem] rounded-[1.6rem] border border-white/20 bg-[rgba(38,21,28,0.72)] p-6 text-white backdrop-blur-sm">
-                    <p className="text-[10px] uppercase tracking-[0.28em] text-white/72">
-                      Consulta personalizada
-                    </p>
-                    <p className="mt-3 font-display text-4xl leading-[0.96] sm:text-[3rem]">
-                      Planejamento facial com criterio, leveza e foco na naturalidade.
-                    </p>
-                    <p className="mt-4 text-sm leading-7 text-white/82">
-                      Atendimento reservado para quem busca suavizar sinais, melhorar a
-                      qualidade da pele e manter uma aparencia elegante, sem excessos.
-                    </p>
+            <Reveal delay={0.08} className="space-y-4">
+              <div className="card-surface overflow-hidden p-3 sm:p-4">
+                <div className="overflow-hidden rounded-[2rem]">
+                  <img
+                    src={clinic.media.hero}
+                    alt="Atendimento de estetica facial em ambiente acolhedor"
+                    className="h-[560px] w-full object-cover object-[center_22%]"
+                  />
+                </div>
+              </div>
+
+              <div className="grid gap-4 lg:grid-cols-[1.15fr,0.85fr]">
+                <div className="glass-panel p-6">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-primary/50">
+                    Consulta personalizada
+                  </p>
+                  <h2 className="mt-4 font-display text-4xl leading-[0.98] text-primary">
+                    Planejamento facial com criterio, leveza e foco na naturalidade.
+                  </h2>
+                  <p className="mt-4 text-sm leading-7 text-primary/76">
+                    Atendimento reservado para quem busca suavizar sinais, melhorar a qualidade
+                    da pele e manter uma aparencia elegante, sem excessos.
+                  </p>
+                </div>
+
+                <div className="glass-panel p-6">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-primary/50">
+                    O que orienta a indicacao
+                  </p>
+                  <div className="mt-4 space-y-3">
+                    {[
+                      "Anatomia e qualidade da pele",
+                      "Rotina, objetivos e tempo de recuperacao",
+                      "Evolucao gradual e expectativa realista",
+                    ].map((item) => (
+                      <div key={item} className="flex gap-3 rounded-[1.2rem] border border-border/70 bg-background/75 px-4 py-3">
+                        <span className="mt-1 h-2.5 w-2.5 rounded-full bg-accent" />
+                        <p className="text-sm leading-6 text-primary/78">{item}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
             </Reveal>
           </div>
 
-          <div className="mt-8 grid gap-5 xl:grid-cols-[0.9fr,1.1fr]">
+          <div className="mt-10 space-y-5">
             <div className="grid gap-4 sm:grid-cols-3">
               {clinic.stats.map((item, index) => (
                 <Reveal key={item.label} delay={0.05 * index} className="card-surface rounded-[1.85rem] p-5">
@@ -182,7 +202,7 @@ export default function HomePage() {
               <Reveal
                 key={treatment.slug}
                 delay={index * 0.05}
-                className="card-surface p-6"
+                className="card-surface interactive-card p-6"
               >
                 <div className="flex items-center justify-between">
                   <span className="rounded-full bg-primary/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary/60">
@@ -281,7 +301,7 @@ export default function HomePage() {
               <Reveal
                 key={item.title}
                 delay={index * 0.06}
-                className="card-surface p-6"
+                className="card-surface interactive-card p-6"
               >
                 <div className="flex items-start gap-4">
                   <div className="flex h-11 w-11 items-center justify-center rounded-full bg-accent/10 text-accent">
@@ -386,7 +406,7 @@ export default function HomePage() {
               <Reveal
                 key={testimonial.name}
                 delay={index * 0.06}
-                className="card-surface p-6"
+                className="card-surface interactive-card p-6"
               >
                 <div className="flex items-center gap-2 text-accent">
                   <Star className="h-4 w-4 fill-current" />
@@ -451,7 +471,7 @@ export default function HomePage() {
 
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {latestPosts.map((post, index) => (
-              <Reveal key={post.slug} delay={index * 0.06} className="card-surface p-6">
+              <Reveal key={post.slug} delay={index * 0.06} className="card-surface interactive-card p-6">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary/50">
                   {post.category} . {post.readTime}
                 </p>
@@ -473,29 +493,29 @@ export default function HomePage() {
       </section>
 
       <section className="px-6 py-14 sm:px-8 lg:px-12">
-        <Reveal className="mx-auto max-w-6xl rounded-[2.4rem] border border-primary/10 bg-primary px-8 py-10 text-background shadow-[0_40px_120px_-62px_rgba(62,52,46,1)] sm:px-10 md:py-12">
+        <Reveal className="mx-auto max-w-6xl rounded-[2.4rem] border border-[#7d5a6a]/35 bg-[linear-gradient(135deg,#563445,#694356)] px-8 py-10 text-white shadow-[0_40px_120px_-62px_rgba(41,21,30,0.75)] sm:px-10 md:py-12">
           <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr] lg:items-center">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-background/55">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-white/55">
                 CTA final
               </p>
               <h2 className="mt-4 font-display text-4xl leading-[0.95] sm:text-5xl lg:text-6xl">
                 Agende uma avaliacao e descubra um plano facial desenhado para voce.
               </h2>
-              <p className="mt-5 max-w-2xl text-base leading-8 text-background/75">
+              <p className="mt-5 max-w-2xl text-base leading-8 text-white/76">
                 Atendimento com horario marcado, experiencia boutique e orientacao
                 clara desde o primeiro contato.
               </p>
             </div>
-            <div className="space-y-4">
-              <Link to="/contato" className="premium-button light justify-center">
+            <div className="flex flex-col gap-4 sm:max-w-[18rem]">
+              <Link to="/contato" className="premium-button light w-full justify-center">
                 Solicitar avaliacao
               </Link>
               <a
                 href={clinic.instagram}
                 target="_blank"
                 rel="noreferrer"
-                className="premium-button-secondary dark justify-center"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-7 py-4 text-sm font-semibold text-white shadow-[0_18px_38px_-28px_rgba(14,8,11,0.34)] transition hover:-translate-y-0.5 hover:bg-white/15"
               >
                 <Instagram className="h-4 w-4" />
                 Ver Instagram da clinica

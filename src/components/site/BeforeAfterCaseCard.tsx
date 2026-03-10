@@ -62,7 +62,7 @@ export function BeforeAfterCaseCard({
   compact?: boolean;
 }) {
   return (
-    <article className={cn("card-surface overflow-hidden p-5 sm:p-6", compact ? "h-full" : "h-full")}>
+    <article className={cn("card-surface interactive-card overflow-hidden p-5 sm:p-6", compact ? "h-full" : "h-full")}>
       <div className={cn("grid gap-3", compact ? "md:grid-cols-2" : "grid-cols-2")}>
         <VisualPanel variant={item.variant} state="before" label={item.beforeLabel} />
         <VisualPanel variant={item.variant} state="after" label={item.afterLabel} />
