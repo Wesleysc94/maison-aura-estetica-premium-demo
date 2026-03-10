@@ -115,11 +115,17 @@
   }
 
   .card-surface {
-    @apply relative rounded-[2rem] border border-border/50 bg-card/70 shadow-[0_32px_110px_-56px_rgba(111, 72, 90, 0.45)] backdrop-blur-xl transition-[transform, box-shadow, border-color, background-color] duration-500 border-white/20;
+    @apply relative rounded-[2rem] border border-border/50 bg-card/70 backdrop-blur-xl transition-all duration-500 border-white/20;
+    box-shadow: 0 32px 110px -56px rgba(111, 72, 90, 0.45);
   }
 
   .premium-button {
-    @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-[0_18px_55px_-24px_rgba(89, 54, 71, 0.72)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_60px_-24px_rgba(89, 54, 71, 0.82)];
+    @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition duration-300 hover:-translate-y-1;
+    box-shadow: 0 18px 55px -24px rgba(89, 54, 71, 0.72);
+  }
+
+  .premium-button:hover {
+    box-shadow: 0 22px 60px -24px rgba(89, 54, 71, 0.82);
   }
 
   .premium-button.light {
@@ -127,7 +133,8 @@
   }
 
   .premium-button-secondary {
-    @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-primary/10 bg-white/80 px-6 py-3.5 text-sm font-semibold text-primary shadow-[0_18px_50px_-32px_rgba(111, 72, 90, 0.35)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white;
+    @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-primary/10 bg-white/80 px-6 py-3.5 text-sm font-semibold text-primary backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white;
+    box-shadow: 0 18px 50px -32px rgba(111, 72, 90, 0.35);
   }
 
   .premium-button-secondary.dark {
@@ -144,7 +151,8 @@
   }
 
   .glass-panel {
-    @apply relative overflow-hidden rounded-[1.7rem] border border-border/50 bg-card/50 shadow-[0_24px_70px_-48px_rgba(111, 72, 90, 0.36)] backdrop-blur-xl transition duration-500 border-white/10;
+    @apply relative overflow-hidden rounded-[1.7rem] border border-border/50 bg-card/50 backdrop-blur-xl transition duration-500 border-white/10;
+    box-shadow: 0 24px 70px -48px rgba(111, 72, 90, 0.36);
   }
 
   .interactive-card:hover {
@@ -175,11 +183,13 @@ body {
 }
 
 [data-theme="luxury"] .card-surface {
-  @apply border-white/5 bg-card/40 shadow-[0_38px_120px_-64px_rgba(0, 0, 0, 0.8)];
+  @apply border-white/5 bg-card/40;
+  box-shadow: 0 38px 120px -64px rgba(0, 0, 0, 0.8);
 }
 
 [data-theme="luxury"] .glass-panel {
-  @apply border-white/5 bg-card/30 shadow-[0_30px_100px_-62px_rgba(0, 0, 0, 0.8)];
+  @apply border-white/5 bg-card/30;
+  box-shadow: 0 30px 100px -62px rgba(0, 0, 0, 0.8);
 }
 
 .card-surface::before,
