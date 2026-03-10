@@ -3,11 +3,12 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.warn('Supabase credentials missing. Data will remain static.');
+export const hasSupabaseConfig = Boolean(supabaseUrl && supabaseAnonKey);
+
+if (!hasSupabaseConfig) {
+  console.warn('Supabase credentials missing. Falling back to static content.');
 }
 
-export const supabase = createClient(
-  supabaseUrl || '',
-  supabaseAnonKey || ''
-);
+export const supabase = hasSupabaseConfig
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : null;

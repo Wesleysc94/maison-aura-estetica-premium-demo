@@ -6,6 +6,10 @@ export const useBlogPosts = () => {
     return useQuery({
         queryKey: ['blog-posts'],
         queryFn: async () => {
+            if (!supabase) {
+                return staticPosts;
+            }
+
             const { data, error } = await supabase
                 .from('blog_posts')
                 .select('*')
@@ -25,6 +29,10 @@ export const useBlogPost = (slug: string) => {
     return useQuery({
         queryKey: ['blog-post', slug],
         queryFn: async () => {
+            if (!supabase) {
+                return staticPosts.find(p => p.slug === slug);
+            }
+
             const { data, error } = await supabase
                 .from('blog_posts')
                 .select('*')

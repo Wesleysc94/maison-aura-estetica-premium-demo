@@ -19,6 +19,14 @@ export default function ContactPage() {
       message: formData.get("message") as string,
     };
 
+    if (!supabase) {
+      toast.success("Solicitacao registrada localmente", {
+        description: "O site esta sem banco conectado no momento. Use o WhatsApp para concluir o atendimento agora.",
+      });
+      (event.target as HTMLFormElement).reset();
+      return;
+    }
+
     const { error } = await supabase.from("leads").insert(data);
 
     if (error) {

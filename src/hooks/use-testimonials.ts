@@ -6,6 +6,10 @@ export const useTestimonials = () => {
     return useQuery({
         queryKey: ['testimonials'],
         queryFn: async () => {
+            if (!supabase) {
+                return clinic.testimonials;
+            }
+
             const { data, error } = await supabase
                 .from('testimonials')
                 .select('*')

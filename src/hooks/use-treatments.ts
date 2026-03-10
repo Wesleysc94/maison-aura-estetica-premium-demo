@@ -6,6 +6,10 @@ export const useTreatments = () => {
     return useQuery({
         queryKey: ['treatments'],
         queryFn: async () => {
+            if (!supabase) {
+                return staticTreatments;
+            }
+
             const { data, error } = await supabase
                 .from('treatments')
                 .select('*')
@@ -28,6 +32,10 @@ export const useTreatment = (slug: string) => {
     return useQuery({
         queryKey: ['treatment', slug],
         queryFn: async () => {
+            if (!supabase) {
+                return staticTreatments.find(t => t.slug === slug);
+            }
+
             const { data, error } = await supabase
                 .from('treatments')
                 .select('*')
