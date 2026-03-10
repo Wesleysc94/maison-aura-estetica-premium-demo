@@ -102,7 +102,7 @@ function VisualPanel({
         {state === "before" ? "Antes" : "Depois"}
       </div>
 
-      <div className="absolute bottom-3 left-3 right-3 rounded-[1.1rem] border border-white/35 bg-white/20 p-3 text-white backdrop-blur-md">
+      <div className="absolute bottom-3 left-3 right-3 rounded-[1.1rem] border border-white/20 bg-card/20 p-3 text-primary-foreground backdrop-blur-md">
         <p className="text-[10px] uppercase tracking-[0.26em] text-white/70">
           {label}
         </p>

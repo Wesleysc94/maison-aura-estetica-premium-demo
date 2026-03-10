@@ -40,7 +40,7 @@ export default function AboutPage() {
                 className="h-[560px] w-full object-cover object-[center_18%]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,52,46,0.05),rgba(62,52,46,0.42))]" />
-              <div className="absolute bottom-6 left-6 right-6 rounded-[1.6rem] border border-white/25 bg-white/20 p-5 text-white backdrop-blur">
+              <div className="absolute bottom-6 left-6 right-6 rounded-[1.6rem] border border-white/20 bg-card/20 p-5 text-primary-foreground backdrop-blur">
                 <p className="text-xs uppercase tracking-[0.3em] text-white/70">Fundadora</p>
                 <h2 className="mt-3 font-display text-4xl">Dra. Helena Voss</h2>
                 <p className="mt-3 text-sm leading-7 text-white/80">

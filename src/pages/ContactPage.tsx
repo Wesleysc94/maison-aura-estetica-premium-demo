@@ -5,13 +5,34 @@ import { toast } from "sonner";
 import { clinic } from "@/data/siteContent";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
+import { supabase } from "@/integrations/supabase/client";
 
 export default function ContactPage() {
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    toast.success("Solicitacao enviada.", {
-      description: "Fluxo demonstrativo concluido. O proximo passo seria integrar CRM ou WhatsApp.",
+    const formData = new FormData(event.currentTarget);
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      phone: formData.get("phone") as string,
+      treatment_interest: formData.get("treatment") as string,
+      message: formData.get("message") as string,
+    };
+
+    const { error } = await supabase.from("leads").insert(data);
+
+    if (error) {
+      console.error("Error saving lead:", error);
+      toast.error("Erro ao enviar solicitacao", {
+        description: "Nao foi possivel salvar seus dados. Tente novamente via WhatsApp.",
+      });
+      return;
+    }
+
+    toast.success("Solicitacao enviada!", {
+      description: "Recebemos seus dados e entraremos em contato em breve.",
     });
+    (event.target as HTMLFormElement).reset();
   };
 
   return (
@@ -32,21 +53,21 @@ export default function ContactPage() {
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="space-y-2">
                   <span className="text-sm font-medium text-primary/70">Nome</span>
-                  <input className="input-surface" type="text" placeholder="Seu nome" required />
+                  <input className="input-surface" name="name" type="text" placeholder="Seu nome" required />
                 </label>
                 <label className="space-y-2">
                   <span className="text-sm font-medium text-primary/70">Telefone</span>
-                  <input className="input-surface" type="tel" placeholder="(11) 99999-9999" required />
+                  <input className="input-surface" name="phone" type="tel" placeholder="(11) 99999-9999" required />
                 </label>
               </div>
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="space-y-2">
                   <span className="text-sm font-medium text-primary/70">E-mail</span>
-                  <input className="input-surface" type="email" placeholder="voce@email.com" />
+                  <input className="input-surface" name="email" type="email" placeholder="voce@email.com" />
                 </label>
                 <label className="space-y-2">
                   <span className="text-sm font-medium text-primary/70">Procedimento de interesse</span>
-                  <select className="input-surface" defaultValue="">
+                  <select className="input-surface" name="treatment" defaultValue="">
                     <option value="" disabled>
                       Selecionar
                     </option>
@@ -62,6 +83,7 @@ export default function ContactPage() {
                 <span className="text-sm font-medium text-primary/70">O que voce deseja melhorar?</span>
                 <textarea
                   className="input-surface min-h-[148px] resize-none"
+                  name="message"
                   placeholder="Conte brevemente o que voce busca e se ha alguma data importante no seu calendario."
                 />
               </label>

@@ -27,7 +27,7 @@ export function SectionIntro({
     >
       <div
         className={cn(
-          "inline-flex items-center gap-3 rounded-full border border-primary/10 bg-white/70 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70 shadow-[0_20px_60px_-40px_rgba(90,70,58,0.55)] backdrop-blur",
+          "inline-flex items-center gap-3 rounded-full border border-primary/10 bg-card/70 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70 shadow-[0_20px_60px_-40px_rgba(90,70,58,0.55)] backdrop-blur",
           centered && "mx-auto",
         )}
       >

@@ -10,7 +10,7 @@ const NotFound = () => {
 
   return (
     <div className="px-6 pb-28 pt-36 sm:px-8 lg:px-12">
-      <div className="mx-auto max-w-3xl rounded-[2rem] border border-primary/10 bg-white/80 p-10 text-center shadow-[0_30px_120px_-60px_rgba(90,70,58,0.45)]">
+      <div className="mx-auto max-w-3xl rounded-[2rem] border border-primary/10 bg-card/80 p-10 text-center shadow-[0_30px_120px_-60px_rgba(90,70,58,0.45)]">
         <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-primary/50">
           404
         </p>

@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 
-import { clinic, treatments } from "@/data/siteContent";
+import { clinic, treatments as staticTreatments } from "@/data/siteContent";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionIntro } from "@/components/site/SectionIntro";
+import { useTreatments } from "@/hooks/use-treatments";
 
 export default function TreatmentsPage() {
+  const { data: treatments = staticTreatments } = useTreatments();
   return (
     <div className="pb-10">
       <PageHero

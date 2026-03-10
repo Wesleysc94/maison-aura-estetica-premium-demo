@@ -24,11 +24,17 @@ import {
 import { BeforeAfterCaseCard } from "@/components/site/BeforeAfterCaseCard";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionIntro } from "@/components/site/SectionIntro";
-
-const featuredTreatments = treatments.slice(0, 6);
-const latestPosts = blogPosts.slice(0, 3);
+import { useTreatments } from "@/hooks/use-treatments";
+import { useBlogPosts } from "@/hooks/use-blog";
+import { useTestimonials } from "@/hooks/use-testimonials";
 
 export default function HomePage() {
+  const { data: treatmentsData = treatments } = useTreatments();
+  const { data: blogData = blogPosts } = useBlogPosts();
+  const { data: testimonialsData = clinic.testimonials } = useTestimonials();
+
+  const featuredTreatments = treatmentsData.slice(0, 6);
+  const latestPosts = blogData.slice(0, 3);
   return (
     <div className="pb-10">
       <section className="relative overflow-hidden px-6 pb-16 pt-32 sm:px-8 lg:px-12 lg:pt-36">
@@ -39,7 +45,7 @@ export default function HomePage() {
             <motion.span
               animate={{ y: [0, -3, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="inline-flex items-center gap-3 rounded-full border border-primary/10 bg-white/75 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70 shadow-[0_24px_60px_-40px_rgba(102,67,82,0.4)] backdrop-blur"
+              className="inline-flex items-center gap-3 rounded-full border border-primary/10 bg-card/75 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70 shadow-[0_24px_60px_-40px_rgba(102,67,82,0.4)] backdrop-blur"
             >
               <Sparkles className="h-3.5 w-3.5 text-accent" />
               {clinic.badge}
@@ -128,7 +134,7 @@ export default function HomePage() {
             <motion.div
               animate={{ y: [0, -14, 0], x: [0, 6, 0] }}
               transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -left-10 top-14 z-10 hidden w-52 rounded-[1.5rem] border border-white/65 bg-white/80 p-4 shadow-[0_30px_80px_-48px_rgba(95,54,78,0.45)] backdrop-blur xl:block"
+              className="absolute -left-10 top-14 z-10 hidden w-52 rounded-[1.5rem] border border-border/50 bg-card/80 p-4 shadow-[0_30px_80px_-48px_rgba(95,54,78,0.45)] backdrop-blur xl:block"
             >
               <p className="text-[10px] uppercase tracking-[0.28em] text-primary/50">
                 Assinatura Maison Aura
@@ -157,7 +163,7 @@ export default function HomePage() {
 
                   <motion.div
                     whileHover={{ y: -4 }}
-                    className="absolute right-4 top-4 hidden max-w-[17rem] rounded-[1.55rem] border border-white/35 bg-white/[0.16] p-4 text-white backdrop-blur-md sm:block"
+                    className="absolute right-4 top-4 hidden max-w-[17rem] rounded-[1.55rem] border border-white/25 bg-card/20 p-4 text-primary-foreground backdrop-blur-md sm:block"
                   >
                     <div className="overflow-hidden rounded-[1.2rem] border border-white/20">
                       <img
@@ -188,12 +194,12 @@ export default function HomePage() {
 
                   <motion.div
                     whileHover={{ y: -4 }}
-                    className="absolute bottom-5 right-5 hidden rounded-[1.4rem] border border-white/30 bg-white/20 px-4 py-3 text-white backdrop-blur-md sm:block"
+                    className="absolute bottom-5 right-5 hidden rounded-[1.4rem] border border-white/25 bg-card/20 px-4 py-3 text-primary-foreground backdrop-blur-md sm:block"
                   >
                     <p className="text-[10px] uppercase tracking-[0.28em] text-white/70">
                       Agendamento
                     </p>
-                      <p className="mt-2 text-sm leading-6 text-white/90">
+                    <p className="mt-2 text-sm leading-6 text-white/90">
                       Consulta estrategica com plano facial autoral.
                     </p>
                   </motion.div>
@@ -322,7 +328,7 @@ export default function HomePage() {
                 className="h-[520px] w-full object-cover object-[center_20%]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,52,46,0.02),rgba(62,52,46,0.35))]" />
-              <div className="absolute bottom-5 left-5 rounded-[1.4rem] border border-white/25 bg-white/20 p-4 text-white backdrop-blur-md">
+              <div className="absolute bottom-5 left-5 rounded-[1.4rem] border border-white/20 bg-card/20 p-4 text-primary-foreground backdrop-blur-md">
                 <p className="text-xs uppercase tracking-[0.28em] text-white/75">
                   Especialista
                 </p>
@@ -345,7 +351,7 @@ export default function HomePage() {
               {clinic.certifications.map((item) => (
                 <div
                   key={item}
-                  className="rounded-[1.5rem] border border-primary/10 bg-white/70 p-5 shadow-[0_22px_60px_-46px_rgba(90,70,58,0.55)]"
+                  className="rounded-[1.5rem] border border-primary/10 bg-card/70 p-5 shadow-[0_22px_60px_-46px_rgba(90,70,58,0.55)]"
                 >
                   <div className="flex gap-3">
                     <ShieldCheck className="mt-1 h-5 w-5 text-accent" />
@@ -437,7 +443,7 @@ export default function HomePage() {
               {clinic.highlights.map((item) => (
                 <div
                   key={item}
-                  className="flex gap-3 rounded-[1.5rem] border border-primary/10 bg-white/70 p-4"
+                  className="flex gap-3 rounded-[1.5rem] border border-primary/10 bg-card/70 p-4"
                 >
                   <ChevronRight className="mt-1 h-5 w-5 text-accent" />
                   <p className="text-sm leading-7 text-primary/70">{item}</p>
@@ -454,7 +460,7 @@ export default function HomePage() {
                 className="h-[520px] w-full object-cover object-[center_46%]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,52,46,0.08),rgba(62,52,46,0.45))]" />
-              <div className="absolute bottom-5 left-5 right-5 rounded-[1.5rem] border border-white/25 bg-white/20 p-5 text-white backdrop-blur">
+              <div className="absolute bottom-5 left-5 right-5 rounded-[1.5rem] border border-white/20 bg-card/20 p-5 text-primary-foreground backdrop-blur">
                 <p className="text-xs uppercase tracking-[0.3em] text-white/75">
                   Luxury med spa mood
                 </p>
@@ -477,7 +483,7 @@ export default function HomePage() {
             />
           </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {clinic.testimonials.map((testimonial, index) => (
+            {testimonialsData.map((testimonial, index) => (
               <Reveal
                 key={testimonial.name}
                 delay={index * 0.06}

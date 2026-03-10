@@ -1,9 +1,11 @@
-import { clinic, blogPosts } from "@/data/siteContent";
+import { clinic, blogPosts as staticPosts } from "@/data/siteContent";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionIntro } from "@/components/site/SectionIntro";
+import { useBlogPosts } from "@/hooks/use-blog";
 
 export default function BlogPage() {
+  const { data: blogPosts = staticPosts } = useBlogPosts();
   const featuredPost = blogPosts[0];
   const remainingPosts = blogPosts.slice(1);
 
@@ -40,7 +42,7 @@ export default function BlogPage() {
                 className="h-[360px] w-full object-cover object-[center_32%]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,52,46,0.06),rgba(62,52,46,0.38))]" />
-              <div className="absolute bottom-5 left-5 right-5 rounded-[1.4rem] border border-white/25 bg-white/20 p-5 text-white backdrop-blur">
+              <div className="absolute bottom-5 left-5 right-5 rounded-[1.4rem] border border-white/20 bg-card/20 p-5 text-primary-foreground backdrop-blur">
                 <p className="text-xs uppercase tracking-[0.3em] text-white/75">Editorial premium</p>
                 <p className="mt-3 font-display text-4xl leading-none">Conteudo que educa sem perder desejo.</p>
               </div>

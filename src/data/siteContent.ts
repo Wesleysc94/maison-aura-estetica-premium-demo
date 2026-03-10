@@ -58,16 +58,11 @@ export const clinic = {
     { label: "Contato", href: "/contato" },
   ] satisfies NavItem[],
   media: {
-    hero:
-      "https://images.pexels.com/photos/3764011/pexels-photo-3764011.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=1200",
-    specialist:
-      "https://images.pexels.com/photos/6620985/pexels-photo-6620985.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=1200",
-    consultation:
-      "https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=1200",
-    environment:
-      "https://images.pexels.com/photos/6663574/pexels-photo-6663574.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=1200",
-    editorial:
-      "https://images.pexels.com/photos/7755653/pexels-photo-7755653.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=1600",
+    hero: "/media/hero.png",
+    specialist: "/media/specialist.png",
+    consultation: "/media/environment.png",
+    environment: "/media/environment.png",
+    editorial: "/media/editorial.png",
     results: {
       midface:
         "https://images.pexels.com/photos/3764011/pexels-photo-3764011.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=900",

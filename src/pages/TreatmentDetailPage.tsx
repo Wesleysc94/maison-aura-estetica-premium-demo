@@ -1,18 +1,23 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight, CheckCircle2 } from "lucide-react";
 
-import { clinic, treatments } from "@/data/siteContent";
+import { clinic, treatments as staticTreatments } from "@/data/siteContent";
 import { Reveal } from "@/components/site/Reveal";
+import { useTreatment } from "@/hooks/use-treatments";
 
 export default function TreatmentDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const treatment = treatments.find((item) => item.slug === slug);
+  const { data: treatment, isLoading } = useTreatment(slug || "");
+
+  if (isLoading) {
+    return <div className="min-h-screen bg-background" />;
+  }
 
   if (!treatment) {
     return (
       <div className="px-6 pb-24 pt-36 sm:px-8 lg:px-12">
-        <div className="mx-auto max-w-3xl rounded-[2rem] border border-primary/10 bg-white/80 p-8 text-center shadow-[0_30px_120px_-60px_rgba(90,70,58,0.45)]">
+        <div className="mx-auto max-w-3xl rounded-[2rem] border border-primary/10 bg-card/80 p-8 text-center shadow-[0_30px_120px_-60px_rgba(90,70,58,0.45)]">
           <h1 className="font-display text-5xl text-primary">Tratamento nao encontrado</h1>
           <p className="mt-4 text-base leading-8 text-primary/70">
             O protocolo solicitado nao esta cadastrado nesta demo.
@@ -42,7 +47,7 @@ export default function TreatmentDetailPage() {
 
           <div className="mt-8 grid gap-8 lg:grid-cols-[1.08fr,0.92fr] lg:items-center">
             <Reveal className="space-y-6">
-              <span className="inline-flex items-center gap-3 rounded-full border border-primary/10 bg-white/70 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
+              <span className="inline-flex items-center gap-3 rounded-full border border-primary/10 bg-card/70 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                 {treatment.category}
               </span>
@@ -53,10 +58,10 @@ export default function TreatmentDetailPage() {
                 {treatment.excerpt}
               </p>
               <div className="flex flex-wrap gap-3 text-sm text-primary/60">
-                <span className="rounded-full bg-white/70 px-4 py-2 shadow-[0_18px_50px_-36px_rgba(90,70,58,0.5)]">
+                <span className="rounded-full bg-card/70 px-4 py-2 shadow-[0_18px_50px_-36px_rgba(90,70,58,0.5)]">
                   {treatment.duration}
                 </span>
-                <span className="rounded-full bg-white/70 px-4 py-2 shadow-[0_18px_50px_-36px_rgba(90,70,58,0.5)]">
+                <span className="rounded-full bg-card/70 px-4 py-2 shadow-[0_18px_50px_-36px_rgba(90,70,58,0.5)]">
                   {treatment.recovery}
                 </span>
               </div>
@@ -70,7 +75,7 @@ export default function TreatmentDetailPage() {
                   className="h-[500px] w-full object-cover object-[center_24%]"
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,52,46,0.04),rgba(62,52,46,0.42))]" />
-                <div className="absolute bottom-5 left-5 right-5 rounded-[1.4rem] border border-white/25 bg-white/20 p-5 text-white backdrop-blur">
+                <div className="absolute bottom-5 left-5 right-5 rounded-[1.4rem] border border-white/20 bg-card/20 p-5 text-primary-foreground backdrop-blur">
                   <p className="text-xs uppercase tracking-[0.3em] text-white/75">Maison Aura Protocol</p>
                   <p className="mt-3 font-display text-4xl leading-none">{treatment.name}</p>
                 </div>
