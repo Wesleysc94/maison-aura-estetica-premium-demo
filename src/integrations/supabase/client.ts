@@ -5,7 +5,7 @@ const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 export const hasSupabaseConfig = Boolean(supabaseUrl && supabaseAnonKey);
 
-if (!hasSupabaseConfig) {
+if (!hasSupabaseConfig && import.meta.env.DEV) {
   console.warn('Supabase credentials missing. Falling back to static content.');
 }
 

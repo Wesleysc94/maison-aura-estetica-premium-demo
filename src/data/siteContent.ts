@@ -93,7 +93,7 @@ export const clinic = {
     },
     {
       title: "Planejamento facial estrategico",
-      text: "Indicacao tecnica, combinacao de procedimentos e cronograma coerente com rotina e objetivo estico.",
+      text: "Indicacao tecnica, combinacao de procedimentos e cronograma coerente com rotina e objetivo estetico.",
     },
     {
       title: "Seguranca e previsibilidade",
@@ -258,7 +258,7 @@ export const treatments: Treatment[] = [
   {
     slug: "skinbooster",
     name: "Skinbooster iluminador",
-    category: "Glow e vico controlado",
+    category: "Glow e vitalidade controlada",
     excerpt:
       "Hidratacao injetavel para pele mais luminosa, macia e com textura mais uniforme.",
     idealFor: "Pele opaca, textura irregular e desidratacao fina",
@@ -266,6 +266,7 @@ export const treatments: Treatment[] = [
     recovery: "Leve vermelhidao temporaria",
     benefits: [
       "Aumenta vico e hidratacao profunda",
+      "Aumenta a vitalidade e a hidratacao profunda",
       "Refina a textura e acabamento da pele",
       "Combina muito bem com protocolos de rejuvenescimento",
     ],

@@ -12,8 +12,8 @@ export default function ResultsPage() {
     <div className="pb-10">
       <PageHero
         eyebrow="Antes e depois"
-        title="Resultados apresentados com contexto, seguranca e clareza."
-        description="A area de resultados valoriza leitura facial, naturalidade e transparencia, sem recorrer a apelos exagerados."
+        title="Casos acompanhados com leitura responsavel, clareza e elegancia."
+        description="A area de resultados valoriza contexto clinico, naturalidade e transparencia, sem recorrer a montagens artificiais ou promessas exageradas."
       />
 
       <section className="px-6 py-10 sm:px-8 lg:px-12">
@@ -21,8 +21,8 @@ export default function ResultsPage() {
           <Reveal>
             <SectionIntro
               eyebrow="Casos em destaque"
-              title="Comparativos organizados para reforcar credibilidade e desejo."
-              description="Cada caso resume foco do tratamento, estrategia utilizada e o tipo de resultado esperado de forma mais responsavel."
+              title="Resultados organizados para reforcar credibilidade sem comprometer a etica."
+              description="Cada caso resume foco do tratamento, direcao do resultado e tipo de estrategia adotada de forma mais clara e responsavel."
             />
           </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -47,10 +47,10 @@ export default function ResultsPage() {
                   Transparencia
                 </p>
                 <h2 className="mt-3 font-display text-4xl leading-none text-primary">
-                  Resultados ilustrativos e sempre dependentes de avaliacao individual.
+                  Cada resultado depende de avaliacao individual, anatomia e plano bem indicado.
                 </h2>
                 <p className="mt-5 text-base leading-8 text-primary/70">
-                  Para manter a comunicacao etica e sofisticada, a galeria deixa claro que cada protocolo exige indicacao personalizada, anatomia favoravel e plano de manutencao coerente.
+                  Para manter a comunicacao etica e sofisticada, a galeria deixa claro que cada protocolo exige indicacao personalizada, resposta biologica favoravel e manutencao coerente.
                 </p>
               </div>
             </div>

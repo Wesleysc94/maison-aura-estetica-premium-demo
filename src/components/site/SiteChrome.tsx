@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Clock3,
   Instagram,
   MapPin,
   Menu,
+  MessageCircleMore,
   Phone,
   Sparkles,
   X,
@@ -14,21 +15,13 @@ import {
 import { clinic } from "@/data/siteContent";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { cn } from "@/lib/utils";
-
-const pageTransition = {
-  initial: { opacity: 0, y: 18 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -18 },
-  transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
-};
-
 function HeaderLink({ href, label }: { href: string; label: string }) {
   return (
     <NavLink
       to={href}
       className={({ isActive }) =>
         cn(
-          "site-nav-link rounded-full px-4 py-2 text-sm font-semibold tracking-wide text-primary/68 transition-all duration-500 hover:bg-card/78 hover:text-primary",
+          "site-nav-link rounded-full px-4 py-2 text-sm font-semibold tracking-wide text-primary/68 transition-all duration-500 hover:-translate-y-px hover:bg-card/78 hover:text-primary",
           isActive && "site-nav-link-active bg-card/92 text-primary shadow-[0_18px_44px_-24px_rgba(100,60,79,0.32)]",
         )
       }
@@ -94,6 +87,18 @@ function Footer() {
               Instagram da clinica
             </a>
           </div>
+          <div className="rounded-[1.25rem] border border-primary/10 bg-card/70 px-4 py-3">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-primary/45">
+              Status
+            </p>
+            <div className="mt-2 flex items-center gap-2 text-sm text-primary/72">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500/60" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
+              </span>
+              Sistema operacional para novos agendamentos
+            </div>
+          </div>
         </div>
       </div>
     </footer>
@@ -109,7 +114,8 @@ function FloatingWhatsApp() {
       initial={{ opacity: 0, y: 20 }}
       animate={{
         opacity: 1,
-        y: [0, -4, 0],
+        y: [0, -6, 0],
+        scale: [1, 1.01, 1],
         boxShadow: [
           "0 18px 40px -24px rgba(18, 143, 79, 0.26)",
           "0 24px 54px -22px rgba(18, 143, 79, 0.42)",
@@ -119,15 +125,16 @@ function FloatingWhatsApp() {
       transition={{
         opacity: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
         y: { duration: 2.8, repeat: Infinity, ease: "easeInOut" },
+        scale: { duration: 2.8, repeat: Infinity, ease: "easeInOut" },
         boxShadow: { duration: 2.8, repeat: Infinity, ease: "easeInOut" },
       }}
-      whileHover={{ y: -3, scale: 1.02 }}
-      className="site-shell-fab fixed bottom-6 right-6 z-40 inline-flex items-center gap-3 rounded-full border border-white/20 bg-[rgba(20,20,20,0.84)] px-4 py-3 text-sm font-semibold text-white backdrop-blur-xl"
+      whileHover={{ y: -3, scale: 1.03 }}
+      className="site-shell-fab fixed bottom-5 right-5 z-40 inline-flex items-center gap-3 rounded-full border border-white/20 bg-[rgba(20,20,20,0.84)] px-3 py-3 text-sm font-semibold text-white backdrop-blur-xl sm:bottom-6 sm:right-6 sm:px-4"
     >
       <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366] text-white">
-        <Phone className="h-5 w-5" />
+        <MessageCircleMore className="h-5 w-5" />
       </span>
-      WhatsApp
+      <span className="hidden sm:inline">Falar no WhatsApp</span>
     </motion.a>
   );
 }
@@ -138,7 +145,6 @@ export function SiteChrome() {
 
   useEffect(() => {
     setMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [location.pathname]);
 
   return (
@@ -197,11 +203,9 @@ export function SiteChrome() {
         )}
       </header>
 
-      <AnimatePresence mode="wait">
-        <motion.main key={location.pathname} {...pageTransition}>
-          <Outlet />
-        </motion.main>
-      </AnimatePresence>
+      <main>
+        <Outlet />
+      </main>
 
       <Footer />
       <FloatingWhatsApp />

@@ -47,8 +47,8 @@ export default function ContactPage() {
     <div className="pb-10">
       <PageHero
         eyebrow="Contato e agendamento"
-        title="Uma pagina acolhedora, clara e pronta para converter contato em consulta."
-        description="Formulario, WhatsApp, mapa, horario e Instagram aparecem em uma unica experiencia fluida. O objetivo e reduzir friccao e deixar o caminho para o agendamento evidente."
+        title="Agendamento claro, acolhedor e alinhado ao ritmo de uma clinica premium."
+        description="Formulario, WhatsApp, endereco, horario e Instagram aparecem em uma unica experiencia objetiva para reduzir friccao e facilitar o primeiro contato."
       />
 
       <section className="px-6 py-10 sm:px-8 lg:px-12">
