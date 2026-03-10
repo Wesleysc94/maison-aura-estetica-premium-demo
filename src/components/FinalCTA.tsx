@@ -1,6 +1,6 @@
 import { MessageCircle, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { WHATSAPP_URL } from "./FloatingWhatsApp";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 const FinalCTA = () => {
   return (

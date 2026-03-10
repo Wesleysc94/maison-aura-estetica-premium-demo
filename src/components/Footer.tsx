@@ -1,4 +1,4 @@
-import { WHATSAPP_URL } from "./FloatingWhatsApp";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
 import { MessageCircle, MapPin, Phone } from "lucide-react";
 
 const Footer = () => {

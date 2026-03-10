@@ -1,7 +1,7 @@
 import { Star, MessageCircle, ChevronDown, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-clinic.jpg";
-import { WHATSAPP_URL } from "./FloatingWhatsApp";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 const Hero = () => {
   return (

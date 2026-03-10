@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -37,29 +37,7 @@ export const Reviews = () => {
     const [direction, setDirection] = useState<'right' | 'left'>('right');
     const [isAnimating, setIsAnimating] = useState(false);
 
-    // Auto-advance loop (10s active reading time)
-    useEffect(() => {
-        if (isAnimating) return;
-        const timer = setTimeout(() => {
-            handleTransition('next');
-        }, 10000);
-        return () => clearTimeout(timer);
-    }, [activeIndex, isAnimating]);
-
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.fromTo('.review-header',
-                { y: 30, opacity: 0 },
-                {
-                    y: 0, opacity: 1, duration: 0.8, ease: "power3.out",
-                    scrollTrigger: { trigger: containerRef.current, start: "top 75%" }
-                }
-            );
-        }, containerRef);
-        return () => ctx.revert();
-    }, []);
-
-    const handleTransition = (dir: 'next' | 'prev') => {
+    const handleTransition = useCallback((dir: 'next' | 'prev') => {
         if (isAnimating) return;
         setIsAnimating(true);
         setDirection(dir === 'next' ? 'right' : 'left');
@@ -73,8 +51,30 @@ export const Reviews = () => {
             setTimeout(() => {
                 setIsAnimating(false);
             }, 50);
-        }, 300); // Animation duration match
-    };
+        }, 300);
+    }, [isAnimating]);
+
+    // Auto-advance loop (10s active reading time)
+    useEffect(() => {
+        if (isAnimating) return;
+        const timer = setTimeout(() => {
+            handleTransition('next');
+        }, 10000);
+        return () => clearTimeout(timer);
+    }, [activeIndex, handleTransition, isAnimating]);
+
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            gsap.fromTo('.review-header',
+                { y: 30, opacity: 0 },
+                {
+                    y: 0, opacity: 1, duration: 0.8, ease: "power3.out",
+                    scrollTrigger: { trigger: containerRef.current, start: "top 75%" }
+                }
+            );
+        }, containerRef);
+        return () => ctx.revert();
+    }, []);
 
     const nextSlide = () => handleTransition('next');
     const prevSlide = () => handleTransition('prev');

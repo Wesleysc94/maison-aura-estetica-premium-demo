@@ -1,6 +1,6 @@
 import { MoonStar, SunMedium } from "lucide-react";
 
-import { useTheme } from "./ThemeProvider";
+import { useTheme } from "./theme-context";
 
 export const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();

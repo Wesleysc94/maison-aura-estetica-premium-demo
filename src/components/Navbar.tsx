@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { WHATSAPP_URL } from "./FloatingWhatsApp";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 const navLinks = [
   { label: "Tratamentos", href: "#tratamentos" },

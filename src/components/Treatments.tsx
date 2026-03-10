@@ -1,6 +1,6 @@
 import { Stethoscope, SmilePlus, Crown, Sparkles, Syringe, HeartPulse, MessageCircle, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { WHATSAPP_URL } from "./FloatingWhatsApp";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 const treatments = [
   { icon: Stethoscope, title: "Avaliação Clínica", desc: "Diagnóstico completo com planejamento personalizado para o seu tratamento." },

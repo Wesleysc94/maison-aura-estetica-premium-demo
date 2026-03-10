@@ -4,22 +4,25 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import HomePage from "./pages/HomePage";
-import NotFound from "./pages/NotFound";
-import { useEffect } from "react";
+import { Suspense, lazy, useEffect, type ReactNode } from "react";
 
 import { ThemeProvider } from "./components/ThemeProvider";
 import { SiteChrome } from "./components/site/SiteChrome";
-import AboutPage from "./pages/AboutPage";
-import TreatmentsPage from "./pages/TreatmentsPage";
-import TreatmentDetailPage from "./pages/TreatmentDetailPage";
-import ResultsPage from "./pages/ResultsPage";
-import BlogPage from "./pages/BlogPage";
-import ContactPage from "./pages/ContactPage";
+
+const HomePage = lazy(() => import("./pages/HomePage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const TreatmentsPage = lazy(() => import("./pages/TreatmentsPage"));
+const TreatmentDetailPage = lazy(() => import("./pages/TreatmentDetailPage"));
+const ResultsPage = lazy(() => import("./pages/ResultsPage"));
+const BlogPage = lazy(() => import("./pages/BlogPage"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
-const PageTransition = ({ children }: { children: React.ReactNode }) => {
+const RouteFallback = () => <div className="min-h-screen bg-background" />;
+
+const PageTransition = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -59,7 +62,9 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-          <AnimatedRoutes />
+          <Suspense fallback={<RouteFallback />}>
+            <AnimatedRoutes />
+          </Suspense>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
