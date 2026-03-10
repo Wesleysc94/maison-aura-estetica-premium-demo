@@ -1,14 +1,13 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
   ArrowUpRight,
-  CalendarClock,
   CheckCircle2,
   ChevronRight,
   Instagram,
   MessageCircleMore,
-  MoveRight,
   ShieldCheck,
   Sparkles,
   Star,
@@ -29,6 +28,16 @@ import { useBlogPosts } from "@/hooks/use-blog";
 import { useTestimonials } from "@/hooks/use-testimonials";
 
 export default function HomePage() {
+  const heroRef = useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const heroImageY = useTransform(scrollYProgress, [0, 1], [0, 92]);
+  const floatingNoteY = useTransform(scrollYProgress, [0, 1], [0, -28]);
+  const floatingRibbonY = useTransform(scrollYProgress, [0, 1], [0, 48]);
+  const heroOrbY = useTransform(scrollYProgress, [0, 1], [0, -40]);
+
   const { data: treatmentsData = treatments } = useTreatments();
   const { data: blogData = blogPosts } = useBlogPosts();
   const { data: testimonialsData = clinic.testimonials } = useTestimonials();
@@ -37,133 +46,163 @@ export default function HomePage() {
   const latestPosts = blogData.slice(0, 3);
   return (
     <div className="pb-10">
-      <section className="relative overflow-hidden px-6 pb-16 pt-32 sm:px-8 lg:px-12 lg:pt-36">
-        <div className="ambient-orb left-[-3rem] top-20 h-64 w-64 bg-[radial-gradient(circle_at_center,rgba(218,168,189,0.34),transparent_68%)]" />
-        <div className="ambient-orb right-[2%] top-[16%] h-80 w-80 bg-[radial-gradient(circle_at_center,rgba(231,203,176,0.28),transparent_70%)]" />
-        <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[0.96fr,1.04fr] lg:items-center">
-          <Reveal className="space-y-8">
-            <motion.span
-              animate={{ y: [0, -3, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="inline-flex items-center gap-3 rounded-full border border-primary/10 bg-card/75 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70 shadow-[0_24px_60px_-40px_rgba(102,67,82,0.4)] backdrop-blur"
-            >
+      <section ref={heroRef} className="relative overflow-hidden px-6 pb-14 pt-32 sm:px-8 lg:px-12 lg:pt-36">
+        <motion.div
+          style={{ y: heroOrbY }}
+          className="ambient-orb left-[-4rem] top-14 h-72 w-72 bg-[radial-gradient(circle_at_center,rgba(221,160,184,0.4),transparent_68%)]"
+        />
+        <motion.div
+          style={{ y: floatingRibbonY }}
+          className="ambient-orb right-[-2rem] top-[12%] h-[25rem] w-[25rem] bg-[radial-gradient(circle_at_center,rgba(232,196,206,0.42),transparent_70%)]"
+        />
+
+        <div className="mx-auto max-w-6xl">
+          <Reveal className="mb-6 flex flex-wrap items-center gap-3">
+            <span className="luxury-chip">
               <Sparkles className="h-3.5 w-3.5 text-accent" />
               {clinic.badge}
-            </motion.span>
-
-            <div className="space-y-6">
-              <h1 className="font-display text-5xl leading-[0.9] text-primary sm:text-6xl lg:text-8xl">
-                Estetica facial com toque couture, tecnologia suave e resultados que parecem seus.
-              </h1>
-              <p className="max-w-2xl text-lg leading-8 text-primary/75">
-                Uma experiencia boutique para quem deseja rejuvenescimento natural,
-                harmonia facial e uma jornada de cuidado elegante. O foco em
-                agendamento existe, mas entra com discricao, clareza e alto valor percebido.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link to="/contato" className="premium-button button-shimmer justify-center">
-                Agendar avaliacao
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <a
-                href={clinic.whatsapp}
-                target="_blank"
-                rel="noreferrer"
-                className="premium-button-secondary button-shimmer justify-center"
-              >
-                <MessageCircleMore className="h-4 w-4" />
-                WhatsApp direto
-              </a>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-3">
-              {clinic.stats.map((item, index) => (
-                <Reveal
-                  key={item.label}
-                  delay={0.08 * index}
-                  className="card-surface interactive-card rounded-[1.75rem] p-5"
-                >
-                  <p className="text-2xl font-semibold text-primary">{item.value}</p>
-                  <p className="mt-2 text-sm leading-6 text-primary/70">{item.label}</p>
-                </Reveal>
-              ))}
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-[1.05fr,0.95fr]">
-              <motion.div
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.35 }}
-                className="glass-panel rounded-[1.8rem] p-5"
-              >
-                <div className="flex items-start gap-3">
-                  <div className="mt-0.5 flex h-10 w-10 items-center justify-center rounded-full bg-accent/20 text-accent">
-                    <CalendarClock className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] uppercase tracking-[0.3em] text-primary/55">
-                      Agenda privada
-                    </p>
-                    <p className="mt-2 text-sm leading-7 text-primary/70">
-                      Avaliacoes com horario marcado, escuta calma e plano facial definido em etapas.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.35 }}
-                className="glass-panel rounded-[1.8rem] p-5"
-              >
-                <p className="text-[11px] uppercase tracking-[0.3em] text-primary/55">
-                  Primeiro contato
-                </p>
-                <div className="mt-3 flex items-center justify-between gap-4">
-                  <p className="text-sm leading-7 text-primary/70">
-                    Atendimento discreto pelo WhatsApp e encaminhamento claro para consulta.
-                  </p>
-                  <MoveRight className="h-4 w-4 shrink-0 text-accent" />
-                </div>
-              </motion.div>
-            </div>
+            </span>
+            <span className="luxury-chip">{clinic.location}</span>
+            <span className="luxury-chip">Agenda reservada e atendimento discreto</span>
           </Reveal>
 
-          <Reveal delay={0.15} className="relative">
-            <motion.div
-              animate={{ y: [0, -14, 0], x: [0, 6, 0] }}
-              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -left-10 top-14 z-10 hidden w-52 rounded-[1.5rem] border border-border/50 bg-card/80 p-4 shadow-[0_30px_80px_-48px_rgba(95,54,78,0.45)] backdrop-blur xl:block"
-            >
-              <p className="text-[10px] uppercase tracking-[0.28em] text-primary/50">
-                Assinatura Maison Aura
-              </p>
-              <p className="mt-3 font-display text-3xl leading-none text-primary">
-                Naturalidade com acabamento precioso.
-              </p>
-            </motion.div>
+          <div className="grid gap-14 lg:grid-cols-[0.92fr,1.08fr] lg:items-center">
+            <Reveal className="space-y-8">
+              <motion.div style={{ y: floatingNoteY }} className="space-y-5">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-primary/55">
+                  Quiet luxury em estetica facial
+                </p>
+                <h1 className="font-display text-5xl leading-[0.88] text-primary sm:text-6xl lg:text-[5.8rem]">
+                  Rosa couture, luz delicada e uma presenca que parece cara no primeiro olhar.
+                </h1>
+                <p className="max-w-2xl text-lg leading-8 text-primary/70">
+                  Um design pensado para clinica boutique de alto padrao: feminino, refinado,
+                  sereno e encantador. A experiencia visual valoriza desejo, seguranca e
+                  exclusividade sem cair em exagero plastico.
+                </p>
+              </motion.div>
 
-            <div className="card-surface interactive-card overflow-hidden p-4 sm:p-5">
-              <div className="grid gap-4">
-                <div className="relative min-h-[640px] overflow-hidden rounded-[2.1rem] border border-white/50 bg-[linear-gradient(140deg,rgba(255,255,255,0.48),rgba(255,255,255,0.1))]">
-                  <motion.div
-                    animate={{ scale: [1, 1.025, 1], y: [0, -8, 0] }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute inset-0"
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Link to="/contato" className="premium-button button-shimmer justify-center">
+                  Agendar avaliacao privada
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <a
+                  href={clinic.whatsapp}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="premium-button-secondary button-shimmer justify-center"
+                >
+                  <MessageCircleMore className="h-4 w-4" />
+                  Conversar no WhatsApp
+                </a>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-3">
+                {clinic.stats.map((item, index) => (
+                  <Reveal
+                    key={item.label}
+                    delay={0.08 * index}
+                    className="card-surface interactive-card rounded-[1.9rem] p-5"
                   >
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-primary/45">
+                      Maison Aura
+                    </p>
+                    <p className="mt-4 text-3xl font-semibold text-primary">{item.value}</p>
+                    <p className="mt-3 text-sm leading-6 text-primary/70">{item.label}</p>
+                  </Reveal>
+                ))}
+              </div>
+
+              <div className="rose-panel grid gap-4 p-5 sm:grid-cols-[1.08fr,0.92fr]">
+                <div className="space-y-4">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/55">
+                    Linguagem de marca
+                  </p>
+                  <div className="grid grid-cols-4 gap-2 sm:max-w-[13rem]">
+                    {[
+                      "from-[#fff5f8] to-[#f6dbe4]",
+                      "from-[#f2dce4] to-[#e3b7c8]",
+                      "from-[#d7a2b8] to-[#b26d8e]",
+                      "from-[#7c4762] to-[#472334]",
+                    ].map((tone) => (
+                      <div
+                        key={tone}
+                        className={`h-16 rounded-[1.1rem] bg-gradient-to-br ${tone} shadow-[0_20px_35px_-25px_rgba(106,57,79,0.65)]`}
+                      />
+                    ))}
+                  </div>
+                  <p className="text-sm leading-7 text-primary/66">
+                    Blush rosado, mauve delicado, champagne suave e contraste ameixa para construir uma percepcao premium contemporanea.
+                  </p>
+                </div>
+
+                <div className="glass-panel rounded-[1.7rem] p-5">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/55">
+                    Jornada delicadamente dirigida
+                  </p>
+                  <div className="mt-5 space-y-4">
+                    {clinic.evaluationSteps.map((step, index) => (
+                      <div key={step.title} className="flex gap-3">
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
+                          {index + 1}
+                        </span>
+                        <div>
+                          <p className="font-semibold text-primary">{step.title}</p>
+                          <p className="text-sm leading-6 text-primary/65">{step.text}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.15} className="relative">
+              <motion.div
+                style={{ y: floatingRibbonY }}
+                className="absolute -right-2 top-10 z-10 hidden w-44 rounded-[1.7rem] border border-white/40 bg-white/60 p-4 backdrop-blur-xl xl:block"
+              >
+                <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-primary/45">
+                  Signature set
+                </p>
+                <div className="mt-4 space-y-3 text-sm text-primary/70">
+                  <p>Rose atelier</p>
+                  <p>Soft parallax</p>
+                  <p>Glow controlado</p>
+                  <p>Elegancia silenciosa</p>
+                </div>
+              </motion.div>
+
+              <div className="card-surface editorial-frame interactive-card overflow-hidden p-4 sm:p-5">
+                <div className="relative min-h-[700px] overflow-hidden rounded-[2.2rem] border border-white/50 bg-[linear-gradient(145deg,rgba(255,255,255,0.52),rgba(255,240,246,0.18))]">
+                  <motion.div style={{ y: heroImageY }} className="absolute inset-0">
                     <img
                       src={clinic.media.hero}
                       alt="Retrato editorial para clinica premium de estetica facial"
-                      className="h-full w-full object-cover object-[center_22%]"
+                      className="h-full w-full object-cover object-[center_18%]"
                     />
                   </motion.div>
-                  <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,248,250,0.06),rgba(88,49,67,0.26)_54%,rgba(64,34,49,0.58))]" />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_22%,rgba(247,224,231,0.36),transparent_20%),radial-gradient(circle_at_18%_15%,rgba(232,205,182,0.25),transparent_20%),radial-gradient(circle_at_62%_75%,rgba(104,60,79,0.24),transparent_28%)]" />
+
+                  <div className="absolute inset-0 bg-[linear-gradient(140deg,rgba(255,246,250,0.06),rgba(105,57,80,0.2)_52%,rgba(55,29,39,0.58))]" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(255,239,245,0.42),transparent_22%),radial-gradient(circle_at_18%_18%,rgba(246,221,201,0.22),transparent_20%),radial-gradient(circle_at_58%_72%,rgba(112,62,84,0.26),transparent_28%)]" />
 
                   <motion.div
-                    whileHover={{ y: -4 }}
-                    className="absolute right-4 top-4 hidden max-w-[17rem] rounded-[1.55rem] border border-white/25 bg-card/20 p-4 text-primary-foreground backdrop-blur-md sm:block"
+                    style={{ y: floatingNoteY }}
+                    whileHover={{ y: -6 }}
+                    className="absolute left-5 top-5 max-w-[15rem] rounded-[1.55rem] border border-white/28 bg-card/18 p-4 text-primary-foreground backdrop-blur-md"
+                  >
+                    <p className="text-[10px] uppercase tracking-[0.3em] text-white/70">
+                      Visual direction
+                    </p>
+                    <p className="mt-3 font-display text-3xl leading-none">
+                      Feminilidade precisa, sem sinais de excesso.
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    whileHover={{ y: -6 }}
+                    className="absolute right-5 top-24 hidden max-w-[17rem] rounded-[1.6rem] border border-white/24 bg-card/18 p-4 text-primary-foreground backdrop-blur-md sm:block"
                   >
                     <div className="overflow-hidden rounded-[1.2rem] border border-white/20">
                       <img
@@ -173,98 +212,53 @@ export default function HomePage() {
                       />
                     </div>
                     <p className="mt-4 text-[10px] uppercase tracking-[0.28em] text-white/70">
-                      Experience note
+                      Consultation ritual
                     </p>
                     <p className="mt-2 text-base font-semibold leading-7">
-                      Consulta autoral, leitura facial cuidadosa e indicacao sem pressa.
+                      Leitura facial autoral, plano em camadas e acolhimento de alta sensibilidade.
                     </p>
                   </motion.div>
 
                   <motion.div
-                    whileHover={{ y: -4 }}
-                    className="absolute bottom-5 left-5 right-5 max-w-[24rem] rounded-[1.7rem] border border-white/30 bg-black/[0.18] p-6 text-white backdrop-blur-md"
+                    whileHover={{ y: -6 }}
+                    className="absolute bottom-5 left-5 right-5 max-w-[25rem] rounded-[1.8rem] border border-white/28 bg-black/[0.18] p-6 text-white backdrop-blur-md"
                   >
-                    <p className="text-[11px] uppercase tracking-[0.32em] text-white/70">
-                      Hero premium
+                    <p className="text-[11px] uppercase tracking-[0.32em] text-white/75">
+                      Maison Aura hero
                     </p>
-                    <p className="mt-3 font-display text-4xl leading-[0.92] sm:text-[3.25rem]">
-                      Feminilidade elegante, glow preciso e rejuvenescimento sem excesso.
+                    <p className="mt-3 font-display text-4xl leading-[0.92] sm:text-[3.35rem]">
+                      Um conjunto rosa premium com movimento leve, desejo e suavidade editorial.
                     </p>
                   </motion.div>
 
                   <motion.div
-                    whileHover={{ y: -4 }}
-                    className="absolute bottom-5 right-5 hidden rounded-[1.4rem] border border-white/25 bg-card/20 px-4 py-3 text-primary-foreground backdrop-blur-md sm:block"
+                    style={{ y: floatingRibbonY }}
+                    whileHover={{ y: -6 }}
+                    className="absolute bottom-6 right-6 hidden rounded-[1.45rem] border border-white/22 bg-card/18 px-5 py-4 text-primary-foreground backdrop-blur-md sm:block"
                   >
                     <p className="text-[10px] uppercase tracking-[0.28em] text-white/70">
-                      Agendamento
+                      Immediate impression
                     </p>
-                    <p className="mt-2 text-sm leading-6 text-white/90">
-                      Consulta estrategica com plano facial autoral.
+                    <p className="mt-2 max-w-[12rem] text-sm leading-6 text-white/92">
+                      Site com cara de clinica cara, feminina e autoral, sem visual plastico ou generico.
                     </p>
-                  </motion.div>
-                </div>
-
-                <div className="grid gap-4 xl:grid-cols-2">
-                  <motion.div
-                    whileHover={{ y: -5 }}
-                    className="glass-panel rounded-[1.7rem] p-6"
-                  >
-                    <p className="text-[11px] uppercase tracking-[0.32em] text-primary/60">
-                      Percepcao de marca
-                    </p>
-                    <div className="mt-4 flex flex-col gap-5 sm:flex-row sm:items-start">
-                      <div className="grid grid-cols-4 gap-2 sm:w-[10.5rem]">
-                        {[
-                          "from-[#f9eef1] to-[#efd7df]",
-                          "from-[#ecd8cf] to-[#d6b39e]",
-                          "from-[#d7b4c1] to-[#b9869a]",
-                          "from-[#6a4254] to-[#3f2631]",
-                        ].map((tone) => (
-                          <div
-                            key={tone}
-                            className={`h-14 rounded-[1rem] bg-gradient-to-br ${tone} shadow-[0_18px_34px_-24px_rgba(101,63,80,0.6)]`}
-                          />
-                        ))}
-                      </div>
-                      <div className="max-w-sm">
-                        <p className="text-lg font-semibold text-primary">
-                          Luxo feminino discreto, com assinatura editorial.
-                        </p>
-                        <p className="mt-2 text-sm leading-7 text-primary/60">
-                          Blush petal, champagne quente e ameixa suave para parecer premium, delicado e adulto ao mesmo tempo.
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    whileHover={{ y: -5 }}
-                    className="rounded-[1.7rem] border border-white/60 bg-primary p-6 text-background shadow-[0_28px_70px_-46px_rgba(85,49,67,0.9)]"
-                  >
-                    <p className="text-[11px] uppercase tracking-[0.32em] text-background/60">
-                      Jornada de avaliacao
-                    </p>
-                    <div className="mt-5 space-y-4">
-                      {clinic.evaluationSteps.slice(0, 2).map((step, index) => (
-                        <div key={step.title} className="flex gap-3">
-                          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/10 text-sm">
-                            {index + 1}
-                          </span>
-                          <div>
-                            <p className="font-medium">{step.title}</p>
-                            <p className="text-sm leading-6 text-background/70">
-                              {step.text}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
                   </motion.div>
                 </div>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {clinic.differentiators.slice(0, 3).map((item, index) => (
+              <Reveal key={item.title} delay={0.05 * index} className="glass-panel p-5">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-primary/45">
+                  Diferencial {index + 1}
+                </p>
+                <h3 className="mt-4 text-3xl leading-none text-primary">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-primary/66">{item.text}</p>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 

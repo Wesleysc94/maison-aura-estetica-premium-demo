@@ -30,8 +30,8 @@ function HeaderLink({ href, label }: { href: string; label: string }) {
       to={href}
       className={({ isActive }) =>
         cn(
-          "rounded-full px-4 py-2 text-sm font-semibold tracking-wide text-primary/70 transition-all duration-300 hover:bg-card/70 hover:text-primary",
-          isActive && "bg-white text-primary shadow-[0_12px_40px_-24px_rgba(90,70,58,0.7)]",
+          "rounded-full px-4 py-2 text-sm font-semibold tracking-wide text-primary/64 transition-all duration-300 hover:bg-white/70 hover:text-primary",
+          isActive && "bg-[linear-gradient(135deg,rgba(255,255,255,0.9),rgba(248,226,234,0.84))] text-primary shadow-[0_18px_44px_-24px_rgba(100,60,79,0.58)]",
         )
       }
     >
@@ -42,10 +42,10 @@ function HeaderLink({ href, label }: { href: string; label: string }) {
 
 function Footer() {
   return (
-    <footer className="mt-20 border-t border-primary/10 px-6 pb-28 pt-12 sm:px-8 lg:px-12">
-      <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.3fr,0.8fr,0.9fr]">
+    <footer className="mt-24 px-6 pb-28 pt-6 sm:px-8 lg:px-12">
+      <div className="mx-auto grid max-w-6xl gap-10 rounded-[2.4rem] border border-white/60 bg-[linear-gradient(145deg,rgba(255,255,255,0.72),rgba(243,219,228,0.58))] p-8 shadow-[0_34px_120px_-68px_rgba(118,72,92,0.48)] backdrop-blur-2xl md:grid-cols-[1.3fr,0.8fr,0.9fr]">
         <div className="space-y-5">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-card/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-primary/70">
+          <span className="luxury-chip">
             <Sparkles className="h-3.5 w-3.5 text-accent" />
             {clinic.badge}
           </span>
@@ -110,7 +110,7 @@ function StickyActions() {
         target="_blank"
         rel="noreferrer"
         whileHover={{ y: -4 }}
-        className="group fixed bottom-24 right-5 z-40 flex items-center gap-2 rounded-full border border-border/50 bg-card/90 px-4 py-3 text-sm font-semibold text-primary shadow-[0_18px_50px_-24px_rgba(111,72,90,0.38)] backdrop-blur-xl"
+        className="group fixed bottom-24 right-5 z-40 flex items-center gap-2 rounded-full border border-white/40 bg-white/85 px-4 py-3 text-sm font-semibold text-primary shadow-[0_22px_55px_-28px_rgba(111,72,90,0.38)] backdrop-blur-xl"
       >
         <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#25D366] text-white">
           <Phone className="h-4 w-4" />
@@ -120,7 +120,7 @@ function StickyActions() {
       </motion.a>
 
       <div className="fixed bottom-3 left-4 right-4 z-30 sm:left-1/2 sm:right-auto sm:w-[min(960px,calc(100%-2rem))] sm:-translate-x-1/2">
-        <div className="rounded-[1.9rem] border border-white/70 bg-background/90 px-4 py-3 shadow-[0_20px_80px_-40px_rgba(111,72,90,0.42)] backdrop-blur-2xl">
+        <div className="rounded-[2rem] border border-white/70 bg-[linear-gradient(145deg,rgba(255,255,255,0.84),rgba(247,226,234,0.72))] px-4 py-3 shadow-[0_22px_88px_-44px_rgba(111,72,90,0.42)] backdrop-blur-2xl">
           <div className="mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/55">
@@ -166,9 +166,9 @@ export function SiteChrome() {
       <div className="ambient-orb right-[-10rem] top-[18rem] h-[28rem] w-[28rem] bg-[radial-gradient(circle_at_center,rgba(228,198,177,0.18),transparent_72%)]" />
 
       <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8">
-        <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-border/50 bg-card/80 px-5 py-3 shadow-[0_20px_90px_-50px_rgba(111,72,90,0.42)] backdrop-blur-xl">
+        <div className="mx-auto flex max-w-6xl items-center justify-between rounded-[2rem] border border-white/65 bg-[linear-gradient(145deg,rgba(255,255,255,0.8),rgba(247,227,234,0.7))] px-5 py-3 shadow-[0_24px_90px_-54px_rgba(111,72,90,0.42)] backdrop-blur-2xl">
           <Link to="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-background shadow-[0_18px_50px_-18px_rgba(62,52,46,0.8)]">
+            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[linear-gradient(135deg,#6f3852,#bf7e9c)] text-background shadow-[0_18px_50px_-18px_rgba(62,52,46,0.8)]">
               <Sparkles className="h-5 w-5" />
             </div>
             <div>
@@ -193,7 +193,7 @@ export function SiteChrome() {
 
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-primary/10 bg-background text-primary lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-primary/10 bg-white/80 text-primary lg:hidden"
             onClick={() => setMenuOpen((value) => !value)}
             aria-label="Abrir menu"
           >
@@ -202,7 +202,7 @@ export function SiteChrome() {
         </div>
 
         {menuOpen && (
-          <div className="mx-auto mt-3 max-w-6xl rounded-[1.75rem] border border-border/50 bg-card/90 p-4 shadow-[0_20px_90px_-48px_rgba(90,70,58,0.58)] backdrop-blur-xl lg:hidden">
+          <div className="mx-auto mt-3 max-w-6xl rounded-[1.9rem] border border-white/60 bg-[linear-gradient(145deg,rgba(255,255,255,0.88),rgba(247,227,234,0.76))] p-4 shadow-[0_20px_90px_-48px_rgba(90,70,58,0.58)] backdrop-blur-xl lg:hidden">
             <div className="grid gap-2">
               {clinic.nav.map((item) => (
                 <HeaderLink key={item.href} href={item.href} label={item.label} />
