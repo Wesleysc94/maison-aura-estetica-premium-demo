@@ -18,7 +18,7 @@ const NotFound = () => {
           Esta pagina nao foi encontrada.
         </h1>
         <p className="mt-5 text-base leading-8 text-primary/70">
-          O endereco solicitado nao existe nesta demo premium de estetica.
+          O endereco solicitado nao foi encontrado.
         </p>
         <Link to="/" className="premium-button mt-8 inline-flex">
           Voltar para o inicio

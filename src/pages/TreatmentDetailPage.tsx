@@ -20,7 +20,7 @@ export default function TreatmentDetailPage() {
         <div className="mx-auto max-w-3xl rounded-[2rem] border border-primary/10 bg-card/80 p-8 text-center shadow-[0_30px_120px_-60px_rgba(90,70,58,0.45)]">
           <h1 className="font-display text-5xl text-primary">Tratamento nao encontrado</h1>
           <p className="mt-4 text-base leading-8 text-primary/70">
-            O protocolo solicitado nao esta cadastrado nesta demo.
+            O protocolo solicitado nao esta disponivel no momento.
           </p>
           <button
             onClick={() => navigate("/tratamentos")}
@@ -76,7 +76,7 @@ export default function TreatmentDetailPage() {
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,52,46,0.04),rgba(62,52,46,0.42))]" />
                 <div className="absolute bottom-5 left-5 right-5 rounded-[1.4rem] border border-white/20 bg-card/20 p-5 text-primary-foreground backdrop-blur">
-                  <p className="text-xs uppercase tracking-[0.3em] text-white/75">Maison Aura Protocol</p>
+                  <p className="text-xs uppercase tracking-[0.3em] text-white/75">Protocolo Maison Aura</p>
                   <p className="mt-3 font-display text-4xl leading-none">{treatment.name}</p>
                 </div>
               </div>

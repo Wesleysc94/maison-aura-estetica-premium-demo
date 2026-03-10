@@ -13,17 +13,17 @@ export default function TreatmentsPage() {
     <div className="pb-10">
       <PageHero
         eyebrow="Tratamentos"
-        title="Escolha o protocolo ideal com uma navegacao clara, elegante e facil de converter."
-        description="Esta pagina foi estruturada para ajudar a paciente a entender indicacoes, beneficios e nivel de recuperacao sem se perder em uma lista fria de procedimentos."
+        title="Entenda cada tratamento com clareza antes de agendar sua avaliacao."
+        description="Esta pagina ajuda a paciente a entender indicacoes, beneficios, tempo de procedimento e recuperacao sem se perder em uma lista fria de nomes tecnicos."
       />
 
       <section className="px-6 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <SectionIntro
-              eyebrow="Grid premium"
-              title="Tratamentos com leitura rapida e profundidade suficiente para gerar interesse."
-              description="Os cards abaixo foram desenhados para parecer caros, limpos e escaneaveis. O CTA de detalhe abre uma pagina individual mais persuasiva para cada procedimento."
+              eyebrow="Tratamentos da clinica"
+              title="Leitura rapida para comparar opcoes sem perder profundidade."
+              description="Os cards abaixo resumem objetivo, indicacao e recuperacao para facilitar a comparacao entre protocolos."
             />
           </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">

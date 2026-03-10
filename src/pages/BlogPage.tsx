@@ -13,8 +13,8 @@ export default function BlogPage() {
     <div className="pb-10">
       <PageHero
         eyebrow="Conteudo"
-        title="Um blog com cara de marca viva, estrategica e pronta para SEO local."
-        description="A area editorial reforca autoridade, ajuda campanhas de trafego e amplia a percepcao de cuidado. Os temas e a estilizacao foram pensados para clinicas premium de estetica facial."
+        title="Conteudo para orientar pacientes e aprofundar a confianca na clinica."
+        description="Aqui reunimos temas frequentes da estetica facial para esclarecer duvidas, preparar a paciente para a consulta e ampliar a educacao em torno dos tratamentos."
       />
 
       <section className="px-6 py-10 sm:px-8 lg:px-12">
@@ -43,8 +43,8 @@ export default function BlogPage() {
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,52,46,0.06),rgba(62,52,46,0.38))]" />
               <div className="absolute bottom-5 left-5 right-5 rounded-[1.4rem] border border-white/20 bg-card/20 p-5 text-primary-foreground backdrop-blur">
-                <p className="text-xs uppercase tracking-[0.3em] text-white/75">Editorial premium</p>
-                <p className="mt-3 font-display text-4xl leading-none">Conteudo que educa sem perder desejo.</p>
+                <p className="text-xs uppercase tracking-[0.3em] text-white/75">Conteudo da clinica</p>
+                <p className="mt-3 font-display text-4xl leading-none">Informacao clara para decidir com mais seguranca.</p>
               </div>
             </div>
           </Reveal>
@@ -56,8 +56,8 @@ export default function BlogPage() {
           <Reveal>
             <SectionIntro
               eyebrow="Mais temas"
-              title="Pautas certas para aquecer leads e fortalecer posicionamento."
-              description="O grid abaixo mostra como a area de conteudo pode crescer de forma consistente sem comprometer o tom sofisticado da marca."
+              title="Temas que ajudam a paciente a entender melhor cada indicacao."
+              description="A area de conteudo cresce com consistencia quando combina orientacao pratica, linguagem clara e profundidade clinica."
             />
           </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">

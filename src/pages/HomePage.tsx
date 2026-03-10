@@ -33,10 +33,10 @@ export default function HomePage() {
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  const heroImageY = useTransform(scrollYProgress, [0, 1], [0, 92]);
-  const floatingNoteY = useTransform(scrollYProgress, [0, 1], [0, -28]);
-  const floatingRibbonY = useTransform(scrollYProgress, [0, 1], [0, 48]);
-  const heroOrbY = useTransform(scrollYProgress, [0, 1], [0, -40]);
+  const heroImageY = useTransform(scrollYProgress, [0, 1], [0, 36]);
+  const floatingNoteY = useTransform(scrollYProgress, [0, 1], [0, -12]);
+  const floatingRibbonY = useTransform(scrollYProgress, [0, 1], [0, 18]);
+  const heroOrbY = useTransform(scrollYProgress, [0, 1], [0, -18]);
 
   const { data: treatmentsData = treatments } = useTreatments();
   const { data: blogData = blogPosts } = useBlogPosts();
@@ -63,28 +63,27 @@ export default function HomePage() {
               {clinic.badge}
             </span>
             <span className="luxury-chip">{clinic.location}</span>
-            <span className="luxury-chip">Agenda reservada e atendimento discreto</span>
+            <span className="luxury-chip">Consulta com horario marcado</span>
           </Reveal>
 
-          <div className="grid gap-14 lg:grid-cols-[0.92fr,1.08fr] lg:items-center">
+          <div className="grid gap-12 lg:grid-cols-[0.94fr,1.06fr] lg:items-center">
             <Reveal className="space-y-8">
               <motion.div style={{ y: floatingNoteY }} className="space-y-5">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-primary/55">
-                  Quiet luxury em estetica facial
+                  Clinica de estetica facial no Jardins
                 </p>
-                <h1 className="font-display text-5xl leading-[0.88] text-primary sm:text-6xl lg:text-[5.8rem]">
-                  Rosa couture, luz delicada e uma presenca que parece cara no primeiro olhar.
+                <h1 className="font-display text-5xl leading-[0.92] text-primary sm:text-6xl lg:text-[5.15rem]">
+                  Cuidado facial com naturalidade, tecnica e um plano feito para voce.
                 </h1>
                 <p className="max-w-2xl text-lg leading-8 text-primary/70">
-                  Um design pensado para clinica boutique de alto padrao: feminino, refinado,
-                  sereno e encantador. A experiencia visual valoriza desejo, seguranca e
-                  exclusividade sem cair em exagero plastico.
+                  Na Maison Aura, cada avaliacao considera anatomia, rotina e objetivo estetico
+                  para indicar procedimentos com leveza, seguranca e resultado elegante.
                 </p>
               </motion.div>
 
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Link to="/contato" className="premium-button button-shimmer justify-center">
-                  Agendar avaliacao privada
+                  Agendar avaliacao
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <a
@@ -94,8 +93,23 @@ export default function HomePage() {
                   className="premium-button-secondary button-shimmer justify-center"
                 >
                   <MessageCircleMore className="h-4 w-4" />
-                  Conversar no WhatsApp
+                  Falar com a equipe
                 </a>
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-3">
+                {[
+                  "Consulta detalhada e sem pressa",
+                  "Protocolos personalizados",
+                  "Acompanhamento no pos-procedimento",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-[1.4rem] border border-primary/10 bg-card/70 px-4 py-4 text-sm leading-6 text-primary/68 shadow-[0_18px_50px_-38px_rgba(106,66,84,0.28)]"
+                  >
+                    {item}
+                  </div>
+                ))}
               </div>
 
               <div className="grid gap-4 sm:grid-cols-3">
@@ -117,39 +131,37 @@ export default function HomePage() {
               <div className="rose-panel grid gap-4 p-5 sm:grid-cols-[1.08fr,0.92fr]">
                 <div className="space-y-4">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/55">
-                    Linguagem de marca
+                    Primeira avaliacao
                   </p>
-                  <div className="grid grid-cols-4 gap-2 sm:max-w-[13rem]">
-                    {[
-                      "from-[#fff5f8] to-[#f6dbe4]",
-                      "from-[#f2dce4] to-[#e3b7c8]",
-                      "from-[#d7a2b8] to-[#b26d8e]",
-                      "from-[#7c4762] to-[#472334]",
-                    ].map((tone) => (
-                      <div
-                        key={tone}
-                        className={`h-16 rounded-[1.1rem] bg-gradient-to-br ${tone} shadow-[0_20px_35px_-25px_rgba(106,57,79,0.65)]`}
-                      />
-                    ))}
-                  </div>
+                  <h2 className="font-display text-4xl leading-none text-primary">
+                    Planejamento claro desde a primeira conversa.
+                  </h2>
                   <p className="text-sm leading-7 text-primary/66">
-                    Blush rosado, mauve delicado, champagne suave e contraste ameixa para construir uma percepcao premium contemporanea.
+                    A consulta reune escuta, analise facial, fotografia clinica e indicacao
+                    tecnica para que voce entenda prioridades, etapas e tempo de evolucao do
+                    tratamento.
                   </p>
                 </div>
 
                 <div className="glass-panel rounded-[1.7rem] p-5">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/55">
-                    Jornada delicadamente dirigida
+                    O que voce recebe
                   </p>
                   <div className="mt-5 space-y-4">
-                    {clinic.evaluationSteps.map((step, index) => (
-                      <div key={step.title} className="flex gap-3">
+                    {[
+                      "Leitura facial individualizada",
+                      "Plano de tratamento por etapas",
+                      "Orientacoes claras de preparo e recuperacao",
+                    ].map((step, index) => (
+                      <div key={step} className="flex gap-3">
                         <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
                           {index + 1}
                         </span>
                         <div>
-                          <p className="font-semibold text-primary">{step.title}</p>
-                          <p className="text-sm leading-6 text-primary/65">{step.text}</p>
+                          <p className="font-semibold text-primary">{step}</p>
+                          <p className="text-sm leading-6 text-primary/65">
+                            {clinic.evaluationSteps[index]?.text}
+                          </p>
                         </div>
                       </div>
                     ))}
@@ -158,91 +170,82 @@ export default function HomePage() {
               </div>
             </Reveal>
 
-            <Reveal delay={0.15} className="relative">
-              <motion.div
-                style={{ y: floatingRibbonY }}
-                className="absolute -right-2 top-10 z-10 hidden w-44 rounded-[1.7rem] border border-white/40 bg-white/60 p-4 backdrop-blur-xl xl:block"
-              >
-                <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-primary/45">
-                  Signature set
-                </p>
-                <div className="mt-4 space-y-3 text-sm text-primary/70">
-                  <p>Rose atelier</p>
-                  <p>Soft parallax</p>
-                  <p>Glow controlado</p>
-                  <p>Elegancia silenciosa</p>
-                </div>
-              </motion.div>
-
-              <div className="card-surface editorial-frame interactive-card overflow-hidden p-4 sm:p-5">
-                <div className="relative min-h-[700px] overflow-hidden rounded-[2.2rem] border border-white/50 bg-[linear-gradient(145deg,rgba(255,255,255,0.52),rgba(255,240,246,0.18))]">
+            <Reveal delay={0.15} className="space-y-4">
+              <div className="card-surface editorial-frame overflow-hidden p-4 sm:p-5">
+                <div className="relative min-h-[620px] overflow-hidden rounded-[2.2rem] border border-white/40 bg-[linear-gradient(145deg,rgba(255,255,255,0.42),rgba(255,240,246,0.18))]">
                   <motion.div style={{ y: heroImageY }} className="absolute inset-0">
                     <img
                       src={clinic.media.hero}
-                      alt="Retrato editorial para clinica premium de estetica facial"
-                      className="h-full w-full object-cover object-[center_18%]"
+                      alt="Ambiente acolhedor de clinica de estetica facial"
+                      className="h-full w-full object-cover object-[center_20%]"
                     />
                   </motion.div>
 
-                  <div className="absolute inset-0 bg-[linear-gradient(140deg,rgba(255,246,250,0.06),rgba(105,57,80,0.2)_52%,rgba(55,29,39,0.58))]" />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(255,239,245,0.42),transparent_22%),radial-gradient(circle_at_18%_18%,rgba(246,221,201,0.22),transparent_20%),radial-gradient(circle_at_58%_72%,rgba(112,62,84,0.26),transparent_28%)]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,248,251,0.08),rgba(63,28,44,0.14)_44%,rgba(39,18,28,0.6))]" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_18%,rgba(255,239,245,0.3),transparent_24%),radial-gradient(circle_at_18%_24%,rgba(246,221,201,0.18),transparent_20%)]" />
 
-                  <motion.div
-                    style={{ y: floatingNoteY }}
-                    whileHover={{ y: -6 }}
-                    className="absolute left-5 top-5 max-w-[15rem] rounded-[1.55rem] border border-white/28 bg-card/18 p-4 text-primary-foreground backdrop-blur-md"
-                  >
-                    <p className="text-[10px] uppercase tracking-[0.3em] text-white/70">
-                      Visual direction
-                    </p>
-                    <p className="mt-3 font-display text-3xl leading-none">
-                      Feminilidade precisa, sem sinais de excesso.
-                    </p>
-                  </motion.div>
-
-                  <motion.div
-                    whileHover={{ y: -6 }}
-                    className="absolute right-5 top-24 hidden max-w-[17rem] rounded-[1.6rem] border border-white/24 bg-card/18 p-4 text-primary-foreground backdrop-blur-md sm:block"
-                  >
-                    <div className="overflow-hidden rounded-[1.2rem] border border-white/20">
-                      <img
-                        src={clinic.media.consultation}
-                        alt="Consulta e ritual de cuidado Maison Aura"
-                        className="h-28 w-full object-cover object-[center_28%]"
-                      />
+                  <div className="relative flex min-h-[620px] flex-col justify-between p-5 sm:p-8">
+                    <div className="flex justify-start sm:justify-end">
+                      <motion.div
+                        style={{ y: floatingRibbonY }}
+                        className="hidden max-w-[17rem] rounded-[1.6rem] border border-white/24 bg-background/75 p-4 text-primary shadow-[0_20px_50px_-32px_rgba(41,17,27,0.55)] backdrop-blur-xl sm:block"
+                      >
+                        <div className="overflow-hidden rounded-[1.2rem] border border-white/20">
+                          <img
+                            src={clinic.media.consultation}
+                            alt="Consulta personalizada na Maison Aura"
+                            className="h-28 w-full object-cover object-[center_28%]"
+                          />
+                        </div>
+                        <p className="mt-4 text-[10px] uppercase tracking-[0.28em] text-primary/50">
+                          Consulta personalizada
+                        </p>
+                        <p className="mt-2 text-base font-semibold leading-7 text-primary">
+                          Avaliacao individual, plano claro e orientacao cuidadosa em cada etapa.
+                        </p>
+                      </motion.div>
                     </div>
-                    <p className="mt-4 text-[10px] uppercase tracking-[0.28em] text-white/70">
-                      Consultation ritual
-                    </p>
-                    <p className="mt-2 text-base font-semibold leading-7">
-                      Leitura facial autoral, plano em camadas e acolhimento de alta sensibilidade.
-                    </p>
-                  </motion.div>
 
-                  <motion.div
-                    whileHover={{ y: -6 }}
-                    className="absolute bottom-5 left-5 right-5 max-w-[25rem] rounded-[1.8rem] border border-white/28 bg-black/[0.18] p-6 text-white backdrop-blur-md"
-                  >
-                    <p className="text-[11px] uppercase tracking-[0.32em] text-white/75">
-                      Maison Aura hero
-                    </p>
-                    <p className="mt-3 font-display text-4xl leading-[0.92] sm:text-[3.35rem]">
-                      Um conjunto rosa premium com movimento leve, desejo e suavidade editorial.
-                    </p>
-                  </motion.div>
+                    <motion.div
+                      style={{ y: floatingNoteY }}
+                      className="max-w-[30rem] rounded-[1.9rem] border border-white/24 bg-[rgba(42,18,29,0.44)] p-6 text-white backdrop-blur-md"
+                    >
+                      <p className="text-[10px] uppercase tracking-[0.32em] text-white/72">
+                        Maison Aura
+                      </p>
+                      <p className="mt-3 font-display text-4xl leading-[0.95] sm:text-[3.1rem]">
+                        Naturalidade, conforto e um cuidado que respeita sua identidade.
+                      </p>
+                      <p className="mt-4 max-w-md text-sm leading-7 text-white/82">
+                        Atendimento reservado para quem busca suavizar sinais, melhorar a
+                        qualidade da pele e manter uma aparencia elegante, sem excessos.
+                      </p>
+                    </motion.div>
+                  </div>
+                </div>
+              </div>
 
-                  <motion.div
-                    style={{ y: floatingRibbonY }}
-                    whileHover={{ y: -6 }}
-                    className="absolute bottom-6 right-6 hidden rounded-[1.45rem] border border-white/22 bg-card/18 px-5 py-4 text-primary-foreground backdrop-blur-md sm:block"
-                  >
-                    <p className="text-[10px] uppercase tracking-[0.28em] text-white/70">
-                      Immediate impression
-                    </p>
-                    <p className="mt-2 max-w-[12rem] text-sm leading-6 text-white/92">
-                      Site com cara de clinica cara, feminina e autoral, sem visual plastico ou generico.
-                    </p>
-                  </motion.div>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <motion.div
+                  style={{ y: floatingRibbonY }}
+                  className="glass-panel p-5"
+                >
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-primary/45">
+                    Atendimento reservado
+                  </p>
+                  <p className="mt-3 text-sm leading-7 text-primary/68">
+                    Horarios organizados, ambiente acolhedor e orientacao clara para que sua
+                    experiencia seja tranquila do inicio ao fim.
+                  </p>
+                </motion.div>
+                <div className="glass-panel p-5">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-primary/45">
+                    Foco em naturalidade
+                  </p>
+                  <p className="mt-3 text-sm leading-7 text-primary/68">
+                    Cada indicacao respeita sua expressao, estrutura facial e momento de vida,
+                    evitando exageros e priorizando equilibrio.
+                  </p>
                 </div>
               </div>
             </Reveal>
@@ -267,8 +270,8 @@ export default function HomePage() {
           <Reveal>
             <SectionIntro
               eyebrow="Tratamentos em destaque"
-              title="Protocolos premium para suavizar, sustentar e iluminar."
-              description="A home foi estruturada para funcionar como vitrine institucional e como landing page de conversao. Cada card apresenta indicacao clara, elegancia visual e CTA facil para agendamento."
+              title="Protocolos para suavizar, sustentar e melhorar a qualidade da pele."
+              description="Selecionamos procedimentos que ajudam a tratar sinais de cansaco, flacidez, perda de contorno e textura com indicacao individualizada."
             />
           </Reveal>
 
@@ -318,7 +321,7 @@ export default function HomePage() {
             <div className="relative overflow-hidden rounded-[2rem]">
               <img
                 src={clinic.media.specialist}
-                alt="Especialista em estetica facial premium"
+                alt="Especialista em estetica facial"
                 className="h-[520px] w-full object-cover object-[center_20%]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,52,46,0.02),rgba(62,52,46,0.35))]" />
@@ -338,7 +341,7 @@ export default function HomePage() {
             <SectionIntro
               eyebrow="Sobre a especialista"
               title="Autoridade serena, olhar artistico e foco absoluto na naturalidade."
-              description="A pagina sobre foi pensada para unir credibilidade, formacao e proximidade. A especialista aparece como figura central da marca, com um posicionamento claro: resultado sofisticado, sem excesso e com indicacao tecnica consistente."
+              description="A atuacao da clinica combina formacao tecnica, leitura facial individualizada e acompanhamento proximo para construir resultados coerentes e elegantes."
             />
 
             <div className="grid gap-4 sm:grid-cols-2">
@@ -367,8 +370,8 @@ export default function HomePage() {
           <Reveal>
             <SectionIntro
               eyebrow="Por que escolher nossa clinica"
-              title="Uma experiencia premium desenhada para gerar confianca e desejo."
-              description="A combinacao certa entre copy, design e UX aumenta muito a percepcao de valor. Nesta demo, os diferenciais foram apresentados com clareza visual e narrativa de posicionamento."
+              title="Uma experiencia pensada para transmitir confianca, calma e criterio."
+              description="Do primeiro contato ao pos-procedimento, cada etapa foi organizada para que voce se sinta bem orientada e segura na sua decisao."
             />
           </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-2">
@@ -401,7 +404,7 @@ export default function HomePage() {
             <SectionIntro
               eyebrow="Antes e depois"
               title="Comparacoes sutis, confiaveis e apresentadas com elegancia."
-              description="Mesmo como demo, a galeria foi estruturada para parecer profissional: menos apelo comercial, mais contexto clinico, etiquetas discretas e CTA para consulta."
+              description="A galeria foi organizada para apresentar resultados com contexto clinico, leitura responsavel e expectativa realista."
             />
           </Reveal>
 
@@ -430,8 +433,8 @@ export default function HomePage() {
           <Reveal className="space-y-6">
             <SectionIntro
               eyebrow="Experiencia e ambiente"
-              title="Uma atmosfera que parece cara, calma e cuidadosamente dirigida."
-              description="A clinica foi pensada como med spa boutique: textura, luz quente, materiais sofisticados e atendimento sem pressa. Isso gera desejo e reforca confianca antes mesmo do primeiro contato."
+              title="Uma atmosfera calma, acolhedora e pensada para o seu conforto."
+              description="Ambiente reservado, luz suave e atendimento sem pressa ajudam a tornar a experiencia mais tranquila antes, durante e depois da consulta."
             />
             <div className="space-y-4">
               {clinic.highlights.map((item) => (
@@ -450,16 +453,16 @@ export default function HomePage() {
             <div className="relative overflow-hidden rounded-[2rem]">
               <img
                 src={clinic.media.environment}
-                alt="Ambiente da clinica premium de estetica"
+                alt="Ambiente da clinica de estetica facial"
                 className="h-[520px] w-full object-cover object-[center_46%]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,52,46,0.08),rgba(62,52,46,0.45))]" />
               <div className="absolute bottom-5 left-5 right-5 rounded-[1.5rem] border border-white/20 bg-card/20 p-5 text-primary-foreground backdrop-blur">
                 <p className="text-xs uppercase tracking-[0.3em] text-white/75">
-                  Luxury med spa mood
+                  Ambiente da clinica
                 </p>
                 <p className="mt-3 font-display text-4xl leading-none">
-                  Conforto, discricao e ritual de cuidado.
+                  Conforto, discricao e cuidado em cada detalhe.
                 </p>
               </div>
             </div>
@@ -509,7 +512,7 @@ export default function HomePage() {
             <SectionIntro
               eyebrow="FAQ"
               title="Duvidas reais que ajudam a converter com mais tranquilidade."
-              description="A estrutura abaixo foi pensada para tirar friccao de quem esta avaliando um procedimento facial e quer seguranca antes de agendar."
+              description="As respostas abaixo ajudam a esclarecer duvidas frequentes de quem esta avaliando um procedimento facial e quer seguranca antes de agendar."
             />
           </Reveal>
 
@@ -539,8 +542,8 @@ export default function HomePage() {
           <Reveal>
             <SectionIntro
               eyebrow="Conteudo e SEO"
-              title="Blog estrategico para educar, aquecer e aumentar autoridade."
-              description="O prototipo inclui uma area editorial pronta para SEO local, campanhas de trafego e nutricao de leads. Os temas abaixo soam atuais e bem posicionados para clinicas premium."
+              title="Conteudo para orientar pacientes e fortalecer autoridade."
+              description="Os temas abaixo ajudam a esclarecer duvidas frequentes, preparar a paciente para a consulta e aprofundar a confianca na indicacao clinica."
             />
           </Reveal>
 

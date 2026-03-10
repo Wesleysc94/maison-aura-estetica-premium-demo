@@ -34,9 +34,9 @@ export type BeforeAfterCase = {
 
 export const clinic = {
   name: "Maison Aura",
-  badge: "Demo de portfolio para clinica premium de estetica",
+  badge: "Estetica facial com atendimento personalizado",
   tagline:
-    "Clinica boutique de estetica facial avancada com foco em rejuvenescimento natural, seguranca tecnica e uma experiencia sensorial sofisticada.",
+    "Clinica de estetica facial em Sao Paulo com foco em naturalidade, seguranca tecnica e planos personalizados de rejuvenescimento.",
   location: "Jardins, Sao Paulo - SP",
   phone: "(11) 98765-4321",
   whatsapp:
@@ -78,9 +78,9 @@ export const clinic = {
     { value: "1:1", label: "plano terapeutico desenhado de forma personalizada" },
   ],
   highlights: [
-    "Protocolos minimamente invasivos e sofisticados",
-    "Diagnostico facial com olhar artistico e criterio tecnico",
-    "Experiencia premium com acompanhamento proximo",
+    "Protocolos minimamente invasivos com indicacao individualizada",
+    "Diagnostico facial com criterio tecnico e leitura global da face",
+    "Acompanhamento proximo do planejamento ao pos-procedimento",
   ],
   differentiators: [
     {

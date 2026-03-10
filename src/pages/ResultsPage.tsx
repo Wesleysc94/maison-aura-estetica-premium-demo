@@ -12,8 +12,8 @@ export default function ResultsPage() {
     <div className="pb-10">
       <PageHero
         eyebrow="Antes e depois"
-        title="Galeria premium com contexto, seguranca e apresentacao sofisticada."
-        description="A area de resultados foi desenhada para soar profissional e confiavel. Em vez de apelo exagerado, ela valoriza leitura facial, naturalidade e transparencia."
+        title="Resultados apresentados com contexto, seguranca e clareza."
+        description="A area de resultados valoriza leitura facial, naturalidade e transparencia, sem recorrer a apelos exagerados."
       />
 
       <section className="px-6 py-10 sm:px-8 lg:px-12">
@@ -22,7 +22,7 @@ export default function ResultsPage() {
             <SectionIntro
               eyebrow="Casos em destaque"
               title="Comparativos organizados para reforcar credibilidade e desejo."
-              description="Os blocos abaixo usam composicao simetrica, labels discretas e uma legenda de protocolo para parecerem parte de uma operacao premium real."
+              description="Cada caso resume foco do tratamento, estrategia utilizada e o tipo de resultado esperado de forma mais responsavel."
             />
           </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">

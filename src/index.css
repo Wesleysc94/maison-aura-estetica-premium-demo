@@ -31,25 +31,25 @@
   }
 
   [data-theme="luxury"] {
-    --background: 333 24% 11%;
-    --foreground: 342 28% 94%;
-    --primary: 340 46% 75%;
-    --primary-foreground: 333 24% 11%;
-    --accent: 339 25% 23%;
-    --accent-foreground: 342 28% 94%;
-    --cream: 340 22% 90%;
-    --dark: 333 26% 7%;
-    --card: 333 20% 14%;
-    --card-foreground: 342 28% 94%;
-    --popover: 333 20% 14%;
-    --popover-foreground: 342 28% 94%;
-    --secondary: 333 16% 18%;
-    --secondary-foreground: 342 28% 94%;
-    --muted: 333 16% 18%;
-    --muted-foreground: 342 14% 73%;
-    --border: 334 18% 22%;
-    --input: 334 18% 22%;
-    --ring: 340 46% 75%;
+    --background: 332 20% 10%;
+    --foreground: 342 24% 93%;
+    --primary: 341 31% 83%;
+    --primary-foreground: 332 20% 10%;
+    --accent: 343 26% 38%;
+    --accent-foreground: 342 24% 95%;
+    --cream: 340 16% 85%;
+    --dark: 332 22% 7%;
+    --card: 334 17% 14%;
+    --card-foreground: 342 24% 93%;
+    --popover: 334 17% 14%;
+    --popover-foreground: 342 24% 93%;
+    --secondary: 333 15% 18%;
+    --secondary-foreground: 342 24% 93%;
+    --muted: 333 15% 18%;
+    --muted-foreground: 342 12% 72%;
+    --border: 334 16% 24%;
+    --input: 334 16% 24%;
+    --ring: 341 31% 73%;
   }
 
   * {
@@ -96,12 +96,12 @@
   a,
   button {
     transition:
-      color 0.35s ease,
-      background-color 0.35s ease,
-      border-color 0.35s ease,
-      transform 0.35s ease,
-      box-shadow 0.35s ease,
-      opacity 0.35s ease;
+      color 0.5s ease,
+      background-color 0.5s ease,
+      border-color 0.5s ease,
+      transform 0.55s ease,
+      box-shadow 0.55s ease,
+      opacity 0.45s ease;
   }
 }
 
@@ -171,13 +171,13 @@
     inset: -40%;
     background: linear-gradient(120deg, transparent 18%, rgba(255, 255, 255, 0.38) 46%, transparent 72%);
     transform: translateX(-140%) skewX(-18deg);
-    transition: transform 0.85s ease;
+    transition: transform 1.2s ease;
     pointer-events: none;
   }
 
   .premium-button:hover,
   .premium-button-secondary:hover {
-    transform: translateY(-3px) scale(1.01);
+    transform: translateY(-1.5px) scale(1.004);
   }
 
   .premium-button:hover::after,
@@ -208,13 +208,13 @@
 
   .ambient-orb {
     @apply pointer-events-none absolute -z-10 rounded-full blur-3xl;
-    animation: orb-drift 11s ease-in-out infinite;
+    animation: orb-drift 16s ease-in-out infinite;
   }
 
   .interactive-card:hover {
-    transform: translateY(-9px) scale(1.008);
+    transform: translateY(-4px) scale(1.004);
     box-shadow:
-      0 44px 140px -68px rgba(129, 75, 96, 0.48),
+      0 36px 100px -60px rgba(129, 75, 96, 0.34),
       inset 0 1px 0 rgba(255, 255, 255, 0.74);
   }
 
@@ -236,19 +236,88 @@ body {
   overflow-x: hidden;
 }
 
+[data-theme="luxury"] body {
+  background-image:
+    radial-gradient(circle at 10% 14%, hsl(340 32% 26% / 0.34), transparent 24%),
+    radial-gradient(circle at 84% 10%, hsl(16 28% 24% / 0.22), transparent 24%),
+    radial-gradient(circle at 52% 18%, hsl(338 16% 22% / 0.44), transparent 40%),
+    linear-gradient(165deg, hsl(334 18% 12%), hsl(332 15% 10%) 42%, hsl(321 16% 8%) 100%);
+}
+
+[data-theme="luxury"] body::before {
+  background-image:
+    linear-gradient(hsl(340 12% 88% / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(340 12% 88% / 0.04) 1px, transparent 1px);
+  opacity: 0.22;
+}
+
 [data-theme="luxury"] .card-surface {
   @apply border-white/10 bg-card/50;
+  background: linear-gradient(145deg, rgba(32, 22, 27, 0.88), rgba(50, 34, 41, 0.76));
   box-shadow:
     0 42px 122px -68px rgba(0, 0, 0, 0.82),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
+[data-theme="luxury"] .luxury-chip {
+  @apply border-white/10 bg-white/[0.06] text-foreground;
+  box-shadow: 0 22px 52px -36px rgba(0, 0, 0, 0.45);
+}
+
 [data-theme="luxury"] .glass-panel,
 [data-theme="luxury"] .rose-panel {
   @apply border-white/10 bg-card/40;
+  background: linear-gradient(145deg, rgba(34, 24, 29, 0.86), rgba(49, 34, 41, 0.74));
   box-shadow:
     0 32px 100px -60px rgba(0, 0, 0, 0.82),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="luxury"] .editorial-frame::after {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="luxury"] .premium-button {
+  @apply border-white/10;
+  background: linear-gradient(135deg, #6d4257, #8f5f77 52%, #aa7990);
+  box-shadow:
+    0 24px 60px -28px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="luxury"] .premium-button-secondary,
+[data-theme="luxury"] .premium-button.light,
+[data-theme="luxury"] .premium-button-secondary.dark {
+  @apply border-white/10 bg-white/[0.06] text-foreground;
+  box-shadow:
+    0 24px 60px -36px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="luxury"] .input-surface {
+  @apply border-white/10 bg-white/[0.05] text-foreground placeholder:text-foreground/40;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="luxury"] .site-shell-header,
+[data-theme="luxury"] .site-shell-footer,
+[data-theme="luxury"] .site-shell-sticky,
+[data-theme="luxury"] .site-shell-mobile,
+[data-theme="luxury"] .site-shell-fab,
+[data-theme="luxury"] .theme-fab {
+  background: linear-gradient(145deg, rgba(36, 26, 31, 0.88), rgba(62, 42, 50, 0.68));
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 34px 120px -68px rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="luxury"] .site-nav-link {
+  color: hsl(var(--foreground) / 0.78);
+}
+
+[data-theme="luxury"] .site-nav-link:hover,
+[data-theme="luxury"] .site-nav-link-active {
+  background: rgba(255, 255, 255, 0.06);
+  color: hsl(var(--foreground));
 }
 
 .card-surface::before,
