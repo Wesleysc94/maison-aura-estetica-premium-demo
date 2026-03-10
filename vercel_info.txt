@@ -1,6 +1,0 @@
-* codex/estetica-premium-demo                f285b29 feat: integrate Supabase backend, capture leads, and overhaul design to premium Dusty Rose theme
-  main                                       4c42bd7 docs: update README contacts and mockup image
-  remotes/origin/HEAD                        -> origin/main
-  remotes/origin/codex/estetica-premium-demo f285b29 feat: integrate Supabase backend, capture leads, and overhaul design to premium Dusty Rose theme
-  remotes/origin/main                        4c42bd7 docs: update README contacts and mockup image
-  remotes/portfolio-origin/main              a4b423f feat: refine premium visual direction and interactions
