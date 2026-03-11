@@ -15,14 +15,17 @@ import {
 import { clinic } from "@/data/siteContent";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { cn } from "@/lib/utils";
-function HeaderLink({ href, label }: { href: string; label: string }) {
+function HeaderLink({ href, label, isTransparent }: { href: string; label: string; isTransparent?: boolean }) {
   return (
     <NavLink
       to={href}
       className={({ isActive }) =>
         cn(
-          "site-nav-link rounded-full px-4 py-2 text-sm font-semibold tracking-wide text-primary/68 transition-all duration-500 hover:-translate-y-px hover:bg-card/78 hover:text-primary",
-          isActive && "site-nav-link-active bg-card/92 text-primary shadow-[0_18px_44px_-24px_rgba(100,60,79,0.32)]",
+          "site-nav-link rounded-full px-4 py-2 text-sm font-semibold tracking-wide transition-colors duration-300",
+          isTransparent 
+            ? "text-white/80 hover:bg-white/10 hover:text-white" 
+            : "text-primary/70 hover:bg-card/78 hover:text-primary",
+          isActive && (isTransparent ? "bg-white/15 text-white" : "bg-card/92 text-primary shadow-sm")
         )
       }
     >
@@ -141,23 +144,46 @@ function FloatingWhatsApp() {
 
 export function SiteChrome() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     setMenuOpen(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      // Inversão de cor somente após o hero/social proof (aprox 100vh - header height)
+      setIsScrolled(window.scrollY > window.innerHeight - 100);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    // Chama imediatamente para setar o estado inicial correto em loads na metade da pagina
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const isHomeTop = location.pathname === "/" && !isScrolled && !menuOpen;
+
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background text-primary">
       <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8">
-        <div className="site-shell-header mx-auto flex max-w-6xl items-center justify-between rounded-[2rem] border border-border/70 bg-background/82 px-5 py-3 shadow-[0_24px_90px_-54px_rgba(111,72,90,0.24)] backdrop-blur-2xl">
+        <div 
+          className={cn(
+            "site-shell-header mx-auto flex max-w-6xl items-center justify-between rounded-[2rem] px-5 py-3 transition-colors duration-500",
+            isHomeTop 
+              ? "bg-transparent border border-white/10 shadow-none backdrop-blur-sm" 
+              : "border border-border/70 bg-background/82 shadow-[0_24px_90px_-54px_rgba(111,72,90,0.24)] backdrop-blur-2xl"
+          )}
+        >
           <Link to="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[linear-gradient(135deg,#6f3852,#bf7e9c)] text-background shadow-[0_18px_50px_-18px_rgba(62,52,46,0.45)]">
+            <div className="flex h-11 w-11 items-center justify-center rounded-full transition-colors duration-500 bg-[linear-gradient(135deg,#6f3852,#bf7e9c)] text-background shadow-[0_18px_50px_-18px_rgba(62,52,46,0.45)]">
               <Sparkles className="h-5 w-5" />
             </div>
             <div>
-              <p className="font-display text-2xl leading-none text-primary">{clinic.name}</p>
-              <p className="text-[10px] uppercase tracking-[0.32em] text-primary/60">
+              <p className={cn("font-display text-2xl leading-none transition-colors duration-500", isHomeTop ? "text-white" : "text-primary")}>
+                {clinic.name}
+              </p>
+              <p className={cn("text-[10px] uppercase tracking-[0.32em] transition-colors duration-500", isHomeTop ? "text-white/80" : "text-primary/60")}>
                 Estetica facial premium
               </p>
             </div>
@@ -165,7 +191,7 @@ export function SiteChrome() {
 
           <nav className="hidden items-center gap-1 lg:flex">
             {clinic.nav.map((item) => (
-              <HeaderLink key={item.href} href={item.href} label={item.label} />
+              <HeaderLink key={item.href} href={item.href} label={item.label} isTransparent={isHomeTop} />
             ))}
           </nav>
 
@@ -178,7 +204,10 @@ export function SiteChrome() {
 
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-background/84 text-primary lg:hidden"
+            className={cn(
+              "inline-flex h-11 w-11 items-center justify-center rounded-full border transition-colors duration-500 lg:hidden",
+              isHomeTop ? "border-white/20 bg-white/10 text-white" : "border-border/70 bg-background/84 text-primary"
+            )}
             onClick={() => setMenuOpen((value) => !value)}
             aria-label="Abrir menu"
           >

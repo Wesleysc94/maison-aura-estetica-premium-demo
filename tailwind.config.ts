@@ -17,6 +17,7 @@ export default {
       fontFamily: {
         display: ['"Cormorant Garamond"', 'serif'],
         sans: ['"Manrope"', 'sans-serif'],
+        'mono-data': ['"IBM Plex Mono"', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -52,22 +53,8 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        gold: "hsl(var(--gold))",
-        "gold-light": "hsl(var(--gold-light))",
-        "green-dark": "hsl(var(--green-dark))",
-        "green-medium": "hsl(var(--green-medium))",
         cream: "hsl(var(--cream))",
         dark: "hsl(var(--dark))",
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
       },
       borderRadius: {
         lg: "var(--radius)",
