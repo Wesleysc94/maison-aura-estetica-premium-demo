@@ -1,13 +1,40 @@
-import { FormEvent } from "react";
+import { FormEvent, useLayoutEffect } from "react";
 import { CalendarRange, Clock3, Instagram, MapPin, Phone } from "lucide-react";
 import { toast } from "sonner";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { clinic } from "@/data/siteContent";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { supabase } from "@/integrations/supabase/client";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function ContactPage() {
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.utils.toArray<HTMLElement>(".gsap-section").forEach((section) => {
+        gsap.fromTo(
+          section,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+    });
+    return () => ctx.revert();
+  }, []);
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -49,9 +76,10 @@ export default function ContactPage() {
         eyebrow="Contato e agendamento"
         title="Agendamento claro, acolhedor e alinhado ao ritmo de uma clinica premium."
         description="Formulario, WhatsApp, endereco, horario e Instagram aparecem em uma unica experiencia objetiva para reduzir friccao e facilitar o primeiro contato."
+        image={clinic.media.consultation}
       />
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
+      <section className="gsap-section px-6 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.05fr,0.95fr]">
           <Reveal className="card-surface p-7">
             <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">

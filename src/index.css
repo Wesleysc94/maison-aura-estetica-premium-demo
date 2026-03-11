@@ -265,8 +265,12 @@
     animation: none;
   }
 
-  /* ─── INTERACTIVE CARD ─── */
-  .interactive-card:hover {
+  /* ─── INTERACTIVE CARDS & BLOCKS ─── */
+  .interactive-card:hover,
+  .card-surface:hover,
+  .metric-card:hover,
+  .glass-panel:hover,
+  .rose-panel:hover {
     transform: translateY(-4px);
     box-shadow:
       0 28px 64px -38px rgba(126, 73, 95, 0.2),
@@ -407,7 +411,11 @@ body {
   color: hsl(var(--foreground));
 }
 
-[data-theme="luxury"] .interactive-card:hover {
+[data-theme="luxury"] .interactive-card:hover,
+[data-theme="luxury"] .card-surface:hover,
+[data-theme="luxury"] .metric-card:hover,
+[data-theme="luxury"] .glass-panel:hover,
+[data-theme="luxury"] .rose-panel:hover {
   box-shadow:
     0 32px 72px -42px rgba(0, 0, 0, 0.34),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);

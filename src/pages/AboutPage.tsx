@@ -1,20 +1,49 @@
+import { useLayoutEffect } from "react";
 import { Check, Sparkles } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { clinic } from "@/data/siteContent";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionIntro } from "@/components/site/SectionIntro";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function AboutPage() {
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.utils.toArray<HTMLElement>(".gsap-section").forEach((section) => {
+        gsap.fromTo(
+          section,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+    });
+    return () => ctx.revert();
+  }, []);
+
   return (
     <div className="pb-10">
       <PageHero
         eyebrow="Sobre a clinica"
         title="Uma marca pensada para acolher com elegancia e conduzir com seguranca."
         description="Conheca a historia, a filosofia de atendimento e a forma como a Maison Aura estrutura cada plano de cuidado facial."
+        image={clinic.media.environment}
       />
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
+      <section className="gsap-section px-6 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1fr,1fr] lg:items-center">
           <Reveal className="space-y-7">
             <SectionIntro
@@ -52,7 +81,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
+      <section className="gsap-section px-6 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <SectionIntro
@@ -76,7 +105,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
+      <section className="gsap-section px-6 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1.05fr,0.95fr]">
           <Reveal className="card-surface p-7">
             <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
@@ -84,7 +113,7 @@ export default function AboutPage() {
             </p>
             <div className="mt-6 space-y-4">
               {clinic.certifications.map((item) => (
-                <div key={item} className="flex gap-3 rounded-[1.35rem] border border-primary/10 bg-background/80 p-4">
+                <div key={item} className="metric-card flex gap-3 p-4">
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
                     <Check className="h-4 w-4" />
                   </div>

@@ -37,7 +37,7 @@ function HeaderLink({ href, label, isTransparent }: { href: string; label: strin
 function Footer() {
   return (
     <footer className="mt-24 px-6 pb-28 pt-6 sm:px-8 lg:px-12">
-      <div className="site-shell-footer mx-auto grid max-w-6xl gap-10 rounded-[2.4rem] border border-border/70 bg-background/76 p-8 shadow-[0_34px_120px_-68px_rgba(118,72,92,0.24)] backdrop-blur-2xl md:grid-cols-[1.3fr,0.8fr,0.9fr]">
+      <div className="site-shell-footer mx-auto grid max-w-6xl gap-10 rounded-[2.4rem] border border-border/70 bg-background/76 p-8 shadow-[0_34px_120px_-68px_rgba(118,72,92,0.24)] backdrop-blur-2xl transition-all duration-500 hover:-translate-y-2 md:grid-cols-[1.3fr,0.8fr,0.9fr]">
         <div className="space-y-5">
           <span className="luxury-chip">
             <Sparkles className="h-3.5 w-3.5 text-accent" />
@@ -90,7 +90,7 @@ function Footer() {
               Instagram da clinica
             </a>
           </div>
-          <div className="rounded-[1.25rem] border border-primary/10 bg-card/70 px-4 py-3">
+          <div className="metric-card px-4 py-3">
             <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-primary/45">
               Status
             </p>
@@ -169,7 +169,7 @@ export function SiteChrome() {
       <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8">
         <div 
           className={cn(
-            "site-shell-header mx-auto flex max-w-6xl items-center justify-between rounded-[2rem] px-5 py-3 transition-colors duration-500",
+            "site-shell-header mx-auto flex max-w-6xl items-center justify-between rounded-[2rem] px-5 py-3 transition-all duration-500 hover:-translate-y-1",
             isHomeTop 
               ? "bg-transparent border border-white/10 shadow-none backdrop-blur-sm" 
               : "border border-border/70 bg-background/82 shadow-[0_24px_90px_-54px_rgba(111,72,90,0.24)] backdrop-blur-2xl"

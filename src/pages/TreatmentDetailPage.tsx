@@ -1,14 +1,42 @@
+import { useLayoutEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { clinic, treatments as staticTreatments } from "@/data/siteContent";
 import { Reveal } from "@/components/site/Reveal";
 import { useTreatment } from "@/hooks/use-treatments";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function TreatmentDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const { data: treatment, isLoading } = useTreatment(slug || "");
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.utils.toArray<HTMLElement>(".gsap-section").forEach((section) => {
+        gsap.fromTo(
+          section,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+    });
+    return () => ctx.revert();
+  }, []);
 
   if (isLoading) {
     return <div className="min-h-screen bg-background" />;
@@ -17,7 +45,7 @@ export default function TreatmentDetailPage() {
   if (!treatment) {
     return (
       <div className="px-6 pb-24 pt-36 sm:px-8 lg:px-12">
-        <div className="mx-auto max-w-3xl rounded-[2rem] border border-primary/10 bg-card/80 p-8 text-center shadow-[0_30px_120px_-60px_rgba(90,70,58,0.45)]">
+        <div className="metric-card mx-auto max-w-3xl border border-primary/10 bg-card/80 p-8 text-center shadow-[0_30px_120px_-60px_rgba(90,70,58,0.45)] transition-transform duration-500 hover:-translate-y-2">
           <h1 className="font-display text-5xl text-primary">Tratamento nao encontrado</h1>
           <p className="mt-4 text-base leading-8 text-primary/70">
             O protocolo solicitado nao esta disponivel no momento.
@@ -35,7 +63,7 @@ export default function TreatmentDetailPage() {
 
   return (
     <div className="pb-10">
-      <section className="px-6 pb-14 pt-32 sm:px-8 lg:px-12">
+      <section className="gsap-section px-6 pb-14 pt-32 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-6xl">
           <button
             onClick={() => navigate("/tratamentos")}
@@ -85,7 +113,7 @@ export default function TreatmentDetailPage() {
         </div>
       </section>
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
+      <section className="gsap-section px-6 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[0.95fr,1.05fr]">
           <Reveal className="card-surface p-7">
             <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
@@ -93,7 +121,7 @@ export default function TreatmentDetailPage() {
             </p>
             <div className="mt-6 space-y-4">
               {treatment.benefits.map((item) => (
-                <div key={item} className="flex gap-3 rounded-[1.35rem] border border-primary/10 bg-background/80 p-4">
+                <div key={item} className="metric-card flex gap-3 p-4">
                   <CheckCircle2 className="mt-1 h-5 w-5 text-accent" />
                   <p className="text-sm leading-7 text-primary/70">{item}</p>
                 </div>
@@ -125,8 +153,8 @@ export default function TreatmentDetailPage() {
         </div>
       </section>
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
-        <Reveal className="mx-auto max-w-6xl rounded-[2.2rem] border border-primary/10 bg-primary px-8 py-10 text-background shadow-[0_40px_120px_-60px_rgba(62,52,46,1)]">
+      <section className="gsap-section px-6 py-10 sm:px-8 lg:px-12">
+        <Reveal className="mx-auto max-w-6xl rounded-[2.2rem] border border-primary/10 bg-primary px-8 py-10 text-background shadow-[0_40px_120px_-60px_rgba(62,52,46,1)] transition-transform duration-500 hover:-translate-y-2">
           <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr] lg:items-center">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-background/55">

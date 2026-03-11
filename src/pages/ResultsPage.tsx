@@ -1,5 +1,8 @@
+import { useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { AlertCircle } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { clinic } from "@/data/siteContent";
 import { BeforeAfterCaseCard } from "@/components/site/BeforeAfterCaseCard";
@@ -7,16 +10,42 @@ import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionIntro } from "@/components/site/SectionIntro";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function ResultsPage() {
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.utils.toArray<HTMLElement>(".gsap-section").forEach((section) => {
+        gsap.fromTo(
+          section,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+    });
+    return () => ctx.revert();
+  }, []);
+
   return (
     <div className="pb-10">
       <PageHero
         eyebrow="Antes e depois"
         title="Casos acompanhados com leitura responsavel, clareza e elegancia."
         description="A area de resultados valoriza contexto clinico, naturalidade e transparencia, sem recorrer a montagens artificiais ou promessas exageradas."
+        image={clinic.media.results.skin}
       />
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
+      <section className="gsap-section px-6 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <SectionIntro
@@ -35,7 +64,7 @@ export default function ResultsPage() {
         </div>
       </section>
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
+      <section className="gsap-section px-6 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1fr,1fr]">
           <Reveal className="card-surface p-7">
             <div className="flex items-start gap-4">
@@ -62,7 +91,7 @@ export default function ResultsPage() {
             </p>
             <div className="mt-6 space-y-5">
               {clinic.testimonials.map((testimonial) => (
-                <div key={testimonial.name} className="rounded-[1.35rem] border border-primary/10 bg-background/80 p-4">
+                <div key={testimonial.name} className="metric-card p-4">
                   <p className="text-sm leading-7 text-primary/70">"{testimonial.quote}"</p>
                   <p className="mt-4 text-sm font-semibold text-primary">{testimonial.name}</p>
                   <p className="text-xs uppercase tracking-[0.24em] text-primary/40">{testimonial.role}</p>
@@ -73,7 +102,7 @@ export default function ResultsPage() {
         </div>
       </section>
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
+      <section className="gsap-section px-6 py-10 sm:px-8 lg:px-12">
         <Reveal className="mx-auto flex max-w-6xl justify-center">
           <Link to="/contato" className="premium-button">
             Agendar avaliacao estrategica

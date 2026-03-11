@@ -21,6 +21,9 @@ export type BlogPost = {
   title: string;
   excerpt: string;
   readTime: string;
+  date?: string;
+  image?: string;
+  content?: string;
 };
 
 export type BeforeAfterCase = {
@@ -366,6 +369,25 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Entenda o melhor momento para iniciar a toxina e como evitar exageros sem perder leveza.",
     readTime: "4 min",
+    date: "12 de Outubro, 2026",
+    image: "https://images.pexels.com/photos/3762879/pexels-photo-3762879.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    content: `
+      <p>A dúvida sobre quando iniciar a aplicação da toxina botulínica é, sem dúvida, uma das mais comuns em nosso consultório. A desmistificação em torno deste tratamento tem sido fundamental para o alcance de resultados cada vez mais naturais e sofisticados.</p>
+      
+      <h3>O mito da "idade certa"</h3>
+      <p>Muitos acreditam que existe uma idade exata para iniciar o uso da toxina botulínica — os temidos 30 ou 40 anos. No entanto, na Maison Aura, nossa abordagem foca na <strong>necessidade fisiológica e mecânica</strong> da face, não em um número.</p>
+      <ul>
+        <li><strong>Prevenção:</strong> Pessoas mais jovens com forte atividade muscular (que "fecham" muito os olhos ou franzem a testa ao se comunicar) podem se beneficiar da toxina neuromoduladora de forma preventiva, educando a musculatura antes que a pele se quebre e forme uma linha estática.</li>
+        <li><strong>Atenuação:</strong> Pacientes maduros utilizam a toxina para relaxar músculos hipertróficos que puxam a face para baixo ou causam aspecto perpétuo de cansaço e irritação.</li>
+      </ul>
+
+      <h3>Como manter a elegância e a leveza</h3>
+      <p>O segredo de um resultado <em>premium</em> e de alto padrão não está na ausência total de rugas, mas na <strong>manutenção da expressão</strong>. O chamado "efeito congelado" ocorre quando há aplicação padronizada sem leitura facial individualizada.</p>
+      <p>Para garantir naturalidade, aplicamos técnicas de microdosagem (o famoso "baby botox" ou "mezobotox"), suavizando a contração excessiva mas permitindo que os olhos sorriam junto com os lábios. Dessa forma, você transmite frescor e vivacidade, sem perder sua essência e comunicação não-verbal.</p>
+
+      <h3>Periodicidade é o segredo</h3>
+      <p>Manter a periodicidade do tratamento (geralmente entre 4 a 6 meses para protocolos de longa duração) garante que o músculo não retorne totalmente ao seu pico de contração, o que facilita o manejo das rugas e a prevenção prolongada. Avalie sempre com seu profissional qual o momento certo do retoque baseado na sua anatomia única.</p>
+    `
   },
   {
     slug: "rejuvenescimento-natural",
@@ -374,6 +396,8 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "A logica por tras de protocolos progressivos, previsiveis e com assinatura sofisticada.",
     readTime: "5 min",
+    date: "28 de Setembro, 2026",
+    image: "https://images.pexels.com/photos/5938545/pexels-photo-5938545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   {
     slug: "bioestimulador-ou-preenchimento",

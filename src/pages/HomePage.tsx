@@ -215,7 +215,7 @@ export default function HomePage() {
             </div>
 
             {/* Social proof bar - Sleek Horizontal Pill */}
-            <div className="hero-stagger mt-10 flex w-full max-w-3xl items-center justify-between rounded-[2rem] border border-white/10 bg-zinc-950/40 p-1 px-4 backdrop-blur-xl transition-colors hover:bg-zinc-950/60 sm:rounded-full sm:px-8">
+            <div className="hero-stagger mt-10 flex w-full max-w-3xl items-center justify-between rounded-[2rem] border border-white/10 bg-zinc-950/40 p-1 px-4 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:bg-zinc-950/60 sm:rounded-full sm:px-8">
               {clinic.stats.map((item, index) => (
                 <div
                   key={item.label}
@@ -227,7 +227,7 @@ export default function HomePage() {
                   <p className="font-mono-data text-xl font-bold text-white drop-shadow-md sm:text-2xl">
                     {item.value}
                   </p>
-                  <p className="mt-1 max-w-[140px] text-[8px] uppercase leading-[1.4] tracking-[0.15em] text-white/50 transition-colors group-hover:text-white/80 sm:text-[9px]">
+                  <p className="mt-1 max-w-[140px] text-[8px] uppercase leading-[1.4] tracking-[0.15em] text-white/50 transition-colors duration-500 group-hover:text-white/80 sm:text-[9px]">
                     {item.label}
                   </p>
                 </div>
@@ -261,7 +261,7 @@ export default function HomePage() {
               />
               <div className="space-y-3">
                 {consultationNotes.map((item) => (
-                  <div key={item} className="rounded-[1.2rem] border border-border/70 bg-background/82 px-4 py-4">
+                  <div key={item} className="metric-card p-4">
                     <p className="text-sm leading-6 text-primary/78">{item}</p>
                   </div>
                 ))}
@@ -328,9 +328,9 @@ export default function HomePage() {
                   <span className="rounded-full bg-background px-3 py-2 font-mono-data text-xs text-primary/70">{treatment.duration}</span>
                   <span className="rounded-full bg-background px-3 py-2 font-mono-data text-xs text-primary/70">{treatment.recovery}</span>
                 </div>
-                <Link to={`/tratamentos/${treatment.slug}`} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:-translate-y-px">
+                <Link to={`/tratamentos/${treatment.slug}`} className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-accent">
                   Ver detalhes
-                  <ArrowUpRight className="h-4 w-4" />
+                  <ArrowUpRight className="h-4 w-4 transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:translate-x-1" />
                 </Link>
               </Reveal>
             ))}
@@ -577,7 +577,7 @@ export default function HomePage() {
                 <AccordionItem
                   key={item.question}
                   value={`faq-${index}`}
-                  className="rounded-[1.3rem] border border-primary/10 px-5"
+                  className="metric-card px-5 transition-transform duration-500 hover:-translate-y-1"
                 >
                   <AccordionTrigger className="text-left text-base font-semibold text-primary hover:no-underline">
                     {item.question}
@@ -612,9 +612,9 @@ export default function HomePage() {
                 </p>
                 <h3 className="mt-4 font-display text-3xl leading-none text-primary">{post.title}</h3>
                 <p className="mt-4 text-sm leading-7 text-primary/70">{post.excerpt}</p>
-                <Link to="/conteudo" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:-translate-y-px">
+                <Link to={`/conteudo/${post.slug}`} className="group mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-accent">
                   Explorar conteudo
-                  <ArrowUpRight className="h-4 w-4" />
+                  <ArrowUpRight className="h-4 w-4 transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:translate-x-1" />
                 </Link>
               </Reveal>
             ))}
@@ -626,7 +626,7 @@ export default function HomePage() {
           L. CTA FINAL — "A Cena de Encerramento"
           ═══════════════════════════════════════════════════════════════ */}
       <section className="gsap-section section-shell-tight">
-        <Reveal className="mx-auto max-w-6xl rounded-[2.4rem] border border-[#7d5a6a]/35 bg-[linear-gradient(135deg,#563445,#694356)] px-8 py-12 text-white shadow-[0_40px_120px_-62px_rgba(41,21,30,0.75)] sm:px-10 md:py-16">
+        <Reveal className="mx-auto max-w-6xl rounded-[2.4rem] border border-[#7d5a6a]/35 bg-[linear-gradient(135deg,#563445,#694356)] px-8 py-12 text-white shadow-[0_40px_120px_-62px_rgba(41,21,30,0.75)] transition-transform duration-500 hover:-translate-y-2 sm:px-10 md:py-16">
           <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr] lg:items-center">
             <div>
               <p className="font-mono-data text-[11px] font-semibold uppercase tracking-[0.34em] text-white/45">

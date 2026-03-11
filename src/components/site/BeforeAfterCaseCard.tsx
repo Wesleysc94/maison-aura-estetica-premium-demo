@@ -26,7 +26,7 @@ export function BeforeAfterCaseCard({
   const visual = visualMap[item.variant];
 
   return (
-    <article className={cn("card-surface interactive-card h-full overflow-hidden p-4 sm:p-5", compact && "sm:p-4")}>
+    <article className={cn("card-surface interactive-card group h-full overflow-hidden p-4 sm:p-5", compact && "sm:p-4")}>
       <div className="relative overflow-hidden rounded-[1.8rem]">
         <img
           src={visual.src}
@@ -50,13 +50,13 @@ export function BeforeAfterCaseCard({
         <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-primary/50">{item.note}</p>
 
         <div className={cn("mt-5 grid gap-3", compact ? "md:grid-cols-2" : "sm:grid-cols-2")}>
-          <div className="rounded-[1.35rem] border border-border/70 bg-background/82 p-4">
+          <div className="metric-card p-4 bg-background/82">
             <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-primary/45">
               Queixa inicial
             </p>
             <p className="mt-3 text-sm leading-6 text-primary/78">{item.beforeLabel}</p>
           </div>
-          <div className="rounded-[1.35rem] border border-border/70 bg-background/82 p-4">
+          <div className="metric-card p-4 bg-background/82">
             <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-primary/45">
               Direcao do resultado
             </p>

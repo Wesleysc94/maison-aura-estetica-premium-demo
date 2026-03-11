@@ -1,5 +1,8 @@
+import { useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { clinic, treatments as staticTreatments } from "@/data/siteContent";
 import { PageHero } from "@/components/site/PageHero";
@@ -7,17 +10,44 @@ import { Reveal } from "@/components/site/Reveal";
 import { SectionIntro } from "@/components/site/SectionIntro";
 import { useTreatments } from "@/hooks/use-treatments";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function TreatmentsPage() {
   const { data: treatments = staticTreatments } = useTreatments();
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.utils.toArray<HTMLElement>(".gsap-section").forEach((section) => {
+        gsap.fromTo(
+          section,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+    });
+    return () => ctx.revert();
+  }, []);
+
   return (
     <div className="pb-10">
       <PageHero
         eyebrow="Tratamentos"
         title="Entenda cada tratamento com clareza antes de agendar sua avaliacao."
         description="Esta pagina ajuda a paciente a entender indicacoes, beneficios, tempo de procedimento e recuperacao sem se perder em uma lista fria de nomes tecnicos."
+        image={clinic.media.hero}
       />
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
+      <section className="gsap-section px-6 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <SectionIntro
@@ -31,7 +61,7 @@ export default function TreatmentsPage() {
               <Reveal
                 key={treatment.slug}
                 delay={index * 0.04}
-                className="card-surface p-6"
+                className="card-surface interactive-card p-6 flex flex-col"
               >
                 <span className="rounded-full bg-primary/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary/60">
                   {treatment.category}
@@ -47,10 +77,10 @@ export default function TreatmentsPage() {
                 </div>
                 <Link
                   to={`/tratamentos/${treatment.slug}`}
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary"
+                  className="group mt-auto inline-flex items-center gap-1.5 pt-6 text-xs font-semibold text-primary transition-colors hover:text-accent"
                 >
                   Ver protocolo
-                  <ArrowUpRight className="h-4 w-4" />
+                  <ArrowUpRight className="h-3.5 w-3.5 transition-all duration-500 ease-out group-hover:-translate-y-px group-hover:translate-x-1" />
                 </Link>
               </Reveal>
             ))}
@@ -58,7 +88,7 @@ export default function TreatmentsPage() {
         </div>
       </section>
 
-      <section className="px-6 py-10 sm:px-8 lg:px-12">
+      <section className="gsap-section px-6 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.1fr,0.9fr]">
           <Reveal className="card-surface p-7">
             <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
@@ -66,7 +96,7 @@ export default function TreatmentsPage() {
             </p>
             <div className="mt-6 space-y-5">
               {clinic.evaluationSteps.map((item, index) => (
-                <div key={item.title} className="flex gap-4">
+                <div key={item.title} className="metric-card flex gap-4 p-4 transition-transform duration-500 hover:-translate-y-1">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
                     {index + 1}
                   </div>

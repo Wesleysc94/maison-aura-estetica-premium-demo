@@ -15,6 +15,7 @@ const TreatmentsPage = lazy(() => import("./pages/TreatmentsPage"));
 const TreatmentDetailPage = lazy(() => import("./pages/TreatmentDetailPage"));
 const ResultsPage = lazy(() => import("./pages/ResultsPage"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
+const BlogPostPage = lazy(() => import("./pages/BlogPostPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -47,6 +48,7 @@ const AnimatedRoutes = () => {
           <Route path="/tratamentos/:slug" element={<TreatmentDetailPage />} />
           <Route path="/resultados" element={<ResultsPage />} />
           <Route path="/conteudo" element={<BlogPage />} />
+          <Route path="/conteudo/:slug" element={<BlogPostPage />} />
           <Route path="/contato" element={<ContactPage />} />
           <Route path="*" element={<NotFound />} />
         </Route>
