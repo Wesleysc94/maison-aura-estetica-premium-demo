@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "deploy": "git add . && git commit -m \"chore: deploy production\" && git push origin HEAD:main"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
