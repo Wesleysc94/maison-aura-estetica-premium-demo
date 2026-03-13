@@ -45,6 +45,21 @@ const firstVisitNotes = [
   "Orientacoes claras sobre preparo, recuperacao e manutencao.",
 ];
 
+const signaturePromises = [
+  {
+    title: "Diagnostico sem pressa",
+    text: "A experiencia comeca com escuta e priorizacao, nao com pressao comercial.",
+  },
+  {
+    title: "Plano com ritmo",
+    text: "O tratamento respeita agenda, vida social e tempo biologico da pele.",
+  },
+  {
+    title: "Resultado que envelhece bem",
+    text: "A proposta prioriza naturalidade hoje e boa leitura estetica ao longo do tempo.",
+  },
+];
+
 export default function HomePage() {
   const { data: treatmentsData = treatments } = useTreatments();
   const { data: blogData = blogPosts } = useBlogPosts();
@@ -462,7 +477,37 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          G. RESULTADOS ACOMPANHADOS
+          G. ASSINATURA DA EXPERIENCIA
+          ═══════════════════════════════════════════════════════════════ */}
+      <section className="gsap-section section-shell-tight">
+        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[0.95fr,1.05fr]">
+          <Reveal className="card-surface p-7">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
+              Assinatura da experiencia
+            </p>
+            <h2 className="mt-5 font-display text-4xl leading-[0.94] text-primary sm:text-5xl">
+              O luxo percebido vem da forma como a paciente se sente conduzida.
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-primary/70">
+              O upgrade da home tambem reforca isso: o site nao vende so procedimento. Ele vende criterio, atmosfera e um atendimento que parece adulto, desejavel e bem resolvido.
+            </p>
+          </Reveal>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            {signaturePromises.map((item, index) => (
+              <Reveal key={item.title} delay={index * 0.05} className="editorial-note h-full">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-primary/45">
+                  {item.title}
+                </p>
+                <p className="mt-5 text-base leading-8 text-primary/74">{item.text}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          H. RESULTADOS ACOMPANHADOS
           ═══════════════════════════════════════════════════════════════ */}
       <section className="gsap-section section-shell-tight">
         <div className="mx-auto max-w-6xl">
@@ -489,7 +534,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          H. EXPERIENCIA E AMBIENTE
+          I. EXPERIENCIA E AMBIENTE
           ═══════════════════════════════════════════════════════════════ */}
       <section className="gsap-section section-shell-tight">
         <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.92fr,1.08fr] lg:items-center">
@@ -529,7 +574,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          I. DEPOIMENTOS
+          J. DEPOIMENTOS
           ═══════════════════════════════════════════════════════════════ */}
       <section className="gsap-section section-shell-tight">
         <div className="mx-auto max-w-6xl">
@@ -560,7 +605,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          J. FAQ
+          K. FAQ
           ═══════════════════════════════════════════════════════════════ */}
       <section className="gsap-section section-shell-tight">
         <div className="mx-auto max-w-6xl">
@@ -593,7 +638,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          K. CONTEUDO / BLOG
+          L. CONTEUDO / BLOG
           ═══════════════════════════════════════════════════════════════ */}
       <section className="gsap-section section-shell-tight">
         <div className="mx-auto max-w-6xl">
@@ -623,7 +668,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          L. CTA FINAL — "A Cena de Encerramento"
+          M. CTA FINAL — "A Cena de Encerramento"
           ═══════════════════════════════════════════════════════════════ */}
       <section className="gsap-section section-shell-tight">
         <Reveal className="mx-auto max-w-6xl rounded-[2.4rem] border border-[#7d5a6a]/35 bg-[linear-gradient(135deg,#563445,#694356)] px-8 py-12 text-white shadow-[0_40px_120px_-62px_rgba(41,21,30,0.75)] transition-transform duration-500 hover:-translate-y-2 sm:px-10 md:py-16">

@@ -1,42 +1,18 @@
-import { useLayoutEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowUpRight, CheckCircle2 } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowLeft, ArrowUpRight, CheckCircle2, Sparkles } from "lucide-react";
 
-import { clinic, treatments as staticTreatments } from "@/data/siteContent";
+import { clinic } from "@/data/siteContent";
+import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { useTreatment } from "@/hooks/use-treatments";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useSectionReveal } from "@/hooks/use-section-reveal";
 
 export default function TreatmentDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const { data: treatment, isLoading } = useTreatment(slug || "");
 
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.utils.toArray<HTMLElement>(".gsap-section").forEach((section) => {
-        gsap.fromTo(
-          section,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: section,
-              start: "top 85%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      });
-    });
-    return () => ctx.revert();
-  }, []);
+  useSectionReveal();
 
   if (isLoading) {
     return <div className="min-h-screen bg-background" />;
@@ -50,10 +26,7 @@ export default function TreatmentDetailPage() {
           <p className="mt-4 text-base leading-8 text-primary/70">
             O protocolo solicitado nao esta disponivel no momento.
           </p>
-          <button
-            onClick={() => navigate("/tratamentos")}
-            className="premium-button mt-8 inline-flex"
-          >
+          <button onClick={() => navigate("/tratamentos")} className="premium-button mt-8 inline-flex">
             Voltar para tratamentos
           </button>
         </div>
@@ -63,7 +36,7 @@ export default function TreatmentDetailPage() {
 
   return (
     <div className="pb-10">
-      <section className="gsap-section px-6 pb-14 pt-32 sm:px-8 lg:px-12">
+      <section className="px-6 pt-32 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-6xl">
           <button
             onClick={() => navigate("/tratamentos")}
@@ -72,72 +45,55 @@ export default function TreatmentDetailPage() {
             <ArrowLeft className="h-4 w-4" />
             Voltar para tratamentos
           </button>
-
-          <div className="mt-8 grid gap-8 lg:grid-cols-[1.08fr,0.92fr] lg:items-center">
-            <Reveal className="space-y-6">
-              <span className="inline-flex items-center gap-3 rounded-full border border-primary/10 bg-card/70 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/70">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                {treatment.category}
-              </span>
-              <h1 className="font-display text-5xl leading-[0.92] text-primary sm:text-6xl">
-                {treatment.name}
-              </h1>
-              <p className="max-w-2xl text-lg leading-8 text-primary/70">
-                {treatment.excerpt}
-              </p>
-              <div className="flex flex-wrap gap-3 text-sm text-primary/60">
-                <span className="rounded-full bg-card/70 px-4 py-2 shadow-[0_18px_50px_-36px_rgba(90,70,58,0.5)]">
-                  {treatment.duration}
-                </span>
-                <span className="rounded-full bg-card/70 px-4 py-2 shadow-[0_18px_50px_-36px_rgba(90,70,58,0.5)]">
-                  {treatment.recovery}
-                </span>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.12} className="card-surface overflow-hidden p-4">
-              <div className="relative overflow-hidden rounded-[2rem]">
-                <img
-                  src={clinic.media.hero}
-                  alt={`Imagem ilustrativa do tratamento ${treatment.name}`}
-                  className="h-[500px] w-full object-cover object-[center_24%]"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,52,46,0.04),rgba(62,52,46,0.42))]" />
-                <div className="absolute bottom-5 left-5 right-5 rounded-[1.4rem] border border-white/20 bg-card/20 p-5 text-primary-foreground backdrop-blur">
-                  <p className="text-xs uppercase tracking-[0.3em] text-white/75">Protocolo Maison Aura</p>
-                  <p className="mt-3 font-display text-4xl leading-none">{treatment.name}</p>
-                </div>
-              </div>
-            </Reveal>
-          </div>
         </div>
       </section>
+
+      <PageHero
+        eyebrow={treatment.category}
+        title={treatment.name}
+        description={treatment.excerpt}
+        ctaLabel="Agendar avaliacao"
+        ctaHref="/contato"
+        secondaryCtaLabel="Falar pelo WhatsApp"
+        secondaryCtaHref={clinic.whatsapp}
+        secondaryCtaExternal
+        image={clinic.media.hero}
+        imageAlt={`Imagem ilustrativa do tratamento ${treatment.name}`}
+        imageEyebrow="Protocolo Maison Aura"
+        imageTitle="Um plano elegante e bem indicado vale mais do que uma execucao padronizada."
+        highlights={treatment.benefits.slice(0, 3)}
+        stats={[
+          { value: treatment.duration, label: "duracao do atendimento" },
+          { value: treatment.recovery, label: "ritmo de recuperacao" },
+          { value: "Autoral", label: "tipo de conducao" },
+        ]}
+      />
 
       <section className="gsap-section px-6 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[0.95fr,1.05fr]">
           <Reveal className="card-surface p-7">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/48">
               Beneficios
             </p>
             <div className="mt-6 space-y-4">
               {treatment.benefits.map((item) => (
                 <div key={item} className="metric-card flex gap-3 p-4">
                   <CheckCircle2 className="mt-1 h-5 w-5 text-accent" />
-                  <p className="text-sm leading-7 text-primary/70">{item}</p>
+                  <p className="text-sm leading-7 text-primary/72">{item}</p>
                 </div>
               ))}
             </div>
           </Reveal>
 
           <Reveal delay={0.08} className="card-surface p-7">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/48">
               Indicado para
             </p>
             <h2 className="mt-5 font-display text-4xl leading-none text-primary">
               {treatment.idealFor}
             </h2>
             <p className="mt-5 text-base leading-8 text-primary/70">
-              O plano de tratamento sempre considera pele, volume, expressao, rotina e objetivo final. A proposta e evitar excesso e construir um resultado coerente com o seu rosto.
+              A leitura final sempre considera volume, qualidade da pele, expressao, rotina e o tipo de resultado que a paciente quer sustentar no tempo. O objetivo e evitar excesso e construir coerencia.
             </p>
             <div className="mt-8 space-y-4">
               {treatment.steps.map((step, index) => (
@@ -145,11 +101,26 @@ export default function TreatmentDetailPage() {
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
                     {index + 1}
                   </div>
-                  <p className="text-sm leading-7 text-primary/70">{step}</p>
+                  <p className="text-sm leading-7 text-primary/72">{step}</p>
                 </div>
               ))}
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      <section className="gsap-section px-6 py-10 sm:px-8 lg:px-12">
+        <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-3">
+          {[
+            "Bom para quem quer leveza sem parecer que fez demais.",
+            "Melhor indicado quando existe objetivo claro e criterio de prioridade.",
+            "Fica mais sofisticado quando entra em um plano, nao como gesto isolado.",
+          ].map((item, index) => (
+            <Reveal key={item} delay={index * 0.05} className="editorial-note">
+              <Sparkles className="h-4 w-4 text-accent" />
+              <p className="mt-5 text-base leading-8 text-primary/74">{item}</p>
+            </Reveal>
+          ))}
         </div>
       </section>
 
@@ -161,10 +132,10 @@ export default function TreatmentDetailPage() {
                 Agendamento
               </p>
               <h2 className="mt-4 font-display text-4xl leading-[0.95] sm:text-5xl">
-                Agende sua avaliacao para receber um plano facial sob medida.
+                Agende sua avaliacao para receber um plano facial realmente sob medida.
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-8 text-background/75">
-                Atendimento com horario marcado, orientacao clara e acompanhamento proximo.
+                Atendimento com horario marcado, orientacao clara e uma conducao que faz a paciente sentir que esta em boas maos.
               </p>
             </div>
             <div className="space-y-4">

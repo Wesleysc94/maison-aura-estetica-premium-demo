@@ -156,6 +156,25 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.86);
   }
 
+  .page-hero-stat {
+    @apply rounded-[1.55rem] border border-border/70 bg-background p-5 backdrop-blur-xl;
+    background-color: hsl(var(--background) / 0.84);
+    box-shadow:
+      0 20px 42px -34px rgba(113, 72, 90, 0.16),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+
+  .editorial-note {
+    @apply rounded-[1.65rem] border border-border/70 bg-card/80 p-6 backdrop-blur-xl;
+    box-shadow:
+      0 22px 48px -38px rgba(113, 72, 90, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  }
+
+  .story-grid {
+    @apply grid gap-5;
+  }
+
   .editorial-frame {
     position: relative;
   }
