@@ -37,7 +37,7 @@ function HeaderLink({ href, label, isTransparent }: { href: string; label: strin
 function Footer() {
   return (
     <footer className="mt-24 px-6 pb-28 pt-6 sm:px-8 lg:px-12">
-      <div className="site-shell-footer mx-auto grid max-w-6xl gap-10 rounded-[2.4rem] border border-border/70 bg-background/76 p-8 shadow-[0_34px_120px_-68px_rgba(118,72,92,0.24)] backdrop-blur-2xl transition-all duration-500 hover:-translate-y-2 md:grid-cols-[1.3fr,0.8fr,0.9fr]">
+      <div className="site-shell-footer mx-auto grid max-w-6xl gap-10 rounded-[2.6rem] border border-border/70 bg-[linear-gradient(135deg,rgba(255,250,252,0.88),rgba(248,238,242,0.94))] p-8 shadow-[0_34px_120px_-68px_rgba(118,72,92,0.28)] backdrop-blur-2xl transition-all duration-500 hover:-translate-y-2 md:grid-cols-[1.3fr,0.8fr,0.9fr]">
         <div className="space-y-5">
           <span className="luxury-chip">
             <Sparkles className="h-3.5 w-3.5 text-accent" />
@@ -166,12 +166,17 @@ export function SiteChrome() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background text-primary">
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[38rem] bg-[radial-gradient(circle_at_top,rgba(148,93,118,0.18),transparent_58%)]" />
+      <div className="pointer-events-none absolute right-[-10rem] top-[22rem] z-0 h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle_at_center,rgba(214,184,195,0.2),transparent_72%)] blur-3xl" />
       <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8">
+        <div className="mx-auto mb-3 hidden max-w-6xl items-center justify-center rounded-full border border-white/10 bg-[rgba(52,31,39,0.62)] px-5 py-2 text-[10px] font-semibold uppercase tracking-[0.34em] text-white/72 shadow-[0_18px_44px_-30px_rgba(40,21,29,0.65)] backdrop-blur-xl lg:flex">
+          Consultas privadas no Jardins . Planejamento facial autoral . Atendimento com horario marcado
+        </div>
         <div 
           className={cn(
-            "site-shell-header mx-auto flex max-w-6xl items-center justify-between rounded-[2rem] px-5 py-3 transition-all duration-500 hover:-translate-y-1",
+            "site-shell-header mx-auto flex max-w-6xl items-center justify-between rounded-[2.2rem] px-5 py-3 transition-all duration-500 hover:-translate-y-1",
             isHomeTop 
-              ? "bg-transparent border border-white/10 shadow-none backdrop-blur-sm" 
+              ? "border border-white/10 bg-[rgba(54,33,42,0.34)] shadow-[0_24px_90px_-54px_rgba(29,13,19,0.38)] backdrop-blur-xl" 
               : "border border-border/70 bg-background/82 shadow-[0_24px_90px_-54px_rgba(111,72,90,0.24)] backdrop-blur-2xl"
           )}
         >
@@ -216,8 +221,11 @@ export function SiteChrome() {
         </div>
 
         {menuOpen && (
-          <div className="site-shell-mobile mx-auto mt-3 max-w-6xl rounded-[1.9rem] border border-border/70 bg-background/86 p-4 shadow-[0_20px_90px_-48px_rgba(90,70,58,0.24)] backdrop-blur-xl lg:hidden">
+          <div className="site-shell-mobile mx-auto mt-3 max-w-6xl rounded-[1.9rem] border border-border/70 bg-background/90 p-4 shadow-[0_20px_90px_-48px_rgba(90,70,58,0.24)] backdrop-blur-xl lg:hidden">
             <div className="grid gap-2">
+              <div className="mb-2 rounded-[1.4rem] border border-border/60 bg-primary/5 px-4 py-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-primary/55">
+                Consultas privadas no Jardins
+              </div>
               {clinic.nav.map((item) => (
                 <HeaderLink key={item.href} href={item.href} label={item.label} />
               ))}

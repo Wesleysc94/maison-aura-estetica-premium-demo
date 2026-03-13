@@ -60,6 +60,12 @@ const signaturePromises = [
   },
 ];
 
+const prestigeSignals = [
+  "Agenda seletiva para atendimento com calma e leitura detalhada.",
+  "Protocolos em camadas para que o resultado pareca seu, nao do procedimento.",
+  "Experiencia boutique pensada para ser lembrada tanto quanto o resultado.",
+];
+
 export default function HomePage() {
   const { data: treatmentsData = treatments } = useTreatments();
   const { data: blogData = blogPosts } = useBlogPosts();
@@ -184,69 +190,93 @@ export default function HomePage() {
 
         {/* Content — Centered */}
         <div className="relative z-10 w-full px-4 pt-32 pb-16 sm:px-8 text-center flex flex-col items-center">
-          <div className="mx-auto max-w-4xl flex flex-col items-center">
+          <div className="mx-auto grid max-w-6xl items-end gap-10 lg:grid-cols-[1.08fr,0.42fr] lg:text-left">
+            <div className="flex flex-col items-center lg:items-start">
             
-            <div className="hero-stagger mb-6">
-              <span className="luxury-chip border-white/20 bg-white/[0.08] text-white/90 backdrop-blur-xl">
-                <Sparkles className="h-3.5 w-3.5 text-accent" />
-                {clinic.badge}
-              </span>
-            </div>
+              <div className="hero-stagger mb-6">
+                <span className="luxury-chip border-white/20 bg-white/[0.08] text-white/90 backdrop-blur-xl">
+                  <Sparkles className="h-3.5 w-3.5 text-accent" />
+                  {clinic.badge}
+                </span>
+              </div>
 
-            <div className="hero-stagger space-y-2 flex flex-col items-center">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-white/50">
-                Clinica de estetica facial no Jardins
+              <div className="hero-stagger space-y-2 flex flex-col items-center lg:items-start">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-white/50">
+                  Clinica de estetica facial no Jardins
+                </p>
+                <h1 className="font-display text-[3.2rem] leading-[0.92] text-white sm:text-[4.5rem] lg:text-[6rem] drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
+                  <span className="font-sans text-[1.4rem] font-bold uppercase tracking-[0.18em] text-accent sm:text-[1.8rem]">
+                    Beleza e{" "}
+                  </span>
+                  <br />
+                  <span className="font-display italic">Naturalidade.</span>
+                </h1>
+              </div>
+
+              <p className="hero-stagger mt-8 max-w-xl text-base leading-8 text-white/80 sm:text-lg drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
+                Na Maison Aura, cada indicacao considera anatomia, qualidade da pele e rotina
+                para propor rejuvenescimento natural, com acompanhamento calmo e resultado elegante.
               </p>
-              <h1 className="font-display text-[3.2rem] leading-[0.92] text-white sm:text-[4.5rem] lg:text-[6rem] drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
-                <span className="font-sans text-[1.4rem] font-bold uppercase tracking-[0.18em] text-accent sm:text-[1.8rem]">
-                  Beleza e{" "}
-                </span>
-                <br />
-                <span className="font-display italic">Naturalidade.</span>
-              </h1>
-            </div>
 
-            <p className="hero-stagger mt-8 max-w-xl text-base leading-8 text-white/80 sm:text-lg drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
-              Na Maison Aura, cada indicacao considera anatomia, qualidade da pele e rotina
-              para propor rejuvenescimento natural, com acompanhamento calmo e resultado elegante.
-            </p>
-
-            <div className="hero-stagger mt-10 flex flex-col gap-3 sm:flex-row sm:items-center justify-center w-full max-w-md">
-              <Link to="/contato" className="premium-button justify-center flex-1">
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  Agendar avaliacao
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </Link>
-              <a
-                href={clinic.whatsapp}
-                target="_blank"
-                rel="noreferrer"
-                className="premium-button-secondary dark justify-center flex-1"
-              >
-                <MessageCircleMore className="h-4 w-4" />
-                <span>Falar com a equipe</span>
-              </a>
-            </div>
-
-            {/* Social proof bar - Sleek Horizontal Pill */}
-            <div className="hero-stagger mt-10 flex w-full max-w-3xl items-center justify-between rounded-[2rem] border border-white/10 bg-zinc-950/40 p-1 px-4 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:bg-zinc-950/60 sm:rounded-full sm:px-8">
-              {clinic.stats.map((item, index) => (
-                <div
-                  key={item.label}
-                  className={cn(
-                    "group flex flex-1 flex-col items-center justify-center p-3 text-center transition-transform hover:-translate-y-0.5",
-                    index !== clinic.stats.length - 1 && "border-r border-white/10"
-                  )}
+              <div className="hero-stagger mt-10 flex flex-col gap-3 sm:flex-row sm:items-center justify-center lg:justify-start w-full max-w-md">
+                <Link to="/contato" className="premium-button justify-center flex-1">
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    Agendar avaliacao
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Link>
+                <a
+                  href={clinic.whatsapp}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="premium-button-secondary dark justify-center flex-1"
                 >
-                  <p className="font-mono-data text-xl font-bold text-white drop-shadow-md sm:text-2xl">
-                    {item.value}
-                  </p>
-                  <p className="mt-1 max-w-[140px] text-[8px] uppercase leading-[1.4] tracking-[0.15em] text-white/50 transition-colors duration-500 group-hover:text-white/80 sm:text-[9px]">
-                    {item.label}
-                  </p>
+                  <MessageCircleMore className="h-4 w-4" />
+                  <span>Falar com a equipe</span>
+                </a>
+              </div>
+
+              {/* Social proof bar - Sleek Horizontal Pill */}
+              <div className="hero-stagger mt-10 flex w-full max-w-3xl items-center justify-between rounded-[2rem] border border-white/10 bg-zinc-950/40 p-1 px-4 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:bg-zinc-950/60 sm:rounded-full sm:px-8">
+                {clinic.stats.map((item, index) => (
+                  <div
+                    key={item.label}
+                    className={cn(
+                      "group flex flex-1 flex-col items-center justify-center p-3 text-center transition-transform hover:-translate-y-0.5",
+                      index !== clinic.stats.length - 1 && "border-r border-white/10"
+                    )}
+                  >
+                    <p className="font-mono-data text-xl font-bold text-white drop-shadow-md sm:text-2xl">
+                      {item.value}
+                    </p>
+                    <p className="mt-1 max-w-[140px] text-[8px] uppercase leading-[1.4] tracking-[0.15em] text-white/50 transition-colors duration-500 group-hover:text-white/80 sm:text-[9px]">
+                      {item.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="hero-stagger mt-6 flex flex-wrap gap-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/58">
+                <span className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2">Atendimento privado</span>
+                <span className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2">Experiencia boutique</span>
+                <span className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2">Planejamento autoral</span>
+              </div>
+            </div>
+
+            <div className="hidden hero-stagger lg:block">
+              <div className="rounded-[2rem] border border-white/12 bg-[rgba(30,17,23,0.48)] p-5 text-left text-white shadow-[0_26px_70px_-36px_rgba(0,0,0,0.46)] backdrop-blur-xl">
+                <p className="text-[10px] uppercase tracking-[0.32em] text-white/58">
+                  O que faz o site vender
+                </p>
+                <div className="mt-5 space-y-4">
+                  {prestigeSignals.map((item) => (
+                    <div key={item} className="flex gap-3 text-sm leading-6 text-white/80">
+                      <span className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-accent shadow-[0_0_20px_rgba(194,137,162,0.8)]" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </div>
