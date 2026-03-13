@@ -1,5 +1,5 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "maison-aura-estetica-premium",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,10 +8,11 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
+    "verify": "npm run lint && npm run build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "deploy": "git add . && git commit -m \"chore: deploy production\" && git push origin HEAD:main"
+    "deploy": "npm run verify && git push origin main"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
