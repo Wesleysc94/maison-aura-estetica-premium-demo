@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import {
+  ChevronUp,
   Clock3,
   Instagram,
   MapPin,
@@ -144,6 +145,7 @@ function FloatingThemeToggle() {
 
 export function SiteChrome() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -157,6 +159,43 @@ export function SiteChrome() {
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
+
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      setShowBackToTop(false);
+      return;
+    }
+
+    const mediaQuery = window.matchMedia("(max-width: 639px)");
+
+    const updateVisibility = () => {
+      if (!mediaQuery.matches) {
+        setShowBackToTop(false);
+        return;
+      }
+
+      const trigger = document.getElementById("consulta-estrategica-end");
+
+      if (!trigger) {
+        setShowBackToTop(false);
+        return;
+      }
+
+      const triggerTop = trigger.getBoundingClientRect().top + window.scrollY;
+      const shouldShow = window.scrollY + window.innerHeight >= triggerTop;
+
+      setShowBackToTop((current) => (current === shouldShow ? current : shouldShow));
+    };
+
+    updateVisibility();
+    window.addEventListener("scroll", updateVisibility, { passive: true });
+    mediaQuery.addEventListener("change", updateVisibility);
+
+    return () => {
+      window.removeEventListener("scroll", updateVisibility);
+      mediaQuery.removeEventListener("change", updateVisibility);
+    };
+  }, [location.pathname]);
 
   const isHomeTop = location.pathname === "/" && !menuOpen;
 
@@ -242,6 +281,16 @@ export function SiteChrome() {
       </main>
 
       <Footer />
+      {showBackToTop && (
+        <button
+          type="button"
+          className="site-shell-backtotop fixed bottom-4 left-1/2 z-40 inline-flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full sm:hidden"
+          aria-label="Voltar ao topo"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          <ChevronUp className="h-4 w-4" />
+        </button>
+      )}
       <FloatingThemeToggle />
       <FloatingWhatsApp />
     </div>

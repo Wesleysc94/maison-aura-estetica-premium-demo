@@ -220,7 +220,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════════════════
           B. CONSULTA ESTRATEGICA
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="gsap-section section-shell">
+      <section id="consulta-estrategica" className="gsap-section section-shell">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-8 xl:grid-cols-[0.95fr,1.05fr] xl:items-start">
             <Reveal className="space-y-6">
@@ -270,6 +270,11 @@ export default function HomePage() {
               </div>
             </Reveal>
           </div>
+          <div
+            id="consulta-estrategica-end"
+            className="pointer-events-none h-px w-full opacity-0"
+            aria-hidden="true"
+          />
         </div>
       </section>
 
