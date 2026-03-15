@@ -134,7 +134,7 @@ export default function HomePage() {
                 </a>
               </div>
 
-              <div className="mt-10 flex w-full max-w-3xl items-center justify-between rounded-[2rem] border border-white/10 bg-zinc-950/45 p-1 px-4 sm:rounded-full sm:px-8">
+              <div className="mt-10 flex w-full max-w-3xl items-center justify-between rounded-[2rem] border border-white/14 bg-[rgba(31,18,24,0.74)] p-1 px-4 shadow-[0_30px_70px_-48px_rgba(8,4,6,0.7)] sm:rounded-full sm:px-8">
                 {clinic.stats.map((item, index) => (
                   <div
                     key={item.label}
@@ -146,7 +146,7 @@ export default function HomePage() {
                     <p className="font-mono-data text-xl font-bold text-white drop-shadow-md sm:text-2xl">
                       {item.value}
                     </p>
-                    <p className="mt-1 max-w-[140px] text-[8px] uppercase leading-[1.4] tracking-[0.15em] text-white/58 sm:text-[9px]">
+                    <p className="mt-1 max-w-[140px] text-[8px] uppercase leading-[1.45] tracking-[0.15em] text-white/80 sm:text-[9px]">
                       {item.label}
                     </p>
                   </div>

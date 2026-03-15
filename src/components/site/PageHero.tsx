@@ -53,9 +53,10 @@ export function PageHero({
       <div className="ambient-orb left-[-7rem] top-12 h-56 w-56 bg-[radial-gradient(circle_at_center,rgba(191,127,156,0.22),transparent_68%)]" />
       <div className="ambient-orb right-[-4rem] top-10 h-72 w-72 bg-[radial-gradient(circle_at_center,rgba(216,194,183,0.28),transparent_72%)]" />
 
-      <div className="mx-auto max-w-6xl rounded-[2.4rem] border border-border/55 bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(252,246,248,0.92))] p-2 shadow-[0_34px_140px_-70px_rgba(118,72,92,0.34)] backdrop-blur-2xl">
-        <div className={cn("overflow-hidden rounded-[2rem] border border-white/70 bg-card/92", image ? "grid lg:grid-cols-[1.04fr,0.96fr]" : "")}>
-          <div className={cn("relative", image ? "p-8 sm:p-10 lg:p-12" : "px-7 py-10 md:px-12 md:py-14")}>
+      <div className="mx-auto max-w-6xl rounded-[2.4rem] border border-border/65 bg-background/92 p-2 shadow-[0_34px_140px_-70px_rgba(118,72,92,0.28)]">
+        <div className={cn("overflow-hidden rounded-[2rem] border border-border/60 bg-card/96", image ? "grid lg:grid-cols-[1.04fr,0.96fr]" : "")}>
+          <div className={cn("relative overflow-hidden", image ? "p-8 sm:p-10 lg:p-12" : "px-7 py-10 md:px-12 md:py-14")}>
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(191,127,156,0.12),transparent_52%)]" />
             <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(117,79,95,0.3),transparent)]" />
             <Reveal className={cn("space-y-7", !image && "mx-auto flex max-w-4xl flex-col items-center text-center")}>
               <div className={cn("flex flex-wrap items-center gap-3", !image && "justify-center")}>
@@ -63,7 +64,7 @@ export function PageHero({
                   <Sparkles className="h-3.5 w-3.5 text-accent" />
                   {eyebrow}
                 </span>
-                <span className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-background/78 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary/55">
+                <span className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary/68">
                   Curadoria Maison Aura
                 </span>
               </div>
@@ -80,7 +81,7 @@ export function PageHero({
               {highlights.length > 0 && (
                 <div className={cn("flex flex-wrap gap-3", !image && "justify-center")}>
                   {highlights.map((item) => (
-                    <span key={item} className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/80 px-4 py-2 text-sm text-primary/72">
+                    <span key={item} className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/88 px-4 py-2 text-sm text-primary/82 shadow-[0_12px_32px_-28px_rgba(90,70,58,0.2)]">
                       <Check className="h-4 w-4 text-accent" />
                       {item}
                     </span>
@@ -122,14 +123,14 @@ export function PageHero({
           </div>
 
           {image && (
-            <Reveal delay={0.12} className="relative min-h-[360px] overflow-hidden bg-[#f0e7ea] lg:min-h-[100%]">
+            <Reveal delay={0.12} className="relative min-h-[360px] overflow-hidden bg-background lg:min-h-[100%]">
               <img
                 src={image}
                 alt={imageAlt ?? title}
                 className="h-full w-full object-cover object-center"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(44,25,33,0.06),rgba(44,25,33,0.42))]" />
-              <div className="absolute inset-x-6 bottom-6 rounded-[1.7rem] border border-white/20 bg-[rgba(36,23,29,0.46)] p-5 text-white backdrop-blur-md">
+              <div className="absolute inset-x-6 bottom-6 rounded-[1.7rem] border border-white/20 bg-[rgba(36,23,29,0.68)] p-5 text-white backdrop-blur-md">
                 <p className="text-[10px] uppercase tracking-[0.34em] text-white/72">
                   {imageEyebrow ?? "Atmosfera da clinica"}
                 </p>
