@@ -4,16 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─── NOISE OVERLAY (SVG feTurbulence) ─── */
-.noise-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0.035;
-  mix-blend-mode: overlay;
-}
-
 @layer base {
   :root {
     --background: 340 36% 97%;
@@ -116,13 +106,13 @@
 
   /* ─── LUXURY CHIP ─── */
   .luxury-chip {
-    @apply inline-flex items-center gap-3 rounded-full border border-border/80 bg-white/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/80 backdrop-blur-xl;
+    @apply inline-flex items-center gap-3 rounded-full border border-border/80 bg-white/90 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/80;
     box-shadow: 0 12px 36px -28px rgba(103, 58, 79, 0.18);
   }
 
   /* ─── CARD SURFACE ─── */
   .card-surface {
-    @apply relative overflow-hidden rounded-[2rem] border border-border/70 bg-card backdrop-blur-xl;
+    @apply relative overflow-hidden rounded-[2rem] border border-border/70 bg-card;
     box-shadow:
       0 24px 60px -42px rgba(126, 73, 95, 0.16),
       inset 0 1px 0 rgba(255, 255, 255, 0.7);
@@ -134,7 +124,7 @@
 
   /* ─── GLASS PANEL ─── */
   .glass-panel {
-    @apply relative overflow-hidden rounded-[1.85rem] border border-border/70 bg-card backdrop-blur-xl;
+    @apply relative overflow-hidden rounded-[1.85rem] border border-border/70 bg-card;
     box-shadow:
       0 18px 48px -36px rgba(124, 75, 94, 0.14),
       inset 0 1px 0 rgba(255, 255, 255, 0.76);
@@ -145,7 +135,7 @@
   }
 
   .rose-panel {
-    @apply rounded-[2rem] border border-border/70 bg-[linear-gradient(145deg,rgba(255,255,255,0.94),rgba(248,235,239,0.9))] backdrop-blur-xl;
+    @apply rounded-[2rem] border border-border/70 bg-[linear-gradient(145deg,rgba(255,255,255,0.94),rgba(248,235,239,0.9))];
     box-shadow: 0 22px 60px -46px rgba(125, 72, 94, 0.16);
   }
 
@@ -157,7 +147,7 @@
   }
 
   .page-hero-stat {
-    @apply rounded-[1.55rem] border border-border/70 bg-background p-5 backdrop-blur-xl;
+    @apply rounded-[1.55rem] border border-border/70 bg-background p-5;
     background-color: hsl(var(--background) / 0.84);
     box-shadow:
       0 20px 42px -34px rgba(113, 72, 90, 0.16),
@@ -165,7 +155,7 @@
   }
 
   .editorial-note {
-    @apply rounded-[1.65rem] border border-border/70 bg-card/80 p-6 backdrop-blur-xl;
+    @apply rounded-[1.65rem] border border-border/70 bg-card/90 p-6;
     box-shadow:
       0 22px 48px -38px rgba(113, 72, 90, 0.15),
       inset 0 1px 0 rgba(255, 255, 255, 0.82);
@@ -218,7 +208,7 @@
   }
 
   .premium-button:hover {
-    transform: translateY(-2px) scale(1.03);
+    transform: translateY(-1px);
     box-shadow:
       0 24px 54px -22px rgba(105, 48, 72, 0.42),
       inset 0 1px 0 rgba(255, 255, 255, 0.22);
@@ -234,7 +224,7 @@
   }
 
   .premium-button-secondary {
-    @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-border/80 bg-white px-7 py-4 text-sm font-semibold text-primary backdrop-blur-xl;
+    @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-border/80 bg-white px-7 py-4 text-sm font-semibold text-primary;
     box-shadow:
       0 16px 36px -30px rgba(113, 72, 90, 0.14),
       inset 0 1px 0 rgba(255, 255, 255, 0.9);
@@ -256,7 +246,7 @@
   }
 
   .premium-button-secondary:hover {
-    transform: translateY(-2px) scale(1.03);
+    transform: translateY(-1px);
   }
 
   .premium-button-secondary > * {
@@ -290,7 +280,7 @@
   .metric-card:hover,
   .glass-panel:hover,
   .rose-panel:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     box-shadow:
       0 28px 64px -38px rgba(126, 73, 95, 0.2),
       inset 0 1px 0 rgba(255, 255, 255, 0.74);

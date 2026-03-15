@@ -1,12 +1,8 @@
-import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   ArrowRight,
   ArrowUpRight,
   CheckCircle2,
-  ChevronDown,
   ChevronRight,
   Instagram,
   MessageCircleMore,
@@ -29,8 +25,6 @@ import { useTreatments } from "@/hooks/use-treatments";
 import { useBlogPosts } from "@/hooks/use-blog";
 import { useTestimonials } from "@/hooks/use-testimonials";
 import { cn } from "@/lib/utils";
-
-gsap.registerPlugin(ScrollTrigger);
 
 /* ─── Static data ─── */
 const consultationNotes = [
@@ -60,125 +54,31 @@ const signaturePromises = [
   },
 ];
 
-const prestigeSignals = [
-  "Agenda seletiva para atendimento com calma e leitura detalhada.",
-  "Protocolos em camadas para que o resultado pareca seu, nao do procedimento.",
-  "Experiencia boutique pensada para ser lembrada tanto quanto o resultado.",
-];
-
 export default function HomePage() {
   const { data: treatmentsData = treatments } = useTreatments();
   const { data: blogData = blogPosts } = useBlogPosts();
   const { data: testimonialsData = clinic.testimonials } = useTestimonials();
 
-  const heroRef = useRef<HTMLDivElement>(null);
-  const heroImgRef = useRef<HTMLImageElement>(null);
-  const philosophyRef = useRef<HTMLDivElement>(null);
-
   const featuredTreatments = treatmentsData.slice(0, 6);
   const latestPosts = blogData.slice(0, 3);
 
-  /* ─── GSAP Animations ─── */
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      /* Hero stagger */
-      gsap.fromTo(
-        ".hero-stagger",
-        { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.9,
-          stagger: 0.08,
-          ease: "power3.out",
-          delay: 0.15,
-        }
-      );
-
-      /* Hero parallax image */
-      if (heroImgRef.current) {
-        gsap.to(heroImgRef.current, {
-          y: 80,
-          ease: "none",
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: true,
-          },
-        });
-      }
-
-      /* Philosophy text reveal */
-      const words = gsap.utils.toArray<HTMLElement>(".philosophy-word");
-      if (words.length > 0) {
-        gsap.fromTo(
-          words,
-          { opacity: 0.15 },
-          {
-            opacity: 1,
-            duration: 0.6,
-            stagger: 0.04,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: philosophyRef.current,
-              start: "top 75%",
-              end: "bottom 50%",
-              scrub: true,
-            },
-          }
-        );
-      }
-
-      /* Section reveals */
-      gsap.utils.toArray<HTMLElement>(".gsap-section").forEach((section) => {
-        gsap.fromTo(
-          section,
-          { y: 50, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: section,
-              start: "top 85%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      });
-    }, heroRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  /* ─── Helper to split text into spans ─── */
-  const splitWords = (text: string, className = "philosophy-word") =>
-    text.split(" ").map((word, i) => (
-      <span key={i} className={`${className} inline-block mr-[0.28em]`}>
-        {word}
-      </span>
-    ));
-
   return (
-    <div ref={heroRef}>
+    <div>
       {/* ═══════════════════════════════════════════════════════════════
           A. HERO — "A Cena de Abertura" (fullscreen cinematic)
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
-        {/* Background Image + Parallax */}
+      <section className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            ref={heroImgRef}
             src={clinic.media.hero}
             alt="Estética facial premium Maison Aura"
-            className="parallax-img absolute inset-0 h-[115%] w-full object-cover object-[center_35%]"
+            className="absolute inset-0 h-full w-full object-cover object-[center_35%]"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
           />
           <div className="hero-gradient-overlay absolute inset-0" />
-          {/* O gradient central para leitura (como no Kellen Foucher) */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(20,15,18,0.45)_0%,rgba(20,15,18,0)_80%)] pointer-events-none" />
-          {/* Subtle grid pattern */}
           <div
             className="absolute inset-0 opacity-[0.03]"
             style={{
@@ -188,19 +88,17 @@ export default function HomePage() {
           />
         </div>
 
-        {/* Content — Centered */}
-        <div className="relative z-10 w-full px-4 pt-32 pb-16 sm:px-8 text-center flex flex-col items-center">
-          <div className="mx-auto grid max-w-6xl items-end gap-10 lg:grid-cols-[1.08fr,0.42fr] lg:text-left">
-            <div className="flex flex-col items-center lg:items-start">
-            
-              <div className="hero-stagger mb-6">
-                <span className="luxury-chip border-white/20 bg-white/[0.08] text-white/90 backdrop-blur-xl">
+        <div className="relative z-10 flex w-full flex-col items-center px-4 pt-32 pb-16 text-center sm:px-8">
+          <div className="mx-auto flex max-w-4xl flex-col items-center">
+            <div className="flex flex-col items-center">
+              <div className="mb-6">
+                <span className="luxury-chip border-white/20 bg-white/[0.08] text-white/90">
                   <Sparkles className="h-3.5 w-3.5 text-accent" />
                   {clinic.badge}
                 </span>
               </div>
 
-              <div className="hero-stagger space-y-2 flex flex-col items-center lg:items-start">
+              <div className="space-y-2 flex flex-col items-center">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-white/50">
                   Clinica de estetica facial no Jardins
                 </p>
@@ -213,12 +111,12 @@ export default function HomePage() {
                 </h1>
               </div>
 
-              <p className="hero-stagger mt-8 max-w-xl text-base leading-8 text-white/80 sm:text-lg drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
+              <p className="mt-8 max-w-xl text-base leading-8 text-white/80 sm:text-lg drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
                 Na Maison Aura, cada indicacao considera anatomia, qualidade da pele e rotina
                 para propor rejuvenescimento natural, com acompanhamento calmo e resultado elegante.
               </p>
 
-              <div className="hero-stagger mt-10 flex flex-col gap-3 sm:flex-row sm:items-center justify-center lg:justify-start w-full max-w-md">
+              <div className="mt-10 flex w-full max-w-md flex-col justify-center gap-3 sm:flex-row sm:items-center">
                 <Link to="/contato" className="premium-button justify-center flex-1">
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     Agendar avaliacao
@@ -236,60 +134,55 @@ export default function HomePage() {
                 </a>
               </div>
 
-              {/* Social proof bar - Sleek Horizontal Pill */}
-              <div className="hero-stagger mt-10 flex w-full max-w-3xl items-center justify-between rounded-[2rem] border border-white/10 bg-zinc-950/40 p-1 px-4 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:bg-zinc-950/60 sm:rounded-full sm:px-8">
+              <div className="mt-10 flex w-full max-w-3xl items-center justify-between rounded-[2rem] border border-white/10 bg-zinc-950/45 p-1 px-4 sm:rounded-full sm:px-8">
                 {clinic.stats.map((item, index) => (
                   <div
                     key={item.label}
                     className={cn(
-                      "group flex flex-1 flex-col items-center justify-center p-3 text-center transition-transform hover:-translate-y-0.5",
+                      "group flex flex-1 flex-col items-center justify-center p-3 text-center",
                       index !== clinic.stats.length - 1 && "border-r border-white/10"
                     )}
                   >
                     <p className="font-mono-data text-xl font-bold text-white drop-shadow-md sm:text-2xl">
                       {item.value}
                     </p>
-                    <p className="mt-1 max-w-[140px] text-[8px] uppercase leading-[1.4] tracking-[0.15em] text-white/50 transition-colors duration-500 group-hover:text-white/80 sm:text-[9px]">
+                    <p className="mt-1 max-w-[140px] text-[8px] uppercase leading-[1.4] tracking-[0.15em] text-white/58 sm:text-[9px]">
                       {item.label}
                     </p>
                   </div>
                 ))}
               </div>
-
-              <div className="hero-stagger mt-6 flex flex-wrap gap-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/58">
-                <span className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2">Atendimento privado</span>
-                <span className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2">Experiencia boutique</span>
-                <span className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2">Planejamento autoral</span>
-              </div>
-            </div>
-
-            <div className="hidden hero-stagger lg:block">
-              <div className="rounded-[2rem] border border-white/12 bg-[rgba(30,17,23,0.48)] p-5 text-left text-white shadow-[0_26px_70px_-36px_rgba(0,0,0,0.46)] backdrop-blur-xl">
-                <p className="text-[10px] uppercase tracking-[0.32em] text-white/58">
-                  O que faz o site vender
-                </p>
-                <div className="mt-5 space-y-4">
-                  {prestigeSignals.map((item) => (
-                    <div key={item} className="flex gap-3 text-sm leading-6 text-white/80">
-                      <span className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-accent shadow-[0_0_20px_rgba(194,137,162,0.8)]" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
-        </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2">
-          <div className="animate-bounce text-white/40">
-            <ChevronDown className="h-6 w-6" />
+          <div className="mx-auto mt-6 flex max-w-4xl flex-wrap justify-center gap-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/58">
+            <span className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2">Atendimento privado</span>
+            <span className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2">Experiencia boutique</span>
+            <span className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2">Planejamento autoral</span>
           </div>
         </div>
-
-        {/* Bottom transition gradient */}
+        
         <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-[5] h-32 bg-gradient-to-t from-background to-transparent" />
+      </section>
+
+      <section className="section-shell">
+        <div className="mx-auto max-w-6xl">
+          <Reveal>
+            <div className="grid gap-4 rounded-[2rem] border border-border/70 bg-card/90 p-6 shadow-[0_24px_60px_-46px_rgba(113,72,90,0.16)] lg:grid-cols-[0.85fr,1.15fr] lg:items-center">
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary/50">
+                  Atendimento desenhado com calma
+                </p>
+                <h2 className="mt-4 font-display text-4xl leading-[0.94] text-primary sm:text-5xl">
+                  Uma experiencia clara desde o primeiro clique ate o plano facial.
+                </h2>
+              </div>
+              <p className="text-base leading-8 text-primary/72">
+                O contato com a clinica comeca com orientacao objetiva, atmosfera acolhedora e um caminho visualmente sereno para transmitir seguranca antes mesmo da consulta.
+              </p>
+            </div>
+          </Reveal>
+        </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
@@ -327,6 +220,8 @@ export default function HomePage() {
                     src={clinic.media.hero}
                     alt="Atendimento de estetica facial em ambiente reservado"
                     className="h-[440px] w-full object-cover object-[center_20%] sm:h-[560px]"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
@@ -394,6 +289,8 @@ export default function HomePage() {
                 src={clinic.media.specialist}
                 alt="Especialista em estetica facial"
                 className="h-[520px] w-full object-cover object-[center_18%]"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,52,46,0.05),rgba(62,52,46,0.32))]" />
               <div className="absolute bottom-4 left-4 right-4 rounded-[1.5rem] border border-white/20 bg-[rgba(47,30,37,0.62)] p-5 text-white backdrop-blur-md">
@@ -433,18 +330,18 @@ export default function HomePage() {
           E. PHILOSOPHY / MANIFESTO — Dark, fullwidth, text reveal
           ═══════════════════════════════════════════════════════════════ */}
       <section
-        ref={philosophyRef}
         className="gsap-section relative overflow-hidden py-20 sm:py-28 lg:py-36"
         style={{
           background: "linear-gradient(180deg, hsl(333 24% 12%), hsl(330 22% 8%))",
         }}
       >
-        {/* Organic texture overlay */}
         <div className="absolute inset-0 z-0 opacity-[0.08]">
           <img
             src={clinic.media.editorial}
             alt=""
             className="h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
@@ -454,17 +351,10 @@ export default function HomePage() {
           </p>
           <div className="mt-8 space-y-6">
             <p className="text-lg leading-9 text-white/45 sm:text-xl">
-              {splitWords("A maioria das clinicas de estetica foca em procedimentos isolados, volume exagerado e promessas imediatistas.")}
+              A maioria das clinicas de estetica foca em procedimentos isolados, volume exagerado e promessas imediatistas.
             </p>
             <h2 className="font-display text-4xl leading-[1.05] text-white sm:text-5xl lg:text-6xl">
-              {splitWords("Nos focamos em ")}
-              <span className="philosophy-word inline-block mr-[0.28em] italic text-accent">
-                naturalidade,
-              </span>
-              {splitWords("planejamento e resultado ")}
-              <span className="philosophy-word inline-block mr-[0.28em] italic text-accent">
-                sofisticado.
-              </span>
+              Nos focamos em <span className="italic text-accent">naturalidade</span>, planejamento e resultado <span className="italic text-accent">sofisticado</span>.
             </h2>
           </div>
           <div className="mt-12 flex justify-center">
@@ -590,6 +480,8 @@ export default function HomePage() {
                 src={clinic.media.environment}
                 alt="Ambiente da clinica de estetica facial"
                 className="h-[520px] w-full object-cover object-[center_46%]"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,52,46,0.08),rgba(62,52,46,0.45))]" />
               <div className="absolute bottom-5 left-5 right-5 rounded-[1.5rem] border border-white/20 bg-[rgba(47,30,37,0.58)] p-5 text-white backdrop-blur-md">

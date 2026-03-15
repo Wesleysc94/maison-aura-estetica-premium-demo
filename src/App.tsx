@@ -3,45 +3,75 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
-import { Suspense, lazy, useEffect, type ReactNode } from "react";
+import { Suspense, lazy, useEffect } from "react";
 
 import { ThemeProvider } from "./components/ThemeProvider";
 import { SiteChrome } from "./components/site/SiteChrome";
-
-const HomePage = lazy(() => import("./pages/HomePage"));
-const AboutPage = lazy(() => import("./pages/AboutPage"));
-const TreatmentsPage = lazy(() => import("./pages/TreatmentsPage"));
-const TreatmentDetailPage = lazy(() => import("./pages/TreatmentDetailPage"));
-const ResultsPage = lazy(() => import("./pages/ResultsPage"));
-const BlogPage = lazy(() => import("./pages/BlogPage"));
-const BlogPostPage = lazy(() => import("./pages/BlogPostPage"));
-const ContactPage = lazy(() => import("./pages/ContactPage"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+import HomePage from "./pages/HomePage";
 
 const queryClient = new QueryClient();
+const loadAboutPage = () => import("./pages/AboutPage");
+const loadTreatmentsPage = () => import("./pages/TreatmentsPage");
+const loadTreatmentDetailPage = () => import("./pages/TreatmentDetailPage");
+const loadResultsPage = () => import("./pages/ResultsPage");
+const loadBlogPage = () => import("./pages/BlogPage");
+const loadBlogPostPage = () => import("./pages/BlogPostPage");
+const loadContactPage = () => import("./pages/ContactPage");
+const loadNotFoundPage = () => import("./pages/NotFound");
 
-const RouteFallback = () => <div className="min-h-screen bg-background" />;
+const AboutPage = lazy(loadAboutPage);
+const TreatmentsPage = lazy(loadTreatmentsPage);
+const TreatmentDetailPage = lazy(loadTreatmentDetailPage);
+const ResultsPage = lazy(loadResultsPage);
+const BlogPage = lazy(loadBlogPage);
+const BlogPostPage = lazy(loadBlogPostPage);
+const ContactPage = lazy(loadContactPage);
+const NotFound = lazy(loadNotFoundPage);
 
-const PageTransition = ({ children }: { children: ReactNode }) => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  return (
-    <div className="w-full min-h-screen">
-      {children}
-    </div>
-  );
-};
-
-const AnimatedRoutes = () => {
+const ScrollToTop = () => {
   const location = useLocation();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  return null;
+};
+
+const PrefetchRoutes = () => {
+  useEffect(() => {
+    const preload = () => {
+      void loadAboutPage();
+      void loadTreatmentsPage();
+      void loadTreatmentDetailPage();
+      void loadResultsPage();
+      void loadBlogPage();
+      void loadBlogPostPage();
+      void loadContactPage();
+      void loadNotFoundPage();
+    };
+
+    const idleCallback = window.requestIdleCallback?.(preload, { timeout: 1200 });
+    const timeoutId = idleCallback ? null : window.setTimeout(preload, 250);
+
+    return () => {
+      if (idleCallback) {
+        window.cancelIdleCallback?.(idleCallback);
+      }
+      if (timeoutId) {
+        window.clearTimeout(timeoutId);
+      }
+    };
+  }, []);
+
+  return null;
+};
+
+const AppRoutes = () => {
   return (
-    <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
-      <Routes location={location} key={location.pathname}>
-        <Route element={<PageTransition><SiteChrome /></PageTransition>}>
+    <Suspense fallback={<div className="min-h-screen bg-background" />}>
+      <Routes>
+        <Route element={<SiteChrome />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/sobre" element={<AboutPage />} />
           <Route path="/tratamentos" element={<TreatmentsPage />} />
@@ -53,27 +83,20 @@ const AnimatedRoutes = () => {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-    </AnimatePresence>
+    </Suspense>
   );
 };
 
 const App = () => (
   <ThemeProvider defaultTheme="clinic">
-    {/* Noise overlay for analog texture */}
-    <svg className="noise-overlay" aria-hidden="true">
-      <filter id="noise">
-        <feTurbulence type="fractalNoise" baseFrequency="0.80" numOctaves="4" stitchTiles="stitch" />
-      </filter>
-      <rect width="100%" height="100%" filter="url(#noise)" />
-    </svg>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
         <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-          <Suspense fallback={<RouteFallback />}>
-            <AnimatedRoutes />
-          </Suspense>
+          <ScrollToTop />
+          <PrefetchRoutes />
+          <AppRoutes />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

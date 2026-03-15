@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
 import {
   Clock3,
   Instagram,
@@ -15,6 +14,7 @@ import {
 import { clinic } from "@/data/siteContent";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { cn } from "@/lib/utils";
+
 function HeaderLink({ href, label, isTransparent }: { href: string; label: string; isTransparent?: boolean }) {
   return (
     <NavLink
@@ -110,41 +110,22 @@ function Footer() {
 
 function FloatingWhatsApp() {
   return (
-    <motion.a
+    <a
       href={clinic.whatsapp}
       target="_blank"
       rel="noreferrer"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{
-        opacity: 1,
-        y: [0, -6, 0],
-        scale: [1, 1.01, 1],
-        boxShadow: [
-          "0 18px 40px -24px rgba(18, 143, 79, 0.26)",
-          "0 24px 54px -22px rgba(18, 143, 79, 0.42)",
-          "0 18px 40px -24px rgba(18, 143, 79, 0.26)",
-        ],
-      }}
-      transition={{
-        opacity: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
-        y: { duration: 2.8, repeat: Infinity, ease: "easeInOut" },
-        scale: { duration: 2.8, repeat: Infinity, ease: "easeInOut" },
-        boxShadow: { duration: 2.8, repeat: Infinity, ease: "easeInOut" },
-      }}
-      whileHover={{ y: -3, scale: 1.03 }}
-      className="site-shell-fab fixed bottom-5 right-5 z-40 inline-flex items-center gap-3 rounded-full border border-white/20 bg-[rgba(20,20,20,0.84)] px-3 py-3 text-sm font-semibold text-white backdrop-blur-xl sm:bottom-6 sm:right-6 sm:px-4"
+      className="site-shell-fab fixed bottom-5 right-5 z-40 inline-flex items-center gap-3 rounded-full border border-white/20 bg-[rgba(20,20,20,0.84)] px-3 py-3 text-sm font-semibold text-white shadow-[0_18px_36px_-22px_rgba(18,143,79,0.35)] sm:bottom-6 sm:right-6 sm:px-4"
     >
       <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366] text-white">
         <MessageCircleMore className="h-5 w-5" />
       </span>
       <span className="hidden sm:inline">Falar no WhatsApp</span>
-    </motion.a>
+    </a>
   );
 }
 
 export function SiteChrome() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -152,32 +133,24 @@ export function SiteChrome() {
   }, [location.pathname]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Inversão de cor somente após o hero/social proof (aprox 100vh - header height)
-      setIsScrolled(window.scrollY > window.innerHeight - 100);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    // Chama imediatamente para setar o estado inicial correto em loads na metade da pagina
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    document.body.style.overflow = menuOpen ? "hidden" : "";
 
-  const isHomeTop = location.pathname === "/" && !isScrolled && !menuOpen;
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  const isHomeTop = location.pathname === "/" && !menuOpen;
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background text-primary">
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[38rem] bg-[radial-gradient(circle_at_top,rgba(148,93,118,0.18),transparent_58%)]" />
-      <div className="pointer-events-none absolute right-[-10rem] top-[22rem] z-0 h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle_at_center,rgba(214,184,195,0.2),transparent_72%)] blur-3xl" />
       <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8">
-        <div className="mx-auto mb-3 hidden max-w-6xl items-center justify-center rounded-full border border-white/10 bg-[rgba(52,31,39,0.62)] px-5 py-2 text-[10px] font-semibold uppercase tracking-[0.34em] text-white/72 shadow-[0_18px_44px_-30px_rgba(40,21,29,0.65)] backdrop-blur-xl lg:flex">
-          Consultas privadas no Jardins . Planejamento facial autoral . Atendimento com horario marcado
-        </div>
-        <div 
+        <div
           className={cn(
-            "site-shell-header mx-auto flex max-w-6xl items-center justify-between rounded-[2.2rem] px-5 py-3 transition-all duration-500 hover:-translate-y-1",
-            isHomeTop 
-              ? "border border-white/10 bg-[rgba(54,33,42,0.34)] shadow-[0_24px_90px_-54px_rgba(29,13,19,0.38)] backdrop-blur-xl" 
-              : "border border-border/70 bg-background/82 shadow-[0_24px_90px_-54px_rgba(111,72,90,0.24)] backdrop-blur-2xl"
+            "site-shell-header mx-auto flex max-w-6xl items-center justify-between rounded-[2rem] px-5 py-3 transition-colors duration-300",
+            isHomeTop
+              ? "border border-white/10 bg-[rgba(54,33,42,0.28)] shadow-[0_24px_60px_-50px_rgba(29,13,19,0.36)]"
+              : "border border-border/70 bg-background/94 shadow-[0_20px_60px_-50px_rgba(111,72,90,0.24)]"
           )}
         >
           <Link to="/" className="flex items-center gap-3">
@@ -210,35 +183,43 @@ export function SiteChrome() {
           <button
             type="button"
             className={cn(
-              "inline-flex h-11 w-11 items-center justify-center rounded-full border transition-colors duration-500 lg:hidden",
+              "inline-flex h-11 w-11 items-center justify-center rounded-full border transition-colors duration-300 lg:hidden",
               isHomeTop ? "border-white/20 bg-white/10 text-white" : "border-border/70 bg-background/84 text-primary"
             )}
             onClick={() => setMenuOpen((value) => !value)}
-            aria-label="Abrir menu"
+            aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
           >
             {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
+      </header>
 
-        {menuOpen && (
-          <div className="site-shell-mobile mx-auto mt-3 max-w-6xl rounded-[1.9rem] border border-border/70 bg-background/90 p-4 shadow-[0_20px_90px_-48px_rgba(90,70,58,0.24)] backdrop-blur-xl lg:hidden">
+      {menuOpen && (
+        <>
+          <button
+            type="button"
+            className="fixed inset-0 z-40 bg-[rgba(27,16,22,0.34)] lg:hidden"
+            aria-label="Fechar menu"
+            onClick={() => setMenuOpen(false)}
+          />
+          <div className="site-shell-mobile fixed inset-x-4 top-[5.75rem] z-50 rounded-[1.75rem] border border-border/70 bg-background p-4 shadow-[0_24px_64px_-44px_rgba(90,70,58,0.28)] lg:hidden sm:inset-x-8">
+            <div className="mb-3 rounded-[1.25rem] bg-primary/5 px-4 py-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-primary/55">
+              Navegacao da clinica
+            </div>
             <div className="grid gap-2">
-              <div className="mb-2 rounded-[1.4rem] border border-border/60 bg-primary/5 px-4 py-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-primary/55">
-                Consultas privadas no Jardins
-              </div>
               {clinic.nav.map((item) => (
                 <HeaderLink key={item.href} href={item.href} label={item.label} />
               ))}
-              <div className="mt-2 flex items-center gap-3">
-                <ThemeToggle />
-                <Link to="/contato" className="premium-button flex-1 justify-center">
-                  Agendar consulta
-                </Link>
-              </div>
+            </div>
+            <div className="mt-4 flex items-center gap-3">
+              <ThemeToggle />
+              <Link to="/contato" className="premium-button flex-1 justify-center">
+                Agendar consulta
+              </Link>
             </div>
           </div>
-        )}
-      </header>
+        </>
+      )}
 
       <main>
         <Outlet />
