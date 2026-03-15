@@ -39,6 +39,12 @@ const firstVisitNotes = [
   "Orientacoes claras sobre preparo, recuperacao e manutencao.",
 ];
 
+const prestigeChips = [
+  "Atendimento privado",
+  "Experiencia boutique",
+  "Planejamento autoral",
+];
+
 const signaturePromises = [
   {
     title: "Diagnostico sem pressa",
@@ -155,10 +161,17 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="mx-auto mt-6 flex max-w-4xl flex-wrap justify-center gap-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/58">
-            <span className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2">Atendimento privado</span>
-            <span className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2">Experiencia boutique</span>
-            <span className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2">Planejamento autoral</span>
+          <div className="hero-chip-strip mx-auto mt-7 flex max-w-4xl flex-wrap justify-center gap-3">
+            {prestigeChips.map((item, index) => (
+              <span
+                key={item}
+                className="hero-chip"
+                style={{ animationDelay: `${0.18 + index * 0.1}s` }}
+              >
+                <span className="hero-chip__dot" />
+                <span>{item}</span>
+              </span>
+            ))}
           </div>
         </div>
         
