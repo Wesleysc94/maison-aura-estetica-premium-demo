@@ -361,6 +361,14 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
+[data-theme="luxury"] .page-hero-stat,
+[data-theme="luxury"] .editorial-note {
+  @apply border-white/10 bg-white/[0.06];
+  box-shadow:
+    0 24px 52px -36px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
 [data-theme="luxury"] .editorial-frame::after {
   border-color: rgba(255, 255, 255, 0.1);
 }
@@ -418,6 +426,60 @@ body {
 [data-theme="luxury"] .site-nav-link-active {
   background: rgba(255, 255, 255, 0.06);
   color: hsl(var(--foreground));
+}
+
+[data-theme="luxury"] .text-primary {
+  color: hsl(var(--foreground));
+}
+
+[data-theme="luxury"] .text-primary\/40 {
+  color: hsl(var(--foreground) / 0.7) !important;
+}
+
+[data-theme="luxury"] .text-primary\/45,
+[data-theme="luxury"] .text-primary\/48 {
+  color: hsl(var(--foreground) / 0.74) !important;
+}
+
+[data-theme="luxury"] .text-primary\/50,
+[data-theme="luxury"] .text-primary\/55 {
+  color: hsl(var(--foreground) / 0.78) !important;
+}
+
+[data-theme="luxury"] .text-primary\/60,
+[data-theme="luxury"] .text-primary\/62,
+[data-theme="luxury"] .text-primary\/64,
+[data-theme="luxury"] .text-primary\/68 {
+  color: hsl(var(--foreground) / 0.82) !important;
+}
+
+[data-theme="luxury"] .text-primary\/70,
+[data-theme="luxury"] .text-primary\/72,
+[data-theme="luxury"] .text-primary\/74 {
+  color: hsl(var(--foreground) / 0.88) !important;
+}
+
+[data-theme="luxury"] .text-primary\/75,
+[data-theme="luxury"] .text-primary\/78,
+[data-theme="luxury"] .text-primary\/80,
+[data-theme="luxury"] .text-primary\/82 {
+  color: hsl(var(--foreground) / 0.92) !important;
+}
+
+[data-theme="luxury"] .text-white\/40,
+[data-theme="luxury"] .text-white\/45,
+[data-theme="luxury"] .text-white\/50,
+[data-theme="luxury"] .text-white\/58 {
+  color: rgb(255 255 255 / 0.72) !important;
+}
+
+[data-theme="luxury"] .text-white\/70,
+[data-theme="luxury"] .text-white\/72,
+[data-theme="luxury"] .text-white\/74,
+[data-theme="luxury"] .text-white\/80,
+[data-theme="luxury"] .text-white\/82,
+[data-theme="luxury"] .text-white\/90 {
+  color: rgb(255 255 255 / 0.9) !important;
 }
 
 [data-theme="luxury"] .interactive-card:hover,

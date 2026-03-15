@@ -1,6 +1,7 @@
-import { motion, type HTMLMotionProps } from "framer-motion";
+import type { HTMLAttributes, ReactNode } from "react";
 
-type RevealProps = HTMLMotionProps<"div"> & {
+type RevealProps = HTMLAttributes<HTMLDivElement> & {
+  children?: ReactNode;
   delay?: number;
   y?: number;
 };
@@ -9,24 +10,14 @@ export function Reveal({
   children,
   delay = 0,
   y = 18,
-  viewport = { once: true, amount: 0.25 },
-  transition,
   ...props
 }: RevealProps) {
+  void delay;
+  void y;
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={viewport}
-      transition={{
-        duration: 0.55,
-        ease: [0.22, 1, 0.36, 1],
-        delay,
-        ...transition,
-      }}
-      {...props}
-    >
+    <div {...props}>
       {children}
-    </motion.div>
+    </div>
   );
 }
