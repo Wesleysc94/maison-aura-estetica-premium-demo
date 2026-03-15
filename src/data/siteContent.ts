@@ -61,6 +61,7 @@ export const clinic = {
     { label: "Contato", href: "/contato" },
   ] satisfies NavItem[],
   media: {
+    homeHero: "/media/environment.png",
     hero: "/media/hero.png",
     specialist: "/media/specialist.png",
     consultation: "/media/environment.png",

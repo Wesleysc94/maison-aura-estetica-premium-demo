@@ -84,14 +84,15 @@ export default function HomePage() {
       <section className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src={clinic.media.hero}
-            alt="Estética facial premium Maison Aura"
-            className="absolute inset-0 h-full w-full object-cover object-[center_35%]"
+            src={clinic.media.homeHero}
+            alt="Recepcao premium da Maison Aura"
+            className="absolute inset-0 h-full w-full object-cover object-center"
             fetchPriority="high"
             loading="eager"
             decoding="async"
           />
           <div className="hero-gradient-overlay absolute inset-0" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(28,16,22,0.58)_0%,rgba(28,16,22,0.28)_36%,rgba(28,16,22,0.18)_56%,rgba(28,16,22,0.48)_100%)] pointer-events-none" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(20,15,18,0.45)_0%,rgba(20,15,18,0)_80%)] pointer-events-none" />
           <div
             className="absolute inset-0 opacity-[0.03]"

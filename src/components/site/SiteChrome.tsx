@@ -13,6 +13,7 @@ import {
 
 import { clinic } from "@/data/siteContent";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { useTheme } from "@/components/theme-context";
 import { cn } from "@/lib/utils";
 
 function HeaderLink({ href, label, isTransparent }: { href: string; label: string; isTransparent?: boolean }) {
@@ -125,6 +126,22 @@ function FloatingWhatsApp() {
   );
 }
 
+function FloatingThemeToggle() {
+  const { theme } = useTheme();
+
+  return (
+    <div className="site-shell-fab site-shell-fab--theme fixed bottom-5 left-5 z-40 inline-flex items-center gap-3 rounded-full px-3 py-3 text-sm font-semibold sm:bottom-6 sm:left-6 sm:px-4">
+      <span className="hidden min-w-0 sm:flex sm:flex-col">
+        <span className="site-shell-fab__eyebrow">Tema</span>
+        <span className="site-shell-fab__label">
+          {theme === "clinic" ? "Ativar modo dark" : "Ativar modo light"}
+        </span>
+      </span>
+      <ThemeToggle className="site-shell-fab__toggle" />
+    </div>
+  );
+}
+
 export function SiteChrome() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
@@ -175,7 +192,6 @@ export function SiteChrome() {
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <ThemeToggle />
             <Link to="/contato" className="premium-button">
               Agendar consulta
             </Link>
@@ -213,7 +229,6 @@ export function SiteChrome() {
               ))}
             </div>
             <div className="mt-4 flex items-center gap-3">
-              <ThemeToggle />
               <Link to="/contato" className="premium-button flex-1 justify-center">
                 Agendar consulta
               </Link>
@@ -227,6 +242,7 @@ export function SiteChrome() {
       </main>
 
       <Footer />
+      <FloatingThemeToggle />
       <FloatingWhatsApp />
     </div>
   );
