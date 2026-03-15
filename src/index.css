@@ -242,6 +242,7 @@
 
   .premium-button-secondary {
     @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-border/80 bg-white px-7 py-4 text-sm font-semibold text-primary;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(250, 241, 245, 0.92));
     box-shadow:
       0 16px 36px -30px rgba(113, 72, 90, 0.14),
       inset 0 1px 0 rgba(255, 255, 255, 0.9);
@@ -251,24 +252,58 @@
   .premium-button-secondary::before {
     content: "";
     position: absolute;
-    inset: 0;
-    background: hsl(337 30% 95%);
-    transform: translateY(101%);
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    inset: 1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(237, 215, 224, 0.92), rgba(248, 236, 241, 0.86));
+    opacity: 0;
+    transform: scale(0.96);
+    transition:
+      opacity 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
     z-index: 0;
   }
 
+  .premium-button-secondary::after {
+    content: "";
+    position: absolute;
+    top: -130%;
+    left: -28%;
+    width: 54%;
+    height: 340%;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0));
+    opacity: 0;
+    transform: rotate(24deg) translateX(-130%);
+    transition:
+      opacity 0.24s ease,
+      transform 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 0;
+    pointer-events: none;
+  }
+
   .premium-button-secondary:hover::before {
-    transform: translateY(0%);
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .premium-button-secondary:hover::after {
+    opacity: 0.65;
+    transform: rotate(24deg) translateX(235%);
   }
 
   .premium-button-secondary:hover {
     transform: translateY(-1px);
+    color: hsl(var(--nav-hover-text));
+    border-color: hsl(var(--accent) / 0.3);
+    box-shadow:
+      0 20px 40px -28px rgba(113, 72, 90, 0.24),
+      inset 0 1px 0 rgba(255, 255, 255, 0.92);
   }
 
   .premium-button-secondary > * {
     position: relative;
     z-index: 1;
+    color: inherit;
   }
 
   .premium-button-secondary.dark {
@@ -680,6 +715,10 @@ body {
 
 [data-theme="luxury"] .premium-button-secondary::before {
   background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="luxury"] .premium-button-secondary::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0));
 }
 
 [data-theme="luxury"] .premium-button-secondary.dark {
