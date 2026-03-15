@@ -321,12 +321,21 @@
 
   .site-nav-link__label {
     @apply relative z-[1];
+    transition:
+      color 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+      letter-spacing 0.28s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .site-nav-link:hover,
   .site-nav-link--active {
-    color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
     transform: translateY(-1px);
+  }
+
+  .site-nav-link:hover .site-nav-link__label,
+  .site-nav-link--active .site-nav-link__label {
+    color: hsl(var(--primary-foreground));
+    letter-spacing: 0.04em;
   }
 
   .site-nav-link:hover::before,
@@ -354,6 +363,11 @@
 
   .site-nav-link--transparent:hover,
   .site-nav-link--transparent.site-nav-link--active {
+    color: rgb(255 255 255 / 0.98);
+  }
+
+  .site-nav-link--transparent:hover .site-nav-link__label,
+  .site-nav-link--transparent.site-nav-link--active .site-nav-link__label {
     color: rgb(255 255 255 / 0.98);
   }
 
@@ -526,6 +540,11 @@ body {
 
 [data-theme="luxury"] .site-nav-link:hover,
 [data-theme="luxury"] .site-nav-link--active {
+  color: hsl(var(--foreground));
+}
+
+[data-theme="luxury"] .site-nav-link:hover .site-nav-link__label,
+[data-theme="luxury"] .site-nav-link--active .site-nav-link__label {
   color: hsl(var(--foreground));
 }
 
