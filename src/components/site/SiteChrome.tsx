@@ -145,10 +145,10 @@ export function SiteChrome() {
       <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8">
         <div
           className={cn(
-            "site-shell-header mx-auto flex max-w-6xl items-center justify-between rounded-[2rem] px-5 py-3 transition-colors duration-300",
+            "site-shell-header mx-auto flex max-w-6xl items-center justify-between rounded-[2rem] px-5 py-3 backdrop-blur-xl transition-colors duration-300",
             isHomeTop
-              ? "border border-white/10 bg-[rgba(54,33,42,0.28)] shadow-[0_24px_60px_-50px_rgba(29,13,19,0.36)]"
-              : "border border-border/70 bg-background/94 shadow-[0_20px_60px_-50px_rgba(111,72,90,0.24)]"
+              ? "border border-white/12 bg-[rgba(54,33,42,0.68)] shadow-[0_24px_60px_-50px_rgba(29,13,19,0.44)]"
+              : "border border-border/75 bg-background/96 shadow-[0_20px_60px_-50px_rgba(111,72,90,0.28)]"
           )}
         >
           <Link to="/" className="flex items-center gap-3">
