@@ -112,15 +112,12 @@ function FloatingWhatsApp() {
       href={clinic.whatsapp}
       target="_blank"
       rel="noreferrer"
-      className="site-shell-fab fixed bottom-5 right-5 z-40 inline-flex items-center gap-3 rounded-full px-3 py-3 sm:bottom-6 sm:right-6 sm:px-4"
+      className="site-shell-fab fixed bottom-5 right-5 z-40 inline-flex items-center gap-3 rounded-full px-3 py-3 text-sm font-semibold sm:bottom-6 sm:right-6 sm:px-4"
     >
-      <span className="site-shell-fab__icon">
+      <span className="site-shell-fab__bubble">
         <MessageCircleMore className="h-5 w-5" />
       </span>
-      <span className="hidden min-w-0 items-center gap-2 sm:flex">
-        <span className="site-shell-fab__status" />
-        <span className="site-shell-fab__label">WhatsApp da equipe</span>
-      </span>
+      <span className="hidden sm:inline">Falar no WhatsApp</span>
     </a>
   );
 }

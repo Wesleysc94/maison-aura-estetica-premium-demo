@@ -144,7 +144,7 @@ export default function ResultsPage() {
             </div>
             <div className="flex flex-col gap-4 sm:max-w-[18rem]">
               <Link to="/contato" className="premium-button light justify-center">
-                Agendar avaliacao estrategica
+                Agendar avaliação estratégica
               </Link>
               <a href={clinic.whatsapp} target="_blank" rel="noreferrer" className="premium-button-secondary dark justify-center">
                 Falar agora com a equipe

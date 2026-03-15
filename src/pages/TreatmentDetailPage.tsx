@@ -52,7 +52,7 @@ export default function TreatmentDetailPage() {
         eyebrow={treatment.category}
         title={treatment.name}
         description={treatment.excerpt}
-        ctaLabel="Agendar avaliacao"
+        ctaLabel="Agendar avaliação"
         ctaHref="/contato"
         secondaryCtaLabel="Falar pelo WhatsApp"
         secondaryCtaHref={clinic.whatsapp}

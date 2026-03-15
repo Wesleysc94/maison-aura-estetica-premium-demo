@@ -20,7 +20,7 @@ export default function TreatmentsPage() {
         eyebrow="Tratamentos autorais"
         title="Protocolos desenhados para preservar expressao, pele e presenca."
         description="Em vez de uma vitrine de nomes tecnicos, esta pagina organiza o que cada protocolo entrega, para quem faz sentido e como ele se encaixa em um plano elegante."
-        ctaLabel="Agendar avaliacao"
+        ctaLabel="Agendar avaliação"
         ctaHref="/contato"
         secondaryCtaLabel="Falar com a equipe"
         secondaryCtaHref={clinic.whatsapp}

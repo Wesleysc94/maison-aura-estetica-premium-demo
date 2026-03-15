@@ -41,7 +41,7 @@ export default function ContactPage() {
         eyebrow="Contato e agendamento"
         title="Um agendamento premium com menos friccao e mais confianca."
         description="A pagina de contato foi redesenhada para parecer concierge, nao formulario burocratico. Isso faz muita diferenca quando o dono da clinica imagina a propria marca aqui."
-        ctaLabel="Solicitar avaliacao"
+        ctaLabel="Solicitar avaliação"
         ctaHref="/contato"
         secondaryCtaLabel="Falar no WhatsApp"
         secondaryCtaHref={clinic.whatsapp}
@@ -158,7 +158,7 @@ export default function ContactPage() {
               </label>
               <button type="submit" className="premium-button w-full justify-center" disabled={isSubmitting}>
                 <CalendarRange className="h-4 w-4" />
-                {isSubmitting ? "Enviando demonstracao..." : "Solicitar avaliacao"}
+                {isSubmitting ? "Enviando demonstracao..." : "Solicitar avaliação"}
               </button>
             </form>
           </Reveal>

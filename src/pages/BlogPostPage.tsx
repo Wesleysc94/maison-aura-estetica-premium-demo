@@ -53,7 +53,7 @@ export default function BlogPostPage() {
         eyebrow={post.category}
         title={post.title}
         description={post.excerpt}
-        ctaLabel="Agendar avaliacao"
+        ctaLabel="Agendar avaliação"
         ctaHref="/contato"
         secondaryCtaLabel="Explorar outros conteudos"
         secondaryCtaHref="/conteudo"

@@ -142,7 +142,7 @@ export default function HomePage() {
               <div className="hero-entry hero-entry--soft hero-cta-group mt-10 flex w-full max-w-md flex-col justify-center gap-3 sm:flex-row sm:items-center">
                 <Link to="/contato" className="premium-button justify-center flex-1">
                   <span className="relative z-10 flex items-center justify-center gap-2">
-                    Agendar avaliacao
+                    Agendar avaliação
                     <ArrowRight className="h-4 w-4" />
                   </span>
                 </Link>
@@ -150,7 +150,7 @@ export default function HomePage() {
                   href={clinic.whatsapp}
                   target="_blank"
                   rel="noreferrer"
-                  className="premium-button-secondary dark justify-center flex-1"
+                  className="premium-button-secondary hero-secondary-button justify-center flex-1"
                 >
                   <MessageCircleMore className="h-4 w-4" />
                   <span>Falar com a equipe</span>

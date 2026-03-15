@@ -30,7 +30,7 @@ export function PageHero({
   eyebrow,
   title,
   description,
-  ctaLabel = "Agendar avaliacao",
+  ctaLabel = "Agendar avaliação",
   ctaHref = "/contato",
   secondaryCtaLabel,
   secondaryCtaHref,
@@ -102,7 +102,7 @@ export function PageHero({
                     {...(secondaryCtaExternal
                       ? { href: secondaryCtaHref, target: "_blank", rel: "noreferrer" }
                       : { to: secondaryCtaHref })}
-                    className="premium-button-secondary justify-center"
+                    className="premium-button-secondary page-hero-secondary-button justify-center"
                   >
                     {secondaryCtaLabel}
                   </SecondaryAction>
