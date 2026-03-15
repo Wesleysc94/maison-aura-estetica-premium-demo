@@ -406,7 +406,10 @@
   }
 
   .page-hero-secondary-button:hover {
-    color: hsl(var(--nav-hover-text));
+    color: hsl(var(--foreground));
+    background:
+      linear-gradient(135deg, rgba(248, 232, 239, 0.98), rgba(255, 246, 249, 0.96)),
+      rgba(255, 255, 255, 0.96);
     border-color: rgba(191, 127, 156, 0.34);
     box-shadow:
       0 24px 46px -28px rgba(113, 72, 90, 0.24),
@@ -727,12 +730,14 @@
   }
 
   .site-shell-fab {
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    background: rgba(27, 19, 24, 0.84);
-    color: rgb(255 255 255 / 0.96);
+    border: 1px solid rgba(178, 129, 150, 0.2);
+    background:
+      linear-gradient(135deg, rgba(255, 252, 253, 0.96), rgba(246, 232, 239, 0.94)),
+      rgba(255, 255, 255, 0.94);
+    color: hsl(var(--primary));
     box-shadow:
-      0 22px 44px -24px rgba(18, 143, 79, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      0 22px 50px -26px rgba(120, 73, 96, 0.24),
+      inset 0 1px 0 rgba(255, 255, 255, 0.82);
     backdrop-filter: blur(14px);
     transition:
       transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
@@ -743,12 +748,14 @@
 
   .site-shell-fab:hover {
     transform: translateY(-2px);
-    border-color: rgba(255, 255, 255, 0.24);
-    background: rgba(27, 19, 24, 0.9);
+    border-color: rgba(178, 129, 150, 0.32);
+    background:
+      linear-gradient(135deg, rgba(255, 250, 252, 0.98), rgba(242, 222, 232, 0.96)),
+      rgba(255, 255, 255, 0.96);
     box-shadow:
-      0 28px 54px -24px rgba(18, 143, 79, 0.36),
-      0 0 24px rgba(37, 211, 102, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      0 28px 58px -24px rgba(120, 73, 96, 0.28),
+      0 0 24px rgba(191, 127, 156, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
   }
 
   .site-shell-fab__bubble {
@@ -765,6 +772,22 @@
       0 14px 24px -18px rgba(24, 145, 82, 0.36),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
     flex-shrink: 0;
+  }
+
+  .site-shell-fab__eyebrow {
+    font-size: 0.58rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: hsl(var(--primary) / 0.48);
+  }
+
+  .site-shell-fab__label {
+    margin-top: 0.18rem;
+    font-size: 0.92rem;
+    line-height: 1.1;
+    color: hsl(var(--primary));
   }
 
   /* ─── PARALLAX IMAGE ─── */
@@ -927,18 +950,34 @@ body {
 
 [data-theme="luxury"] .site-shell-fab {
   border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(20, 14, 17, 0.88);
+  background:
+    linear-gradient(145deg, rgba(47, 32, 39, 0.96), rgba(66, 45, 55, 0.94)),
+    rgba(38, 27, 33, 0.94);
+  color: hsl(var(--foreground));
+  box-shadow:
+    0 24px 52px -28px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 [data-theme="luxury"] .site-shell-fab:hover {
-  border-color: rgba(255, 255, 255, 0.18);
-  background: rgba(20, 14, 17, 0.92);
+  border-color: rgba(205, 166, 184, 0.2);
+  background:
+    linear-gradient(145deg, rgba(55, 38, 46, 0.98), rgba(78, 53, 65, 0.96)),
+    rgba(44, 30, 36, 0.96);
 }
 
 [data-theme="luxury"] .site-shell-fab__bubble {
   box-shadow:
     0 14px 24px -18px rgba(24, 145, 82, 0.42),
     inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+[data-theme="luxury"] .site-shell-fab__eyebrow {
+  color: hsl(var(--foreground) / 0.58);
+}
+
+[data-theme="luxury"] .site-shell-fab__label {
+  color: hsl(var(--foreground));
 }
 
 [data-theme="luxury"] .site-nav-link {

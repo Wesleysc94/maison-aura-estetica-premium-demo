@@ -117,7 +117,10 @@ function FloatingWhatsApp() {
       <span className="site-shell-fab__bubble">
         <MessageCircleMore className="h-5 w-5" />
       </span>
-      <span className="hidden sm:inline">Falar no WhatsApp</span>
+      <span className="hidden min-w-0 sm:flex sm:flex-col">
+        <span className="site-shell-fab__eyebrow">Atendimento</span>
+        <span className="site-shell-fab__label">Falar no WhatsApp</span>
+      </span>
     </a>
   );
 }
