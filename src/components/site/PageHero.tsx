@@ -110,11 +110,26 @@ export function PageHero({
               </div>
 
               {stats.length > 0 && (
-                <div className={cn("grid gap-3 sm:grid-cols-3", !image && "w-full max-w-3xl")}>
+                <div
+                  className={cn(
+                    "grid gap-3",
+                    image ? "sm:grid-cols-2 xl:grid-cols-3" : "sm:grid-cols-3",
+                    !image && "w-full max-w-3xl"
+                  )}
+                >
                   {stats.map((stat) => (
                     <div key={stat.label} className="page-hero-stat">
-                      <p className="font-display text-4xl leading-none text-primary">{stat.value}</p>
-                      <p className="mt-3 text-[11px] uppercase tracking-[0.24em] text-primary/48">{stat.label}</p>
+                      <p
+                        className={cn(
+                          "page-hero-stat__value font-display text-primary",
+                          stat.value.length > 18 && "page-hero-stat__value--long"
+                        )}
+                      >
+                        {stat.value}
+                      </p>
+                      <p className="page-hero-stat__label mt-3 text-[11px] uppercase tracking-[0.24em] text-primary/48">
+                        {stat.label}
+                      </p>
                     </div>
                   ))}
                 </div>

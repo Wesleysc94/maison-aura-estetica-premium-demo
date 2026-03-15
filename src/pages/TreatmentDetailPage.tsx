@@ -7,6 +7,26 @@ import { Reveal } from "@/components/site/Reveal";
 import { useTreatment } from "@/hooks/use-treatments";
 import { useSectionReveal } from "@/hooks/use-section-reveal";
 
+function formatDurationStat(duration: string) {
+  return duration.replace(" minutos", " min").replace(" a ", "-");
+}
+
+function formatRecoveryStat(recovery: string) {
+  const words = recovery.split(" ");
+
+  if (words.length <= 2) {
+    return {
+      value: recovery,
+      label: "ritmo de recuperacao",
+    };
+  }
+
+  return {
+    value: words.slice(0, 2).join(" "),
+    label: words.slice(2).join(" "),
+  };
+}
+
 export default function TreatmentDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
@@ -33,6 +53,8 @@ export default function TreatmentDetailPage() {
       </div>
     );
   }
+
+  const recoveryStat = formatRecoveryStat(treatment.recovery);
 
   return (
     <div className="pb-10">
@@ -63,8 +85,8 @@ export default function TreatmentDetailPage() {
         imageTitle="Um plano elegante e bem indicado vale mais do que uma execucao padronizada."
         highlights={treatment.benefits.slice(0, 3)}
         stats={[
-          { value: treatment.duration, label: "duracao do atendimento" },
-          { value: treatment.recovery, label: "ritmo de recuperacao" },
+          { value: formatDurationStat(treatment.duration), label: "duracao do atendimento" },
+          { value: recoveryStat.value, label: recoveryStat.label },
           { value: "Autoral", label: "tipo de conducao" },
         ]}
       />
