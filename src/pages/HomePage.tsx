@@ -45,6 +45,8 @@ const prestigeChips = [
   "Planejamento autoral",
 ];
 
+const statDelays = ["0.12s", "0.2s", "0.28s"];
+
 const signaturePromises = [
   {
     title: "Diagnostico sem pressa",
@@ -140,19 +142,20 @@ export default function HomePage() {
                 </a>
               </div>
 
-              <div className="mt-10 flex w-full max-w-3xl items-center justify-between rounded-[2rem] border border-white/14 bg-[rgba(31,18,24,0.74)] p-1 px-4 shadow-[0_30px_70px_-48px_rgba(8,4,6,0.7)] sm:rounded-full sm:px-8">
+              <div className="hero-stat-bar mt-10 flex w-full max-w-3xl items-center justify-between rounded-[2rem] border border-white/14 p-1 px-4 sm:rounded-full sm:px-8">
                 {clinic.stats.map((item, index) => (
                   <div
                     key={item.label}
                     className={cn(
-                      "group flex flex-1 flex-col items-center justify-center p-3 text-center",
+                      "hero-stat-item group flex flex-1 flex-col items-center justify-center p-3 text-center",
                       index !== clinic.stats.length - 1 && "border-r border-white/10"
                     )}
+                    style={{ animationDelay: statDelays[index] ?? "0.12s" }}
                   >
-                    <p className="font-mono-data text-xl font-bold text-white drop-shadow-md sm:text-2xl">
+                    <p className="hero-stat-value font-mono-data text-xl font-bold text-white drop-shadow-md sm:text-2xl">
                       {item.value}
                     </p>
-                    <p className="mt-1 max-w-[140px] text-[8px] uppercase leading-[1.45] tracking-[0.15em] text-white/80 sm:text-[9px]">
+                    <p className="hero-stat-label mt-2 max-w-[150px] text-[8px] uppercase leading-[1.45] tracking-[0.17em] text-white/80 sm:text-[9px]">
                       {item.label}
                     </p>
                   </div>
