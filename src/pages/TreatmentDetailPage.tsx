@@ -8,10 +8,62 @@ import { useTreatment } from "@/hooks/use-treatments";
 import { useSectionReveal } from "@/hooks/use-section-reveal";
 
 function formatDurationStat(duration: string) {
-  return duration.replace(" minutos", " min").replace(" a ", "-");
+  if (duration === "Plano em etapas") {
+    return {
+      value: "Em etapas",
+      label: "duracao do plano",
+    };
+  }
+
+  if (duration === "Conforme area tratada") {
+    return {
+      value: "Por area",
+      label: "tempo por sessao",
+    };
+  }
+
+  return {
+    value: duration.replace(" minutos", " min").replace(" a ", "-"),
+    label: "duracao do atendimento",
+  };
 }
 
 function formatRecoveryStat(recovery: string) {
+  if (recovery === "Retorno imediato a rotina com cuidados simples") {
+    return {
+      value: "Retorno imediato",
+      label: "com cuidados simples",
+    };
+  }
+
+  if (recovery === "Pequena sensibilidade local por curto periodo") {
+    return {
+      value: "Sensibilidade leve",
+      label: "por curto periodo",
+    };
+  }
+
+  if (recovery === "Recuperacao curta com restricoes temporarias") {
+    return {
+      value: "Recuperacao curta",
+      label: "com restricoes temporarias",
+    };
+  }
+
+  if (recovery === "Sem interrupcao relevante da rotina") {
+    return {
+      value: "Sem pausa",
+      label: "na rotina",
+    };
+  }
+
+  if (recovery === "Definida conforme a combinacao indicada") {
+    return {
+      value: "Sob medida",
+      label: "recuperacao estimada",
+    };
+  }
+
   const words = recovery.split(" ");
 
   if (words.length <= 2) {
@@ -54,6 +106,7 @@ export default function TreatmentDetailPage() {
     );
   }
 
+  const durationStat = formatDurationStat(treatment.duration);
   const recoveryStat = formatRecoveryStat(treatment.recovery);
 
   return (
@@ -85,7 +138,7 @@ export default function TreatmentDetailPage() {
         imageTitle="Um plano elegante e bem indicado vale mais do que uma execucao padronizada."
         highlights={treatment.benefits.slice(0, 3)}
         stats={[
-          { value: formatDurationStat(treatment.duration), label: "duracao do atendimento" },
+          { value: durationStat.value, label: durationStat.label },
           { value: recoveryStat.value, label: recoveryStat.label },
           { value: "Autoral", label: "tipo de conducao" },
         ]}
