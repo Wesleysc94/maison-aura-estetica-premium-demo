@@ -130,7 +130,7 @@ export default function HomePage() {
                 para propor rejuvenescimento natural, com acompanhamento calmo e resultado elegante.
               </p>
 
-              <div className="hero-entry hero-entry--soft mt-7 flex flex-wrap items-center justify-center gap-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/68">
+              <div className="hero-entry hero-entry--soft hero-editorial-notes mt-7 flex flex-wrap items-center justify-center gap-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/90">
                 {heroEditorialNotes.map((item, index) => (
                   <div key={item} className="flex items-center gap-3">
                     {index > 0 && <span className="hidden h-1 w-1 rounded-full bg-white/40 sm:inline-flex" />}
