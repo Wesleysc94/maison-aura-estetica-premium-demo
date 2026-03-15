@@ -416,6 +416,10 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.94);
   }
 
+  .page-hero-secondary-button:hover > * {
+    color: hsl(var(--foreground)) !important;
+  }
+
   .page-hero-secondary-button:hover::after {
     opacity: 0.48;
     transform: rotate(24deg) translateX(215%);
@@ -930,6 +934,10 @@ body {
     0 24px 46px -28px rgba(0, 0, 0, 0.32),
     0 0 20px rgba(194, 151, 171, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="luxury"] .page-hero-secondary-button:hover > * {
+  color: rgb(255 255 255 / 0.98) !important;
 }
 
 [data-theme="luxury"] .input-surface {
