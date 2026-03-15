@@ -21,15 +21,13 @@ function HeaderLink({ href, label, isTransparent }: { href: string; label: strin
       to={href}
       className={({ isActive }) =>
         cn(
-          "site-nav-link rounded-full px-4 py-2 text-sm font-semibold tracking-wide transition-colors duration-300",
-          isTransparent 
-            ? "text-white/80 hover:bg-white/10 hover:text-white" 
-            : "text-primary/70 hover:bg-card/78 hover:text-primary",
-          isActive && (isTransparent ? "bg-white/15 text-white" : "bg-card/92 text-primary shadow-sm")
+          "site-nav-link rounded-full px-4 py-2 text-sm font-semibold tracking-wide",
+          isTransparent && "site-nav-link--transparent",
+          isActive && "site-nav-link--active"
         )
       }
     >
-      {label}
+      <span className="site-nav-link__label">{label}</span>
     </NavLink>
   );
 }
