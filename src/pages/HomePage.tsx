@@ -47,6 +47,12 @@ const prestigeChips = [
 
 const statDelays = ["0.12s", "0.2s", "0.28s"];
 
+const heroEditorialNotes = [
+  "Avaliacao com horario marcado",
+  "Plano natural e progressivo",
+  "Acompanhamento sereno",
+];
+
 const signaturePromises = [
   {
     title: "Diagnostico sem pressa",
@@ -99,14 +105,14 @@ export default function HomePage() {
         <div className="relative z-10 flex w-full flex-col items-center px-4 pt-32 pb-16 text-center sm:px-8">
           <div className="mx-auto flex max-w-4xl flex-col items-center">
             <div className="flex flex-col items-center">
-              <div className="mb-6">
+              <div className="hero-entry mb-6">
                 <span className="luxury-chip border-white/20 bg-white/[0.08] text-white/90">
                   <Sparkles className="h-3.5 w-3.5 text-accent" />
                   {clinic.badge}
                 </span>
               </div>
 
-              <div className="space-y-2 flex flex-col items-center">
+              <div className="hero-entry hero-entry--soft space-y-2 flex flex-col items-center">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-white/50">
                   Clinica de estetica facial no Jardins
                 </p>
@@ -119,12 +125,21 @@ export default function HomePage() {
                 </h1>
               </div>
 
-              <p className="mt-8 max-w-xl text-base leading-8 text-white/80 sm:text-lg drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
+              <p className="hero-entry hero-entry--soft mt-8 max-w-xl text-base leading-8 text-white/80 sm:text-lg drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
                 Na Maison Aura, cada indicacao considera anatomia, qualidade da pele e rotina
                 para propor rejuvenescimento natural, com acompanhamento calmo e resultado elegante.
               </p>
 
-              <div className="mt-10 flex w-full max-w-md flex-col justify-center gap-3 sm:flex-row sm:items-center">
+              <div className="hero-entry hero-entry--soft mt-7 flex flex-wrap items-center justify-center gap-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/68">
+                {heroEditorialNotes.map((item, index) => (
+                  <div key={item} className="flex items-center gap-3">
+                    {index > 0 && <span className="hidden h-1 w-1 rounded-full bg-white/40 sm:inline-flex" />}
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="hero-entry hero-entry--soft hero-cta-group mt-10 flex w-full max-w-md flex-col justify-center gap-3 sm:flex-row sm:items-center">
                 <Link to="/contato" className="premium-button justify-center flex-1">
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     Agendar avaliacao
@@ -142,7 +157,7 @@ export default function HomePage() {
                 </a>
               </div>
 
-              <div className="hero-stat-bar mt-10 flex w-full max-w-3xl items-center justify-between rounded-[2rem] border border-white/14 p-1 px-4 sm:rounded-full sm:px-8">
+              <div className="hero-entry hero-stat-bar mt-10 flex w-full max-w-3xl items-center justify-between rounded-[2rem] border border-white/14 p-1 px-4 sm:rounded-full sm:px-8">
                 {clinic.stats.map((item, index) => (
                   <div
                     key={item.label}
